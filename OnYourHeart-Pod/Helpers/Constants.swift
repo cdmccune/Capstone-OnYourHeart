@@ -32,5 +32,13 @@ struct Constants {
         static let biblesComponent = "bibles"
         static let chaptersComponent = "chapters"
         static let booksComponent = "books"
+        static let contentTypeQuery = "content-type"
+        static let json = "json"
+        static let includeNotesQuery = "include-notes"
+        static let includeTitlesQuery = "include-titles"
+        static let includeChapterNumsQuery = "include-chapter-numbers"
+        static let includeVerseNumsQuery = "include-verse-numbers"
+        static let includeVerseSpansQuery = "include-verse-spans"
+        static let apiKeyKey = "api-key"
     }
 }

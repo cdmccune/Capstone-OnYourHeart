@@ -15,6 +15,23 @@ class DiscoverViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func fetchBooksButtonTapped(_ sender: Any) {
+        print("pressed")
+        
+        DispatchQueue.main.async {
+            BibleController.shared.fetchBooks { result in
+                switch result {
+                case .success(let books):
+                    print(books.count)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        
+
+    }
 
     /*
     // MARK: - Navigation

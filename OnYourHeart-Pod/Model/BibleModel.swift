@@ -33,11 +33,11 @@ struct TopLevelChapterObject: Codable {
 
 struct ChapterContent: Codable {
     var id: String
-    var bibleID: String
+    var bibleId: String
     var number: String
     var bookId: String
     var reference: String
-    var copyight: String
+    var copyright: String
     var verseCount: Int
     var content: [VerseContent]
 }

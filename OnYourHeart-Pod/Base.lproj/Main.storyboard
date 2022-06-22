@@ -322,19 +322,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wx-nb-gC7">
+                                <rect key="frame" x="155" y="456" width="104" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Fetch Books"/>
+                                <connections>
+                                    <action selector="fetchBooksButtonTapped:" destination="iu6-9a-JmG" eventType="touchUpInside" id="E0G-64-ife"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="do8-sZ-fQU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iZe-wS-eam" firstAttribute="centerX" secondItem="do8-sZ-fQU" secondAttribute="centerX" id="H8n-Hh-ncr"/>
+                            <constraint firstItem="8Wx-nb-gC7" firstAttribute="centerX" secondItem="do8-sZ-fQU" secondAttribute="centerX" id="bJ0-hc-3b9"/>
                             <constraint firstItem="iZe-wS-eam" firstAttribute="centerY" secondItem="do8-sZ-fQU" secondAttribute="centerY" id="gOm-E5-IEy"/>
+                            <constraint firstItem="8Wx-nb-gC7" firstAttribute="centerY" secondItem="do8-sZ-fQU" secondAttribute="centerY" multiplier="1.1" id="tCT-hY-7Tc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" id="Uo0-5w-e4E"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4am-Wq-cIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3419" y="818"/>
+            <point key="canvasLocation" x="3418.840579710145" y="817.63392857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HFE-K2-eRL">
