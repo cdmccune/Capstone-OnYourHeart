@@ -53,10 +53,17 @@ class LogInViewController: UIViewController {
                 print(error.localizedDescription)
                 return
             } else {
-                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+//                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+//
+//                self.view.window?.rootViewController = homeViewController
+//                self.view.window?.makeKeyAndVisible()
                 
-                self.view.window?.rootViewController = homeViewController
+                let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tabBarController) as? UITabBarController
+                
+                self.view.window?.rootViewController = tabBarController
                 self.view.window?.makeKeyAndVisible()
+                
+                
             }
             
             

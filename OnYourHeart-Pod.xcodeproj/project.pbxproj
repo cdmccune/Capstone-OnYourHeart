@@ -20,6 +20,9 @@
 		24E22D7B28629555004CE717 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E22D7A28629555004CE717 /* GoogleService-Info.plist */; };
 		24E22D7D2862D002004CE717 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D7C2862D002004CE717 /* Constants.swift */; };
 		24E22D802862D4C3004CE717 /* loginbg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24E22D7F2862D4C3004CE717 /* loginbg.mp4 */; };
+		24E22D8228637277004CE717 /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8128637276004CE717 /* AuthenticationState.swift */; };
+		24E22D8428637E48004CE717 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8328637E48004CE717 /* ListsViewController.swift */; };
+		24E22D8628637EAD004CE717 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8528637EAD004CE717 /* DiscoverViewController.swift */; };
 		32E0FCAAD23233EE03A360D1 /* Pods_OnYourHeart_Pod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,9 @@
 		24E22D7A28629555004CE717 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24E22D7C2862D002004CE717 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		24E22D7F2862D4C3004CE717 /* loginbg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = loginbg.mp4; path = ../../../../../../../Downloads/CustomLoginDemo/CustomLoginDemo/Media/loginbg.mp4; sourceTree = "<group>"; };
+		24E22D8128637276004CE717 /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
+		24E22D8328637E48004CE717 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		24E22D8528637EAD004CE717 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		2D7DF3F114C56AE05B4051B4 /* Pods-OnYourHeart-Pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.debug.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.debug.xcconfig"; sourceTree = "<group>"; };
 		2D8F089091021A1DC641E71E /* Pods-OnYourHeart-Pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.release.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.release.xcconfig"; sourceTree = "<group>"; };
 		F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnYourHeart_Pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +93,6 @@
 				24E22D7A28629555004CE717 /* GoogleService-Info.plist */,
 				24E22D76286291F8004CE717 /* Helpers */,
 				24E22D7328628D7C004CE717 /* ViewControllers */,
-				24E22D7C2862D002004CE717 /* Constants.swift */,
 			);
 			path = "OnYourHeart-Pod";
 			sourceTree = "<group>";
@@ -99,6 +104,8 @@
 				24E22D6D28628D44004CE717 /* SignUpViewController.swift */,
 				24E22D6F28628D5E004CE717 /* LogInViewController.swift */,
 				24E22D7128628D72004CE717 /* HomeViewController.swift */,
+				24E22D8328637E48004CE717 /* ListsViewController.swift */,
+				24E22D8528637EAD004CE717 /* DiscoverViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -106,7 +113,9 @@
 		24E22D76286291F8004CE717 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				24E22D7C2862D002004CE717 /* Constants.swift */,
 				24E22D78286292DB004CE717 /* Utilities.swift */,
+				24E22D8128637276004CE717 /* AuthenticationState.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -272,11 +281,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				242763B628617C8700D0C87E /* ViewController.swift in Sources */,
+				24E22D8228637277004CE717 /* AuthenticationState.swift in Sources */,
 				242763B228617C8700D0C87E /* AppDelegate.swift in Sources */,
 				24E22D79286292DB004CE717 /* Utilities.swift in Sources */,
+				24E22D8428637E48004CE717 /* ListsViewController.swift in Sources */,
 				24E22D6E28628D44004CE717 /* SignUpViewController.swift in Sources */,
 				24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */,
 				242763B428617C8700D0C87E /* SceneDelegate.swift in Sources */,
+				24E22D8628637EAD004CE717 /* DiscoverViewController.swift in Sources */,
 				24E22D7228628D72004CE717 /* HomeViewController.swift in Sources */,
 				24E22D7D2862D002004CE717 /* Constants.swift in Sources */,
 			);
