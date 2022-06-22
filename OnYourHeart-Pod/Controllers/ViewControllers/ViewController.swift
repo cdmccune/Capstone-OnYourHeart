@@ -15,12 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
-            print(key)
-        }
-        
-        
+
         
         setUpElements()
     }
