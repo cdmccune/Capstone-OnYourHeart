@@ -23,6 +23,8 @@
 		24E22D8228637277004CE717 /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8128637276004CE717 /* AuthenticationState.swift */; };
 		24E22D8428637E48004CE717 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8328637E48004CE717 /* ListsViewController.swift */; };
 		24E22D8628637EAD004CE717 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8528637EAD004CE717 /* DiscoverViewController.swift */; };
+		24E22D8D28638385004CE717 /* ScriptureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8C28638385004CE717 /* ScriptureController.swift */; };
+		24E22D8F28638398004CE717 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8E28638398004CE717 /* Scripture.swift */; };
 		32E0FCAAD23233EE03A360D1 /* Pods_OnYourHeart_Pod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,9 @@
 		24E22D8128637276004CE717 /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
 		24E22D8328637E48004CE717 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		24E22D8528637EAD004CE717 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		24E22D8C28638385004CE717 /* ScriptureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureController.swift; sourceTree = "<group>"; };
+		24E22D8E28638398004CE717 /* Scripture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
+		24E22D9028638464004CE717 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		2D7DF3F114C56AE05B4051B4 /* Pods-OnYourHeart-Pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.debug.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.debug.xcconfig"; sourceTree = "<group>"; };
 		2D8F089091021A1DC641E71E /* Pods-OnYourHeart-Pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.release.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.release.xcconfig"; sourceTree = "<group>"; };
 		F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnYourHeart_Pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +70,7 @@
 		242763A528617C8700D0C87E = {
 			isa = PBXGroup;
 			children = (
+				24E22D9028638464004CE717 /* Secrets.xcconfig */,
 				242763B028617C8700D0C87E /* OnYourHeart-Pod */,
 				242763AF28617C8700D0C87E /* Products */,
 				6C58579E707E599B7F26491B /* Pods */,
@@ -91,8 +97,9 @@
 				242763BC28617C8D00D0C87E /* LaunchScreen.storyboard */,
 				242763BF28617C8D00D0C87E /* Info.plist */,
 				24E22D7A28629555004CE717 /* GoogleService-Info.plist */,
+				24E22D8928638344004CE717 /* Controllers */,
+				24E22D882863833B004CE717 /* Model */,
 				24E22D76286291F8004CE717 /* Helpers */,
-				24E22D7328628D7C004CE717 /* ViewControllers */,
 			);
 			path = "OnYourHeart-Pod";
 			sourceTree = "<group>";
@@ -126,6 +133,31 @@
 				24E22D7F2862D4C3004CE717 /* loginbg.mp4 */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		24E22D882863833B004CE717 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24E22D8E28638398004CE717 /* Scripture.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24E22D8928638344004CE717 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24E22D8B2863835F004CE717 /* Model Controllers */,
+				24E22D7328628D7C004CE717 /* ViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		24E22D8B2863835F004CE717 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				24E22D8C28638385004CE717 /* ScriptureController.swift */,
+			);
+			path = "Model Controllers";
 			sourceTree = "<group>";
 		};
 		658E18C7C50C7D1FB75E6721 /* Frameworks */ = {
@@ -285,10 +317,12 @@
 				242763B228617C8700D0C87E /* AppDelegate.swift in Sources */,
 				24E22D79286292DB004CE717 /* Utilities.swift in Sources */,
 				24E22D8428637E48004CE717 /* ListsViewController.swift in Sources */,
+				24E22D8D28638385004CE717 /* ScriptureController.swift in Sources */,
 				24E22D6E28628D44004CE717 /* SignUpViewController.swift in Sources */,
 				24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */,
 				242763B428617C8700D0C87E /* SceneDelegate.swift in Sources */,
 				24E22D8628637EAD004CE717 /* DiscoverViewController.swift in Sources */,
+				24E22D8F28638398004CE717 /* Scripture.swift in Sources */,
 				24E22D7228628D72004CE717 /* HomeViewController.swift in Sources */,
 				24E22D7D2862D002004CE717 /* Constants.swift in Sources */,
 			);
@@ -318,6 +352,7 @@
 /* Begin XCBuildConfiguration section */
 		242763C028617C8D00D0C87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24E22D9028638464004CE717 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -378,6 +413,7 @@
 		};
 		242763C128617C8D00D0C87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24E22D9028638464004CE717 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
