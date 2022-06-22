@@ -18,6 +18,8 @@
 		24E22D7228628D72004CE717 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D7128628D72004CE717 /* HomeViewController.swift */; };
 		24E22D79286292DB004CE717 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D78286292DB004CE717 /* Utilities.swift */; };
 		24E22D7B28629555004CE717 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E22D7A28629555004CE717 /* GoogleService-Info.plist */; };
+		24E22D7D2862D002004CE717 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D7C2862D002004CE717 /* Constants.swift */; };
+		24E22D802862D4C3004CE717 /* loginbg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24E22D7F2862D4C3004CE717 /* loginbg.mp4 */; };
 		32E0FCAAD23233EE03A360D1 /* Pods_OnYourHeart_Pod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		24E22D7128628D72004CE717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		24E22D78286292DB004CE717 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		24E22D7A28629555004CE717 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		24E22D7C2862D002004CE717 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		24E22D7F2862D4C3004CE717 /* loginbg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = loginbg.mp4; path = ../../../../../../../Downloads/CustomLoginDemo/CustomLoginDemo/Media/loginbg.mp4; sourceTree = "<group>"; };
 		2D7DF3F114C56AE05B4051B4 /* Pods-OnYourHeart-Pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.debug.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.debug.xcconfig"; sourceTree = "<group>"; };
 		2D8F089091021A1DC641E71E /* Pods-OnYourHeart-Pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.release.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.release.xcconfig"; sourceTree = "<group>"; };
 		F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnYourHeart_Pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +77,7 @@
 		242763B028617C8700D0C87E /* OnYourHeart-Pod */ = {
 			isa = PBXGroup;
 			children = (
+				24E22D7E2862D4AA004CE717 /* Media */,
 				242763B128617C8700D0C87E /* AppDelegate.swift */,
 				242763B328617C8700D0C87E /* SceneDelegate.swift */,
 				242763B728617C8700D0C87E /* Main.storyboard */,
@@ -82,6 +87,7 @@
 				24E22D7A28629555004CE717 /* GoogleService-Info.plist */,
 				24E22D76286291F8004CE717 /* Helpers */,
 				24E22D7328628D7C004CE717 /* ViewControllers */,
+				24E22D7C2862D002004CE717 /* Constants.swift */,
 			);
 			path = "OnYourHeart-Pod";
 			sourceTree = "<group>";
@@ -103,6 +109,14 @@
 				24E22D78286292DB004CE717 /* Utilities.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		24E22D7E2862D4AA004CE717 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				24E22D7F2862D4C3004CE717 /* loginbg.mp4 */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		658E18C7C50C7D1FB75E6721 /* Frameworks */ = {
@@ -184,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				242763BE28617C8D00D0C87E /* LaunchScreen.storyboard in Resources */,
+				24E22D802862D4C3004CE717 /* loginbg.mp4 in Resources */,
 				24E22D7B28629555004CE717 /* GoogleService-Info.plist in Resources */,
 				242763BB28617C8D00D0C87E /* Assets.xcassets in Resources */,
 				242763B928617C8700D0C87E /* Main.storyboard in Resources */,
@@ -263,6 +278,7 @@
 				24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */,
 				242763B428617C8700D0C87E /* SceneDelegate.swift in Sources */,
 				24E22D7228628D72004CE717 /* HomeViewController.swift in Sources */,
+				24E22D7D2862D002004CE717 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

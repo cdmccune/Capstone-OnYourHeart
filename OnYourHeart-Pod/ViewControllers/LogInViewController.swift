@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class LogInViewController: UIViewController {
 
@@ -31,17 +33,54 @@ class LogInViewController: UIViewController {
         Utilities.styleFilledButton(loginButton)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func loginButtonTapped(_ sender: Any) {
+        
+        //Validate Text Fields
+        let error = validateFields()
+        
+        if let error = error {
+            showError(error)
+        }
+        
+        guard let email = emailTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), let password = passwordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return}
+        
+        
+        //Signing in the user
+        Auth.auth().signIn(withEmail:email , password: password) { result, error in
+            if let error = error {
+                self.errorLabel.text = "Incorrect username or password"
+                self.errorLabel.alpha = 1
+                print(error.localizedDescription)
+                return
+            } else {
+                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.homeViewController) as? HomeViewController
+                
+                self.view.window?.rootViewController = homeViewController
+                self.view.window?.makeKeyAndVisible()
+            }
+            
+            
+            
+        }
+        
+        
     }
+    
+    func validateFields() -> String? {
+        //Check that all fields have values
+        guard let email = emailTF.text, email != "", let password = passwordTF.text, password != "" else {
+            return "Please fill in all fields"
+        }
+        return nil
+    }
+    
+    func showError(_ message: String) {
+        self.errorLabel.text = message
+    }
+    
+    
+    
+    
+    
     
 }
