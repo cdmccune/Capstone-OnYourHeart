@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -196,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JJ-Qd-Od4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3420" y="-635"/>
+            <point key="canvasLocation" x="3419" y="-1294"/>
         </scene>
         <!--My Lists-->
         <scene sceneID="BTB-Sz-xgT">
@@ -322,29 +323,109 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wx-nb-gC7">
-                                <rect key="frame" x="155" y="456" width="104" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7s-MB-7p6">
+                                <rect key="frame" x="140" y="203" width="134" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Fetch Books"/>
-                                <connections>
-                                    <action selector="fetchBooksButtonTapped:" destination="iu6-9a-JmG" eventType="touchUpInside" id="E0G-64-ife"/>
-                                </connections>
+                                <buttonConfiguration key="configuration" style="plain" title="Search The Bible"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="do8-sZ-fQU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iZe-wS-eam" firstAttribute="centerX" secondItem="do8-sZ-fQU" secondAttribute="centerX" id="H8n-Hh-ncr"/>
-                            <constraint firstItem="8Wx-nb-gC7" firstAttribute="centerX" secondItem="do8-sZ-fQU" secondAttribute="centerX" id="bJ0-hc-3b9"/>
+                            <constraint firstItem="W7s-MB-7p6" firstAttribute="centerX" secondItem="do8-sZ-fQU" secondAttribute="centerX" id="Hq0-b3-GIb"/>
+                            <constraint firstItem="W7s-MB-7p6" firstAttribute="top" secondItem="do8-sZ-fQU" secondAttribute="top" constant="159" id="VCm-aW-ija"/>
                             <constraint firstItem="iZe-wS-eam" firstAttribute="centerY" secondItem="do8-sZ-fQU" secondAttribute="centerY" id="gOm-E5-IEy"/>
-                            <constraint firstItem="8Wx-nb-gC7" firstAttribute="centerY" secondItem="do8-sZ-fQU" secondAttribute="centerY" multiplier="1.1" id="tCT-hY-7Tc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" id="Uo0-5w-e4E"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4am-Wq-cIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3418.840579710145" y="817.63392857142856"/>
+            <point key="canvasLocation" x="3419" y="1470"/>
+        </scene>
+        <!--Bible Book List View Controller-->
+        <scene sceneID="djl-Hw-tUl">
+            <objects>
+                <viewController id="ZcY-KL-cNL" customClass="BibleBookListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ovW-Pu-tuQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObC-eC-qeL">
+                                <rect key="frame" x="187.5" y="54" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ysw-GV-nTH">
+                                <rect key="frame" x="0.0" y="85" width="414" height="75"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="bcC-EG-Han"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FZd-Q0-vgC">
+                                    <size key="itemSize" width="75" height="75"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WxT-xk-w64">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uS0-jE-k8m" customClass="BibleBookCollectionViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KvI-tc-tpO">
+                                                    <rect key="frame" x="15" y="25" width="45.5" height="44.5"/>
+                                                    <color key="tintColor" systemColor="systemBrownColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="KvI-tc-tpO" secondAttribute="height" multiplier="1:1" id="TQD-2g-n2l"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgy-dN-VsB">
+                                                    <rect key="frame" x="22" y="5" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KvI-tc-tpO" firstAttribute="centerX" secondItem="uS0-jE-k8m" secondAttribute="centerX" id="3n4-z0-CAS"/>
+                                                <constraint firstAttribute="bottom" secondItem="KvI-tc-tpO" secondAttribute="bottom" constant="5" id="AcZ-MW-RKW"/>
+                                                <constraint firstItem="KvI-tc-tpO" firstAttribute="top" secondItem="hgy-dN-VsB" secondAttribute="bottom" constant="5" id="NWh-0P-ktw"/>
+                                                <constraint firstItem="hgy-dN-VsB" firstAttribute="top" secondItem="uS0-jE-k8m" secondAttribute="top" constant="5" id="Td1-tq-uP3"/>
+                                                <constraint firstItem="hgy-dN-VsB" firstAttribute="centerX" secondItem="uS0-jE-k8m" secondAttribute="centerX" id="YqY-uo-MNc"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="75" height="75"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZcY-KL-cNL" id="6Q7-V4-bWo"/>
+                                    <outlet property="delegate" destination="ZcY-KL-cNL" id="Xcl-sI-VXt"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dqi-m3-k6D"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ObC-eC-qeL" firstAttribute="centerX" secondItem="dqi-m3-k6D" secondAttribute="centerX" id="cpT-RJ-Key"/>
+                            <constraint firstItem="dqi-m3-k6D" firstAttribute="trailing" secondItem="ysw-GV-nTH" secondAttribute="trailing" id="ijv-7m-MHz"/>
+                            <constraint firstItem="ObC-eC-qeL" firstAttribute="top" secondItem="dqi-m3-k6D" secondAttribute="top" constant="10" id="lUp-HR-Qak"/>
+                            <constraint firstItem="ysw-GV-nTH" firstAttribute="top" secondItem="ObC-eC-qeL" secondAttribute="bottom" constant="10" id="nAX-EE-esz"/>
+                            <constraint firstItem="ysw-GV-nTH" firstAttribute="leading" secondItem="dqi-m3-k6D" secondAttribute="leading" id="pqK-5w-3Gx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="ysw-GV-nTH" id="BY3-G9-wTR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sXL-pY-g0K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4282.608695652174" y="1139.7321428571429"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HFE-K2-eRL">
@@ -367,8 +448,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
