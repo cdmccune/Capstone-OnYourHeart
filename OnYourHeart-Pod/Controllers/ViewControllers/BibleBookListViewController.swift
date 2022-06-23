@@ -11,14 +11,35 @@ class BibleBookListViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
     
+    //MARK: - Lifecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        getbooks()
+        
     }
     
 
+    //MARK: - Helper Functions
+    
+    func getbooks() {
+        BibleController.shared.fetchBooks { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let books):
+//                    print("success")
+//                    print(books.count)
+                    BibleController.shared.books = books
+                    self.collectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -32,19 +53,24 @@ class BibleBookListViewController: UIViewController {
 }
 
 extension BibleBookListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
-    
+
+
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return BibleController.shared.books.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Storyboard.BibleBookCell, for: indexPath) as? BibleBookCollectionViewCell else {return UICollectionViewCell()}
+        
+        cell.book = BibleController.shared.books[indexPath.row]
+        cell.translatesAutoresizingMaskIntoConstraints = true
+        
+        return cell
     }
-    
-    
-    
-    
-    
+
+
+
+
+
 }

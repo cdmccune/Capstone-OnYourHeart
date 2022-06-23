@@ -103,6 +103,7 @@
 				242763BC28617C8D00D0C87E /* LaunchScreen.storyboard */,
 				242763BF28617C8D00D0C87E /* Info.plist */,
 				24E22D7A28629555004CE717 /* GoogleService-Info.plist */,
+				24E22D992863F2F1004CE717 /* View */,
 				24E22D8928638344004CE717 /* Controllers */,
 				24E22D882863833B004CE717 /* Model */,
 				24E22D76286291F8004CE717 /* Helpers */,
@@ -154,7 +155,6 @@
 		24E22D8928638344004CE717 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				24E22D992863F2F1004CE717 /* View */,
 				24E22D8B2863835F004CE717 /* Model Controllers */,
 				24E22D7328628D7C004CE717 /* ViewControllers */,
 			);

@@ -14,6 +14,7 @@ class BibleController {
     static var shared = BibleController()
     
     var books: [Book] = []
+    var chapters: [Chapter] = []
     
     
     // MARK: - Bible API Fetching Functions

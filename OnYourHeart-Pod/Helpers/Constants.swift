@@ -11,6 +11,7 @@ struct Constants {
     struct Storyboard {
         static let homeViewController = "MoodVC"
         static let tabBarController = "TabBarController"
+        static let BibleBookCell = "BibleBookCell"
     }
     
     struct Firebase {
