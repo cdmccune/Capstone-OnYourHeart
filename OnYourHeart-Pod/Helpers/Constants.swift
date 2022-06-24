@@ -24,6 +24,8 @@ struct Constants {
         static let firstNameKey = "firstName"
         static let lastNameKey = "lastName"
         static let uidKey = "uid"
+        static let listKey = "list"
+        static let listContents = ["Favorites", "Depressed", "Grateful", "Frustrated", "Content", "Angry"]
     }
     
     struct API {

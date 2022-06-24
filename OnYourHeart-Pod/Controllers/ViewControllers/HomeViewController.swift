@@ -54,12 +54,12 @@ class HomeViewController: UIViewController {
             if let snapshot = snapshot {
                 let data = snapshot.documents[0].data()
                 
-                if let firstName = data[Constants.Firebase.firstNameKey], let lastName = data[Constants.Firebase.lastNameKey] {
-                    self.nameLabel.text = "\(firstName) \(lastName)"
-                }
-                if let uid = data[Constants.Firebase.uidKey] {
-                    self.idLabel.text = "\(uid)"
-                }
+                guard let user = User(from: data) else {return}
+                
+                FirebaseDataController.shared.user = user
+                self.idLabel.text = user.uid
+                self.nameLabel.text = user.firstName + " " + user.lastName
+                print(user.lists.description)
             }
         }
     }

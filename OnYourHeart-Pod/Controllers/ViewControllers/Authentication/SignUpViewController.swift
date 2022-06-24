@@ -58,11 +58,6 @@ class SignUpViewController: UIViewController {
         if LoginUtilities.isPasswordValid(cleanPassword) {
             return "Please make sure your password is at least 8 characters, contains a special character and a number."
         }
-        
-        
-        
-        
-        
         return nil
     }
     
@@ -74,6 +69,7 @@ class SignUpViewController: UIViewController {
         if let error = error {
             showError(error)
         } else {
+    
             //Create non-optional and clean data
             let firstName = firstNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let lastName = lastNameTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -81,41 +77,21 @@ class SignUpViewController: UIViewController {
             let password = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             
-            //Create User
-            Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                
-                if let error = error {
-                    print(error.localizedDescription)
-                    self.showError("Error creating user")
-                }
-                
-                guard let result = result else {
-                    self.showError("Uknown error occured")
-                    return
-                }
-                
-                let db = Firestore.firestore()
-                db.collection("users").addDocument(data: [
-                    "firstName" : firstName,
-                    "lastName" : lastName,
-                    "uid" : result.user.uid
-                ]) { error in
-                    if let error = error {
+            
+            FirebaseDataController.shared.createUser(firstName: firstName, lastName: lastName, email: email, password: password) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let success):
+                        if success {
+                            self.transitionToHome()
+                        }
+                    case .failure(let error):
+                        self.showError("Server error occurred")
                         print(error)
-                        self.showError("Error saving user data")
                     }
                 }
-                
-                self.transitionToHome()
-                
             }
-            
         }
-        
-        //Create the user
-        
-        //Transition to the home screen
-        
     }
     
     func showError(_ message: String) {
