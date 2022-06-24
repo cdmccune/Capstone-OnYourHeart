@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24237D232866178200CE8F20 /* VerseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24237D222866178200CE8F20 /* VerseTableViewCell.swift */; };
+		24237D25286621C000CE8F20 /* FormatUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24237D24286621C000CE8F20 /* FormatUtilities.swift */; };
 		242763B228617C8700D0C87E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242763B128617C8700D0C87E /* AppDelegate.swift */; };
 		242763B428617C8700D0C87E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242763B328617C8700D0C87E /* SceneDelegate.swift */; };
 		242763B628617C8700D0C87E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242763B528617C8700D0C87E /* ViewController.swift */; };
@@ -19,7 +21,7 @@
 		24E22D6E28628D44004CE717 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6D28628D44004CE717 /* SignUpViewController.swift */; };
 		24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6F28628D5E004CE717 /* LogInViewController.swift */; };
 		24E22D7228628D72004CE717 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D7128628D72004CE717 /* HomeViewController.swift */; };
-		24E22D79286292DB004CE717 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D78286292DB004CE717 /* Utilities.swift */; };
+		24E22D79286292DB004CE717 /* LoginUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D78286292DB004CE717 /* LoginUtilities.swift */; };
 		24E22D7B28629555004CE717 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E22D7A28629555004CE717 /* GoogleService-Info.plist */; };
 		24E22D7D2862D002004CE717 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D7C2862D002004CE717 /* Constants.swift */; };
 		24E22D802862D4C3004CE717 /* loginbg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 24E22D7F2862D4C3004CE717 /* loginbg.mp4 */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24237D222866178200CE8F20 /* VerseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseTableViewCell.swift; sourceTree = "<group>"; };
+		24237D24286621C000CE8F20 /* FormatUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtilities.swift; sourceTree = "<group>"; };
 		242763AE28617C8700D0C87E /* OnYourHeart-Pod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnYourHeart-Pod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		242763B128617C8700D0C87E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		242763B328617C8700D0C87E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,7 +53,7 @@
 		24E22D6D28628D44004CE717 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		24E22D6F28628D5E004CE717 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		24E22D7128628D72004CE717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		24E22D78286292DB004CE717 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		24E22D78286292DB004CE717 /* LoginUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUtilities.swift; sourceTree = "<group>"; };
 		24E22D7A28629555004CE717 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24E22D7C2862D002004CE717 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		24E22D7F2862D4C3004CE717 /* loginbg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = loginbg.mp4; path = ../../../../../../../Downloads/CustomLoginDemo/CustomLoginDemo/Media/loginbg.mp4; sourceTree = "<group>"; };
@@ -153,7 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				24E22D7C2862D002004CE717 /* Constants.swift */,
-				24E22D78286292DB004CE717 /* Utilities.swift */,
+				24E22D78286292DB004CE717 /* LoginUtilities.swift */,
+				24237D24286621C000CE8F20 /* FormatUtilities.swift */,
 				24E22D8128637276004CE717 /* AuthenticationState.swift */,
 				24E22D9528639CF7004CE717 /* ApiError.swift */,
 			);
@@ -198,6 +203,7 @@
 			children = (
 				24E22D9A2863F315004CE717 /* BibleBookCollectionViewCell.swift */,
 				24971AAD286527DC00A84A69 /* ChapterNumberCollectionViewCell.swift */,
+				24237D222866178200CE8F20 /* VerseTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24237D25286621C000CE8F20 /* FormatUtilities.swift in Sources */,
 				242763B628617C8700D0C87E /* ViewController.swift in Sources */,
 				24971AB22865362500A84A69 /* ScriptureListViewController.swift in Sources */,
 				24E22D8228637277004CE717 /* AuthenticationState.swift in Sources */,
@@ -362,9 +369,10 @@
 				24971AAE286527DE00A84A69 /* ChapterNumberCollectionViewCell.swift in Sources */,
 				24971AB02865344600A84A69 /* ScriptureDetailViewController.swift in Sources */,
 				24E22D9B2863F315004CE717 /* BibleBookCollectionViewCell.swift in Sources */,
-				24E22D79286292DB004CE717 /* Utilities.swift in Sources */,
+				24E22D79286292DB004CE717 /* LoginUtilities.swift in Sources */,
 				24E22D8428637E48004CE717 /* ListsViewController.swift in Sources */,
 				24E22D982863EF4F004CE717 /* BibleBookListViewController.swift in Sources */,
+				24237D232866178200CE8F20 /* VerseTableViewCell.swift in Sources */,
 				24E22D6E28628D44004CE717 /* SignUpViewController.swift in Sources */,
 				24E22D9628639CF7004CE717 /* ApiError.swift in Sources */,
 				24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */,

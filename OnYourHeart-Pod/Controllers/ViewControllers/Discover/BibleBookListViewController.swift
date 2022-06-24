@@ -30,8 +30,6 @@ class BibleBookListViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let books):
-//                    print("success")
-//                    print(books.count)
                     BibleController.shared.books = books
                     self.collectionView.reloadData()
                 case .failure(let error):

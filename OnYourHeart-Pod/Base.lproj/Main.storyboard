@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xEa-7M-ayY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2T-wY-0DK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -347,37 +347,99 @@
             </objects>
             <point key="canvasLocation" x="4328.985507246377" y="1469.8660714285713"/>
         </scene>
-        <!--Scriptures-->
+        <!--Scripture List-->
         <scene sceneID="uwU-ti-EhI">
             <objects>
-                <viewController title="Scriptures" id="Gc9-Et-vXx" customClass="ScriptureListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Scripture List" id="Gc9-Et-vXx" customClass="ScriptureListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Apw-im-uPF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book and Chapter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzY-Rz-fiz">
+                                <rect key="frame" x="110" y="53" width="194" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berean Study Bible © Bible Hub, 2020." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZk-um-xNm">
+                                <rect key="frame" x="59.5" y="802" width="295" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="873-vm-k64">
+                                <rect key="frame" x="10" y="93" width="394" height="699"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VerseCell" id="NId-VN-xB9" customClass="VerseTableViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="394" height="41"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NId-VN-xB9" id="jEt-15-SK9">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="41"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="745" text="C:V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AS6-ZH-FAL">
+                                                    <rect key="frame" x="10" y="8.5" width="60" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="dX6-4R-pgl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verse Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UB-dw-1iv">
+                                                    <rect key="frame" x="80" y="10" width="304" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="1UB-dw-1iv" secondAttribute="trailing" constant="10" id="Fv5-mb-sJ4"/>
+                                                <constraint firstItem="1UB-dw-1iv" firstAttribute="top" secondItem="jEt-15-SK9" secondAttribute="top" constant="10" id="OId-jk-usx"/>
+                                                <constraint firstAttribute="bottom" secondItem="1UB-dw-1iv" secondAttribute="bottom" constant="10" id="Pug-ol-nTh"/>
+                                                <constraint firstItem="AS6-ZH-FAL" firstAttribute="leading" secondItem="jEt-15-SK9" secondAttribute="leading" constant="10" id="Vho-Ds-aDv"/>
+                                                <constraint firstItem="1UB-dw-1iv" firstAttribute="leading" secondItem="AS6-ZH-FAL" secondAttribute="trailing" constant="10" id="cOB-Gq-8FM"/>
+                                                <constraint firstItem="AS6-ZH-FAL" firstAttribute="centerY" secondItem="jEt-15-SK9" secondAttribute="centerY" id="iqf-Oz-ZPk"/>
+                                                <constraint firstItem="1UB-dw-1iv" firstAttribute="centerY" secondItem="jEt-15-SK9" secondAttribute="centerY" id="ue1-Zr-XK8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="verseCodeLabel" destination="AS6-ZH-FAL" id="mfn-Ds-3ne"/>
+                                            <outlet property="verseContentLabel" destination="1UB-dw-1iv" id="y1m-ho-6WH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gc9-Et-vXx" id="Ub5-Un-lnc"/>
+                                    <outlet property="delegate" destination="Gc9-Et-vXx" id="Y3d-Dr-oai"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HxX-ND-RBw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XZk-um-xNm" firstAttribute="centerX" secondItem="HxX-ND-RBw" secondAttribute="centerX" id="3tC-Al-ica"/>
+                            <constraint firstItem="873-vm-k64" firstAttribute="leading" secondItem="HxX-ND-RBw" secondAttribute="leading" constant="10" id="6s3-8U-wtv"/>
+                            <constraint firstItem="MzY-Rz-fiz" firstAttribute="top" secondItem="HxX-ND-RBw" secondAttribute="top" constant="-35" id="JCe-eb-2a0"/>
+                            <constraint firstItem="MzY-Rz-fiz" firstAttribute="centerX" secondItem="HxX-ND-RBw" secondAttribute="centerX" id="Pxk-a0-8zX"/>
+                            <constraint firstItem="HxX-ND-RBw" firstAttribute="trailing" secondItem="873-vm-k64" secondAttribute="trailing" constant="10" id="TMB-Ic-8HL"/>
+                            <constraint firstItem="XZk-um-xNm" firstAttribute="top" secondItem="873-vm-k64" secondAttribute="bottom" constant="10" id="kcV-oz-AZv"/>
+                            <constraint firstItem="XZk-um-xNm" firstAttribute="bottom" secondItem="HxX-ND-RBw" secondAttribute="bottom" constant="10" id="rJA-dB-PgI"/>
+                            <constraint firstItem="873-vm-k64" firstAttribute="top" secondItem="MzY-Rz-fiz" secondAttribute="bottom" constant="10" id="rgu-p2-z03"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UNs-E1-dcG"/>
+                    <navigationItem key="navigationItem" id="UNs-E1-dcG">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2T1-PO-CTe"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="873-vm-k64" id="bmg-PT-BQf"/>
+                        <outlet property="titleLabel" destination="MzY-Rz-fiz" id="uuP-3t-Ora"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxV-sz-hsG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6032" y="1140"/>
-        </scene>
-        <!--ScriptureDetail-->
-        <scene sceneID="Tzu-2J-UJJ">
-            <objects>
-                <viewController title="ScriptureDetail" id="lmn-NG-PB8" customClass="ScriptureDetailViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="w6r-W3-sn9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="X5I-YV-G8y"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="bve-Rb-XcQ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fqj-Uq-eyc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6836" y="1140"/>
+            <point key="canvasLocation" x="6031.884057971015" y="1139.7321428571429"/>
         </scene>
         <!--Books-->
         <scene sceneID="djl-Hw-tUl">

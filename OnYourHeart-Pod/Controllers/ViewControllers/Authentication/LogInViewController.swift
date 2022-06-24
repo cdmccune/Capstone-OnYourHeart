@@ -28,9 +28,9 @@ class LogInViewController: UIViewController {
     func setUpElements() {
         
         errorLabel.alpha = 0
-        Utilities.styleTextField(emailTF)
-        Utilities.styleTextField(passwordTF)
-        Utilities.styleFilledButton(loginButton)
+        LoginUtilities.styleTextField(emailTF)
+        LoginUtilities.styleTextField(passwordTF)
+        LoginUtilities.styleFilledButton(loginButton)
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {

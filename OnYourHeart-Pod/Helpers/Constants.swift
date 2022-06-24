@@ -15,6 +15,7 @@ struct Constants {
         static let chapterNumberCell = "ChapterNumberCell"
         static let segueScriptureDetailView = "toScriptureDetailView"
         static let segueScriptureListVC = "ToScriptureListViewController"
+        static let verseCell = "VerseCell"
     }
     
     struct Firebase {

@@ -71,7 +71,7 @@ class BibleController {
         
     }
     
-    func fetchChapter(_ chapterID: String, completion: @escaping (Result<ChapterContent, ApiError>) -> Void) {
+    func fetchChapter(_ chapterID: String, completion: @escaping (Result<[Verse], ApiError>) -> Void) {
         
         //Request Building
         
@@ -123,7 +123,25 @@ class BibleController {
             
             do {
                 let topLevelChapterObject = try JSONDecoder().decode(TopLevelChapterObject.self, from: data)
-                return completion(.success(topLevelChapterObject.data))
+                let chapterContent = topLevelChapterObject.data
+                var verses: [Verse] = []
+                chapterContent.content.forEach { verseContent in
+                    if verseContent.items.count > 0 {
+                        verseContent.items.forEach { verseFragment in
+                            if let index = verses.firstIndex(where: { $0.id == verseFragment.attrs.verseId}) {
+                                verses[index].content += verseFragment.text
+                            } else {
+                                let newVerse = Verse(content: verseFragment.text, id: verseFragment.attrs.verseId, chapterId: chapterContent.id)
+                                verses.append(newVerse)
+                            }
+                                
+                        }
+                    }
+                }
+                
+                
+                
+                return completion(.success(verses))
             } catch let e {
                 return completion(.failure(.errorDecodingData(e)))
             }

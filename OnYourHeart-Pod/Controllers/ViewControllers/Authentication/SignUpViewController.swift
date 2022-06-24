@@ -30,11 +30,11 @@ class SignUpViewController: UIViewController {
     func setUpElements() {
         errorLabel.alpha = 0
         
-        Utilities.styleTextField(firstNameTF)
-        Utilities.styleTextField(lastNameTF)
-        Utilities.styleTextField(emailTF)
-        Utilities.styleTextField(passwordTF)
-        Utilities.styleFilledButton(signUpButton)
+        LoginUtilities.styleTextField(firstNameTF)
+        LoginUtilities.styleTextField(lastNameTF)
+        LoginUtilities.styleTextField(emailTF)
+        LoginUtilities.styleTextField(passwordTF)
+        LoginUtilities.styleFilledButton(signUpButton)
         
         
     }
@@ -55,7 +55,7 @@ class SignUpViewController: UIViewController {
         
         let cleanPassword = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if Utilities.isPasswordValid(cleanPassword) {
+        if LoginUtilities.isPasswordValid(cleanPassword) {
             return "Please make sure your password is at least 8 characters, contains a special character and a number."
         }
         
