@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7qv-4d-hJe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xEa-7M-ayY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -347,10 +347,42 @@
             </objects>
             <point key="canvasLocation" x="4328.985507246377" y="1469.8660714285713"/>
         </scene>
-        <!--Bible Book List View Controller-->
+        <!--Scriptures-->
+        <scene sceneID="uwU-ti-EhI">
+            <objects>
+                <viewController title="Scriptures" id="Gc9-Et-vXx" customClass="ScriptureListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Apw-im-uPF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HxX-ND-RBw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UNs-E1-dcG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wxV-sz-hsG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6032" y="1140"/>
+        </scene>
+        <!--ScriptureDetail-->
+        <scene sceneID="Tzu-2J-UJJ">
+            <objects>
+                <viewController title="ScriptureDetail" id="lmn-NG-PB8" customClass="ScriptureDetailViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w6r-W3-sn9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="X5I-YV-G8y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bve-Rb-XcQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fqj-Uq-eyc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6836" y="1140"/>
+        </scene>
+        <!--Books-->
         <scene sceneID="djl-Hw-tUl">
             <objects>
-                <viewController id="ZcY-KL-cNL" customClass="BibleBookListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Books" id="ZcY-KL-cNL" customClass="BibleBookListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ovW-Pu-tuQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,7 +399,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="bcC-EG-Han"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FZd-Q0-vgC">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FZd-Q0-vgC">
                                     <size key="itemSize" width="75" height="75"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -377,30 +409,33 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BibleBookCell" id="WxT-xk-w64" customClass="BibleBookCollectionViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uS0-jE-k8m" customClass="BibleBookCollectionViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="D6N-Ks-LFO">
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KvI-tc-tpO">
-                                                    <rect key="frame" x="15" y="25" width="45.5" height="44.5"/>
+                                                    <rect key="frame" x="15" y="25.5" width="45" height="44"/>
                                                     <color key="tintColor" systemColor="systemBrownColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="KvI-tc-tpO" secondAttribute="height" multiplier="1:1" id="TQD-2g-n2l"/>
+                                                        <constraint firstAttribute="height" constant="45" id="gPD-6d-1kJ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgy-dN-VsB">
-                                                    <rect key="frame" x="22" y="5" width="31" height="14.5"/>
+                                                    <rect key="frame" x="22" y="5" width="31" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KvI-tc-tpO" firstAttribute="centerX" secondItem="uS0-jE-k8m" secondAttribute="centerX" id="3n4-z0-CAS"/>
-                                                <constraint firstAttribute="bottom" secondItem="KvI-tc-tpO" secondAttribute="bottom" constant="5" id="AcZ-MW-RKW"/>
-                                                <constraint firstItem="KvI-tc-tpO" firstAttribute="top" secondItem="hgy-dN-VsB" secondAttribute="bottom" constant="5" id="NWh-0P-ktw"/>
-                                                <constraint firstItem="hgy-dN-VsB" firstAttribute="top" secondItem="uS0-jE-k8m" secondAttribute="top" constant="5" id="Td1-tq-uP3"/>
-                                                <constraint firstItem="hgy-dN-VsB" firstAttribute="centerX" secondItem="uS0-jE-k8m" secondAttribute="centerX" id="YqY-uo-MNc"/>
+                                                <constraint firstItem="hgy-dN-VsB" firstAttribute="centerX" secondItem="D6N-Ks-LFO" secondAttribute="centerX" id="0PB-wU-4d7"/>
+                                                <constraint firstItem="KvI-tc-tpO" firstAttribute="centerX" secondItem="D6N-Ks-LFO" secondAttribute="centerX" id="8XV-tz-qIh"/>
+                                                <constraint firstItem="KvI-tc-tpO" firstAttribute="leading" secondItem="D6N-Ks-LFO" secondAttribute="leading" constant="15" id="9yF-gR-ciO"/>
+                                                <constraint firstAttribute="trailing" secondItem="KvI-tc-tpO" secondAttribute="trailing" constant="15" id="QIj-Gq-0ta"/>
+                                                <constraint firstItem="KvI-tc-tpO" firstAttribute="top" secondItem="hgy-dN-VsB" secondAttribute="bottom" constant="5" id="bf4-gP-Uwt"/>
+                                                <constraint firstItem="hgy-dN-VsB" firstAttribute="top" secondItem="D6N-Ks-LFO" secondAttribute="top" constant="5" id="nPc-MA-Hod"/>
+                                                <constraint firstAttribute="bottom" secondItem="KvI-tc-tpO" secondAttribute="bottom" constant="5" id="oET-7L-21Z"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="75" height="75"/>
@@ -418,14 +453,14 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RKt-rz-y6x">
                                 <rect key="frame" x="30" y="224" width="354" height="589"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tds-Cq-yrL">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tds-Cq-yrL">
                                     <size key="itemSize" width="75" height="75"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9a1-F1-2mE">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChapterNumberCell" id="9a1-F1-2mE" customClass="ChapterNumberCollectionViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AzV-au-dIB">
@@ -453,8 +488,17 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="75" height="75"/>
+                                        <connections>
+                                            <outlet property="circleImage" destination="dSn-b6-DYr" id="eHj-Mz-dmW"/>
+                                            <outlet property="numberLabel" destination="deC-Dt-EQn" id="6n3-ZT-ti4"/>
+                                            <segue destination="Gc9-Et-vXx" kind="show" identifier="ToScriptureListViewController" id="can-s9-m0a"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ZcY-KL-cNL" id="GKE-ks-Ejr"/>
+                                    <outlet property="delegate" destination="ZcY-KL-cNL" id="a4F-gK-4ki"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dqi-m3-k6D"/>
@@ -473,6 +517,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xVF-5Q-xzq"/>
                     <connections>
+                        <outlet property="chapterNumberCollectionView" destination="RKt-rz-y6x" id="V86-rk-ZaX"/>
                         <outlet property="collectionView" destination="ysw-GV-nTH" id="BY3-G9-wTR"/>
                     </connections>
                 </viewController>
@@ -522,7 +567,7 @@
     </scenes>
     <resources>
         <image name="book.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="circle.fill" catalog="system" width="32" height="32"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -54,3 +54,7 @@ struct VerseID:Codable {
     var verseId: String
 }
 
+struct Verse: Codable {
+    var content: String
+    var id: String
+}

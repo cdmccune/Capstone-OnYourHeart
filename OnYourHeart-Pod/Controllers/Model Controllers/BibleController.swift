@@ -15,7 +15,7 @@ class BibleController {
     
     var books: [Book] = []
     var chapters: [Chapter] = []
-    
+    var verses: [Verse] = []
     
     // MARK: - Bible API Fetching Functions
     
