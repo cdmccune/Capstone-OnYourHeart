@@ -7,9 +7,12 @@
 
 import UIKit
 import AVKit
+import FirebaseAuth
+import FirebaseCore
 
 class ViewController: UIViewController {
     
+    var handle: AuthStateDidChangeListenerHandle?
     @IBOutlet var signUpButton: UIButton!
     @IBOutlet var loginButton: UIButton!
     override func viewDidLoad() {

@@ -84,6 +84,13 @@ extension BibleBookListViewController: UICollectionViewDelegate, UICollectionVie
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Storyboard.bibleBookCell, for: indexPath) as? BibleBookCollectionViewCell else {return UICollectionViewCell()}
             
+            switch cell.isSelected {
+            case true:
+                cell.bibleImage.tintColor = .black
+            case false:
+                cell.bibleImage.tintColor = .systemBrown
+            }
+            
             cell.book = BibleController.shared.books[indexPath.row]
             cell.translatesAutoresizingMaskIntoConstraints = true
             
@@ -94,19 +101,29 @@ extension BibleBookListViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? BibleBookCollectionViewCell {
+           
             cell.bibleImage.tintColor = .black
             BibleController.shared.chapters = BibleController.shared.books[indexPath.row].chapters
             chapterNumberCollectionView.reloadData()
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? BibleBookCollectionViewCell {
+            
             cell.bibleImage.tintColor = .systemBrown
             BibleController.shared.chapters = []
             chapterNumberCollectionView.reloadData()
         }
     }
+    
+    
 
     
     

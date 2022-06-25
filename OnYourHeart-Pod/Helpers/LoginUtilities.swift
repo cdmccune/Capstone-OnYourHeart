@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 
 class LoginUtilities {
     
@@ -48,6 +50,24 @@ class LoginUtilities {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
+    }
+    
+    static func isUserLoggedIn() -> Bool{
+        return Auth.auth().currentUser != nil
+    }
+    
+    static func routeToTB(window: UIWindow? ){
+        let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: nil)
+        let tB  = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.tabBarController) as? UITabBarController
+        window?.rootViewController = tB
+        window?.makeKeyAndVisible()
+    }
+    
+    static func routeToLogin(window: UIWindow?) {
+        let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: nil)
+        let navigationBar = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginNavController) as? UITabBarController
+        window?.rootViewController = navigationBar
+        window?.makeKeyAndVisible()
     }
     
 }

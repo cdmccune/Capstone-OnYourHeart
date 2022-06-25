@@ -11,11 +11,13 @@ struct Constants {
     struct Storyboard {
         static let homeViewController = "MoodVC"
         static let tabBarController = "TabBarController"
+        static let loginNavController = "LoginNavController"
         static let bibleBookCell = "BibleBookCell"
         static let chapterNumberCell = "ChapterNumberCell"
         static let segueScriptureDetailView = "toScriptureDetailView"
         static let segueScriptureListVC = "ToScriptureListViewController"
         static let verseCell = "VerseCell"
+        static let mainStoryboard = "Main"
     }
     
     struct Firebase {
@@ -26,6 +28,14 @@ struct Constants {
         static let uidKey = "uid"
         static let listKey = "list"
         static let listContents = ["Favorites", "Depressed", "Grateful", "Frustrated", "Content", "Angry"]
+        
+        
+        //For ScriptureList Table
+        static let scriptureListEntryKey = "scriptureList"
+        static let listName = "listName"
+        static let scriptureTitle = "scriptureTitle"
+        static let chapterId = "chapterId"
+        static let scriptureNumbers = "scriptureNumbers"
     }
     
     struct API {

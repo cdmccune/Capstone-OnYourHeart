@@ -14,35 +14,12 @@ import FirebaseAuthUI
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        
-        
-//        DispatchQueue.main.async {
-//            BibleController.shared.fetchBooks { result in
-//                switch result {
-//                case .success(let books):
-//                    print(books.description)
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        }
-        
-//        DispatchQueue.main.async {
-//            BibleController.shared.fetchChapter("gen.1") { result in
-//                switch result {
-//                case .success(let chapterContent):
-//                    print(chapterContent.content.description)
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        }
-        
+
         return true
     }
 

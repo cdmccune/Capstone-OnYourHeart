@@ -31,3 +31,24 @@ extension User {
         self.init(firstName: firstName, lastName: lastName, uid: uid, lists: lists)
     }
 }
+
+class ScriptureListEntry {
+    
+    var uid: String
+    var chapterId: String
+    var listName: String
+    var scriptureTitle: String
+    var scriptureNumbers: [Int]
+    
+    
+    
+    init(uid: String = FirebaseDataController.shared.user.uid, chapterId: String, listName: String, scriptureTitle: String, scriptureNumbers: [Int]) {
+        self.uid = uid
+        self.chapterId = chapterId
+        self.listName = listName
+        self.scriptureTitle = scriptureTitle
+        self.scriptureNumbers = scriptureNumbers
+    }
+    
+    
+}

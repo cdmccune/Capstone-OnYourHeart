@@ -22,4 +22,33 @@ class FormatUtilities {
             return "Couldn't find name"
         }
     }
+    static func getScriptureTitle(title: String, scriptureNumbers: [Int]) -> String {
+        
+        var formattedScriptures = ""
+        if scriptureNumbers.count <= 1 {
+            formattedScriptures = "\(scriptureNumbers[0])"
+        } else if isIncremented(numList: scriptureNumbers) {
+            formattedScriptures = "\(scriptureNumbers.first!)-\(scriptureNumbers.last!)"
+        } else {
+            formattedScriptures = scriptureNumbers.map({"\($0)"}).joined(separator: ",")
+        }
+        
+        return title + ": " + formattedScriptures
+        
+        
+        //Phillipians 4:6-8 or Philippians 4:5,6,8,20, Philippians 4:7
+    }
+    
+    static private func isIncremented(numList: [Int]) -> Bool {
+        
+        for num in (0..<numList.count-1) {
+            if numList[num+1] - numList[num] > 1 {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    
 }

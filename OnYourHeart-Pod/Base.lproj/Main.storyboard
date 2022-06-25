@@ -295,7 +295,7 @@
         <!--Navigation Controller-->
         <scene sceneID="t23-NZ-lKX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7qv-4d-hJe" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7qv-4d-hJe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rbS-Ws-szx">
                         <autoresizingMask key="autoresizingMask"/>
@@ -430,9 +430,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UNs-E1-dcG">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2T1-PO-CTe"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="add" changesSelectionAsPrimaryAction="YES" id="2T1-PO-CTe">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="Gc9-Et-vXx" id="CZ4-yc-epd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addToListButton" destination="2T1-PO-CTe" id="x8I-b6-BX0"/>
                         <outlet property="tableView" destination="873-vm-k64" id="bmg-PT-BQf"/>
                         <outlet property="titleLabel" destination="MzY-Rz-fiz" id="uuP-3t-Ora"/>
                     </connections>
