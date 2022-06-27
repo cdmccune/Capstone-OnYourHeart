@@ -18,6 +18,7 @@ struct Constants {
         static let segueScriptureListVC = "ToScriptureListViewController"
         static let verseCell = "VerseCell"
         static let mainStoryboard = "Main"
+        static let searchVerseCell = "SearchVerseCell"
     }
     
     struct Firebase {
@@ -57,5 +58,12 @@ struct Constants {
         static let includeVerseNumsQuery = "include-verse-numbers"
         static let includeVerseSpansQuery = "include-verse-spans"
         static let apiKeyKey = "api-key"
+        static let searchComponent = "search"
+        static let queryKey = "query"
+        static let limitKey = "limit"
+        static let sortKey = "sort"
+        static let relevanceKey = "relevance"
+        static let fuzzinessKey = "fuzziness"
+        static let autoKey = "AUTO"
     }
 }

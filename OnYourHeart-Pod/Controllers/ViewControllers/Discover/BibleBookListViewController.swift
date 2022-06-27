@@ -9,7 +9,9 @@ import UIKit
 
 class BibleBookListViewController: UIViewController {
 
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var bookLabelButton: UIButton!
+    //    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var bibleBookTableView: UITableView!
     @IBOutlet var chapterNumberCollectionView: UICollectionView!
     
     
@@ -25,13 +27,15 @@ class BibleBookListViewController: UIViewController {
 
     //MARK: - Helper Functions
     
+    
+    
     func getbooks() {
         BibleController.shared.fetchBooks { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let books):
                     BibleController.shared.books = books
-                    self.collectionView.reloadData()
+                    self.bibleBookTableView.reloadData()
                 case .failure(let error):
                     print(error)
                 }
@@ -39,6 +43,10 @@ class BibleBookListViewController: UIViewController {
         }
     }
     
+    @IBAction func bookButtonPressed(_ sender: Any) {
+        bibleBookTableView.isHidden = false
+        chapterNumberCollectionView.isHidden = true
+    }
     
 
     // MARK: - Navigation
@@ -62,17 +70,10 @@ extension BibleBookListViewController: UICollectionViewDelegate, UICollectionVie
     //For Bible Book Collection View
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == chapterNumberCollectionView {
             return BibleController.shared.chapters.count
-        } else {
-            return BibleController.shared.books.count
-        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
-        if collectionView == chapterNumberCollectionView {
             
             guard let cell = chapterNumberCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.Storyboard.chapterNumberCell, for: indexPath) as? ChapterNumberCollectionViewCell else {return UICollectionViewCell()}
             
@@ -81,21 +82,6 @@ extension BibleBookListViewController: UICollectionViewDelegate, UICollectionVie
             
             return cell
             
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Storyboard.bibleBookCell, for: indexPath) as? BibleBookCollectionViewCell else {return UICollectionViewCell()}
-            
-            switch cell.isSelected {
-            case true:
-                cell.bibleImage.tintColor = .black
-            case false:
-                cell.bibleImage.tintColor = .systemBrown
-            }
-            
-            cell.book = BibleController.shared.books[indexPath.row]
-            cell.translatesAutoresizingMaskIntoConstraints = true
-            
-            return cell
-        }
     }
 
     
@@ -122,14 +108,42 @@ extension BibleBookListViewController: UICollectionViewDelegate, UICollectionVie
             chapterNumberCollectionView.reloadData()
         }
     }
-    
-    
+}
 
+extension BibleBookListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return BibleController.shared.books.count
+    }
     
-    
-    
-    //For ChapterNumberCollectionView
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.bibleBookCell, for: indexPath)
+        
+        var content = cell.defaultContentConfiguration()
+        
+        switch cell.isSelected {
+        case true:
+            content.text = "selected"
+        case false:
+            content.text = BibleController.shared.books[indexPath.row].name
+        }
+        
 
+        cell.contentConfiguration = content
+        
+        return cell
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let cell = bibleBookTableView.cellForRow(at: indexPath) else {return}
+        
+        
+        bookLabelButton.titleLabel?.text = BibleController.shared.books[indexPath.row].name
 
+        bibleBookTableView.isHidden = true
+        chapterNumberCollectionView.isHidden = false
+        
+        BibleController.shared.chapters = BibleController.shared.books[indexPath.row].chapters
+        chapterNumberCollectionView.reloadData()
+        
+    }
 }

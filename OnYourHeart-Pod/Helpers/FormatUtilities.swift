@@ -39,6 +39,14 @@ class FormatUtilities {
         //Phillipians 4:6-8 or Philippians 4:5,6,8,20, Philippians 4:7
     }
     
+    static func getVerseFromId(verseId: String) -> [Int] {
+        
+        let splitNumber = verseId.split(separator: ".")[2]
+        guard let numbers = Int(splitNumber) else {return [1]}
+        
+        return [numbers]
+    }
+    
     static private func isIncremented(numList: [Int]) -> Bool {
         
         for num in (0..<numList.count-1) {

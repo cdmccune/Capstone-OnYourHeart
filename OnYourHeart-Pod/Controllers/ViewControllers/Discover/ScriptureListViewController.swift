@@ -13,13 +13,15 @@ class ScriptureListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var addToListButton: UIBarButtonItem!
     
     var chapterId: String?
     var scriptureTitle: String = ""
     var scriptureNumbers: [Int] = []
     var pageTitle: String = ""
+    var addToListButton = UIBarButtonItem()
     
+    
+    //MARK: - Lifecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,8 @@ class ScriptureListViewController: UIViewController {
         setUpAddButtonMenu(id: chapterId)
     }
     
+    //MARK: - Helper Functions
+    
     func updateViews(id: String) {
         self.pageTitle = FormatUtilities.getBookAndChapter(chapterId: id)
         titleLabel.text = self.pageTitle
@@ -39,6 +43,12 @@ class ScriptureListViewController: UIViewController {
     }
     
     func setUpAddButtonMenu(id: String) {
+      
+        
+        //Adding the button (Required to show menu on primary action)
+        self.addToListButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:nil)
+        self.navigationItem.setRightBarButton(self.addToListButton, animated: true)
+        
         let lists = FirebaseDataController.shared.user.lists
         
         var actions: [UIAction] = []
@@ -81,30 +91,19 @@ class ScriptureListViewController: UIViewController {
         }
     }
     
-    @IBAction func addButtonTapped(_ sender: Any) {
-        
-        guard let index = tableView.indexPathsForSelectedRows else {return}
-        
+    
+    func highlightedScripturesChanged(index: [IndexPath]) {
         var scriptureNumbers = index.map({$0.row + 1})
         scriptureNumbers.sort()
         self.scriptureNumbers = scriptureNumbers
         
         self.scriptureTitle = FormatUtilities.getScriptureTitle(title: self.pageTitle, scriptureNumbers: self.scriptureNumbers)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+
+//MARK: - Tableview Functions
 
 extension ScriptureListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,15 +121,21 @@ extension ScriptureListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let index = tableView.indexPathsForSelectedRows {
             if index.count > 0 {
+                highlightedScripturesChanged(index: index)
                 addToListButton.isEnabled = true
             }
         }
+        
+        
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let index = tableView.indexPathsForSelectedRows {
             if index.count < 1 {
                 addToListButton.isEnabled = false
+            } else {
+                highlightedScripturesChanged(index: index)
             }
         } else {
             addToListButton.isEnabled = false

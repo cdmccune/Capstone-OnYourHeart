@@ -12,6 +12,8 @@ import Foundation
 
 //Bible Api
 
+//Bible Book Search
+
 struct TopLevelBooksObject: Codable {
     var data: [Book]
 }
@@ -31,6 +33,8 @@ struct Chapter: Codable {
     var number: String
 }
 
+
+//Chapter Search
 
 struct TopLevelChapterObject: Codable {
     var data: ChapterContent
@@ -62,5 +66,25 @@ struct VerseID:Codable {
 struct Verse: Codable {
     var content: String
     var id: String
+    var chapterId: String
+}
+
+
+//Verse Search
+
+struct TopLevelVerseObject: Codable {
+    var data: VerseInfo
+}
+
+struct VerseInfo: Codable {
+    var query: String
+    var verseCount: Int
+    var verses: [SearchVerse]
+}
+
+struct SearchVerse: Codable {
+    var id: String
+    var reference: String
+    var text: String
     var chapterId: String
 }
