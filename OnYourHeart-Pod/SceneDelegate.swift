@@ -17,6 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         
+        print(LoginUtilities.isUserLoggedIn())
+        
         LoginUtilities.isUserLoggedIn() ? LoginUtilities.routeToTB(window: window) : LoginUtilities.routeToLogin(window: window)
     }
 

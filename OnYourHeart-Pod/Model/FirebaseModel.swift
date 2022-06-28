@@ -6,27 +6,30 @@
 //
 
 import Foundation
+import UIKit
 
 class User {
     
     var firstName: String
     var lastName: String
     var uid: String
-    var lists: [String]
+    var lists: [ListItem]
+    var favVerse: [String: String]
     
     
-    init(firstName: String, lastName: String, uid: String, lists: [String] = Constants.Firebase.listContents) {
+    init(firstName: String, lastName: String, uid: String, lists: [ListItem] = Constants.Firebase.listContents, favVerse: [String: String] = [:]) {
         self.firstName = firstName
         self.lastName = lastName
         self.uid = uid
         self.lists = lists
+        self.favVerse = favVerse
     }
 }
 
 extension User {
     convenience init?(from data: [String: Any]) {
         
-        guard let firstName = data[Constants.Firebase.firstNameKey] as? String, let lastName = data[Constants.Firebase.lastNameKey] as? String, let uid = data[Constants.Firebase.uidKey] as? String, let lists = data[Constants.Firebase.listKey] as? [String] else {return nil}
+        guard let firstName = data[Constants.Firebase.firstNameKey] as? String, let lastName = data[Constants.Firebase.lastNameKey] as? String, let uid = data[Constants.Firebase.uidKey] as? String, let lists = data[Constants.Firebase.listKey] as? [ListItem] else {return nil}
             
         self.init(firstName: firstName, lastName: lastName, uid: uid, lists: lists)
     }
@@ -49,6 +52,19 @@ class ScriptureListEntry {
         self.scriptureTitle = scriptureTitle
         self.scriptureNumbers = scriptureNumbers
     }
+}
+
+class ListItem {
     
+    
+    var name: String
+    var color: [Double]
+    var textColor: String
+
+    init(name: String, color: [Double], textColor: String = "black") {
+        self.name = name
+        self.color = color
+        self.textColor = textColor
+    }
     
 }

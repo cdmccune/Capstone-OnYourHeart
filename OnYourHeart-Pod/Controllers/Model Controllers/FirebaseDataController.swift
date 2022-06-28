@@ -44,7 +44,16 @@ class FirebaseDataController {
                 Constants.Firebase.firstNameKey : firstName,
                 Constants.Firebase.lastNameKey : lastName,
                 Constants.Firebase.uidKey : result.user.uid,
-                Constants.Firebase.listKey : Constants.Firebase.listContents
+                Constants.Firebase.listKey : [[
+                    Constants.Firebase.nameKey : Constants.Firebase.listContents[0].name,
+                    Constants.Firebase.colorKey : Constants.Firebase.listContents[0].color,
+                    Constants.Firebase.textColorKey : Constants.Firebase.listContents[0].textColor],
+                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[1].name,
+                     Constants.Firebase.colorKey : Constants.Firebase.listContents[1].color,
+                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[1].textColor],
+                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[2].name,
+                     Constants.Firebase.colorKey : Constants.Firebase.listContents[2].color,
+                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[2].textColor]]
             ]) { error in
                 if let error = error {
                     return completion(.failure(.errorSavingUserData(error)))

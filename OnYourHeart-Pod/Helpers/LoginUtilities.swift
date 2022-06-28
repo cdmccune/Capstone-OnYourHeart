@@ -65,9 +65,11 @@ class LoginUtilities {
     
     static func routeToLogin(window: UIWindow?) {
         let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: nil)
-        let navigationBar = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginNavController) as? UITabBarController
+        let navigationBar = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginNavController) as? UINavigationController
         window?.rootViewController = navigationBar
         window?.makeKeyAndVisible()
+        
+        
     }
     
 }

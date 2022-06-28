@@ -9,16 +9,22 @@ import Foundation
 
 struct Constants {
     struct Storyboard {
+        //Controllers
         static let homeViewController = "MoodVC"
         static let tabBarController = "TabBarController"
         static let loginNavController = "LoginNavController"
-        static let bibleBookCell = "BibleBookCell"
-        static let chapterNumberCell = "ChapterNumberCell"
-        static let segueScriptureDetailView = "toScriptureDetailView"
-        static let segueScriptureListVC = "ToScriptureListViewController"
-        static let verseCell = "VerseCell"
         static let mainStoryboard = "Main"
+        //Segues
+        static let segueScriptureListVC = "ToScriptureListViewController"
+        static let segueScriptureDetailView = "toScriptureDetailView"
+        static let segueMoodScriptureVC = "toMoodScripture"
+        //CellIds
+        static let chapterNumberCell = "ChapterNumberCell"
+        static let bibleBookCell = "BibleBookCell"
+        static let verseCell = "VerseCell"
         static let searchVerseCell = "SearchVerseCell"
+        static let moodCell = "MoodCell"
+        static let listCell = "ListCell"
     }
     
     struct Firebase {
@@ -27,9 +33,11 @@ struct Constants {
         static let firstNameKey = "firstName"
         static let lastNameKey = "lastName"
         static let uidKey = "uid"
-        static let listKey = "list"
-        static let listContents = ["Favorites", "Depressed", "Grateful", "Frustrated", "Content", "Angry"]
-        
+        static let listKey = "lists"
+        static let nameKey = "name"
+        static let colorKey = "color"
+        static let textColorKey = "textColor"
+        static let listContents = [ListItem(name: "Frustrated", color: [153.0, 76.0, 0.0]), ListItem(name: "Angry", color: [224.0, 224.0, 224.0]), ListItem(name: "Sad", color: [102.0, 178.0, 255.0])]
         
         //For ScriptureList Table
         static let scriptureListEntryKey = "scriptureList"
@@ -37,19 +45,29 @@ struct Constants {
         static let scriptureTitle = "scriptureTitle"
         static let chapterId = "chapterId"
         static let scriptureNumbers = "scriptureNumbers"
+        
+        //For Fav Verse
+        static let favVerseKey = "favVerse"
+        static let scriptureContentKey = "scriptureContent"
+        
+        
     }
     
     struct API {
+        //General
         static let apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String
+        static let apiKeyKey = "api-key"
         static let baseURL = "https://api.scripture.api.bible"
         static let bsbBibleKey = "bba9f40183526463-01"
-        static let chaptersAndSectionsKey = "include-chapters-and-sections"
         static let trueKey = "true"
         static let falseKey = "false"
         static let version = "v1"
+        //Books Endpoint
+        static let booksComponent = "books"
         static let biblesComponent = "bibles"
         static let chaptersComponent = "chapters"
-        static let booksComponent = "books"
+        static let chaptersAndSectionsKey = "include-chapters-and-sections"
+        //Chapter Endpoint
         static let contentTypeQuery = "content-type"
         static let json = "json"
         static let includeNotesQuery = "include-notes"
@@ -57,7 +75,7 @@ struct Constants {
         static let includeChapterNumsQuery = "include-chapter-numbers"
         static let includeVerseNumsQuery = "include-verse-numbers"
         static let includeVerseSpansQuery = "include-verse-spans"
-        static let apiKeyKey = "api-key"
+        //Search Endpoint
         static let searchComponent = "search"
         static let queryKey = "query"
         static let limitKey = "limit"

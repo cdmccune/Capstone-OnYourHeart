@@ -54,8 +54,8 @@ class ScriptureListViewController: UIViewController {
         var actions: [UIAction] = []
         
         lists.forEach { list in
-            let action = UIAction(title: list, image: UIImage(named: "book.fill")) { _ in
-                self.addTo(list: list, chapterId: id)
+            let action = UIAction(title: list.name, image: UIImage(named: "book.fill")) { _ in
+                self.addTo(list: list.name, chapterId: id)
             }
             actions.append(action)
         }

@@ -39,8 +39,8 @@ class ScriptureSearchTableViewController: UITableViewController {
         var actions: [UIAction] = []
         
         lists.forEach { list in
-            let action = UIAction(title: list, image: UIImage(named: "book.fill")) { _ in
-                self.addTo(list: list)
+            let action = UIAction(title: list.name, image: UIImage(named: "book.fill")) { _ in
+                self.addTo(list: list.name)
             }
             actions.append(action)
         }
