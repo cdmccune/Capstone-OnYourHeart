@@ -17,9 +17,6 @@ class HomeViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     var uid: String?
     
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var emailLabel: UILabel!
-    @IBOutlet var idLabel: UILabel!
     
     //MARK: - Lifecycles
     
@@ -57,9 +54,6 @@ class HomeViewController: UIViewController {
                 guard let user = User(from: data) else {return}
                 
                 FirebaseDataController.shared.user = user
-                self.idLabel.text = user.uid
-                self.nameLabel.text = user.firstName + " " + user.lastName
-                print(user.lists.description)
             }
         }
     }
