@@ -10,8 +10,8 @@ import UIKit
 import AVFoundation
 
 struct Colors {
-    static var backgroundTan = UIColor(red: 242/256, green: 239/256, blue: 227/256, alpha: 1.0)
-    
+    static var backgroundTan = UIColor(red: 242/255, green: 239/255, blue: 227/255, alpha: 1.0)
+    static var titleBrown = UIColor(red: 104/255, green: 79/255, blue: 59/255, alpha: 1.0)
     
 }
 

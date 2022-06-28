@@ -17,12 +17,29 @@ class FirebaseDataController {
     
     static var shared = FirebaseDataController()
     
-    var user: User = User(firstName: "John", lastName: "Doe", uid: "2")
+    var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
     let db = Firestore.firestore()
     
     
     
     //MARK: Firebase CRUD Functions
+    
+    func getUserInfo(uid: String, completion: @escaping (Result<AppUser, FirebaseError>) -> Void) {
+        db.collection(Constants.Firebase.usersKey).whereField(Constants.Firebase.uidKey, isEqualTo: uid).getDocuments { snapshot, error in
+            if let error = error {
+                return completion(.failure(.errorPullingUserInfo(error)))
+            }
+                                  
+            if let snapshot = snapshot {
+                let data = snapshot.documents[0].data()
+                guard let user = AppUser(from: data) else {return completion(.failure(.uknownError))}
+                return completion(.success(user))
+                
+                } else {
+                    return completion(.failure(.errorPullingFromSnapshotData))
+                }
+        }
+    }
     
     func createUser(firstName: String, lastName: String, email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         
@@ -36,7 +53,9 @@ class FirebaseDataController {
                 return completion(.failure(.uknownError))
             }
             
-            let newUser = User(firstName: firstName, lastName: lastName, uid: result.user.uid)
+            print(result.description)
+            
+            let newUser = AppUser(firstName: firstName, lastName: lastName, uid: result.user.uid)
             self.user = newUser
             
             
@@ -77,5 +96,32 @@ class FirebaseDataController {
                 completion(.failure(.errorSavingUserData(error)))
             } else {return completion(.success(true))}
         }
+    }
+    
+    func getVerses(for mood: String, completion: @escaping (Result<[ScriptureListEntry], FirebaseError>) -> Void) {
+        
+        var scriptureList: [ScriptureListEntry] = []
+        db.collection(Constants.Firebase.scriptureListEntryKey)
+            .whereField(Constants.Firebase.listName, isEqualTo: mood)
+            .whereField(Constants.Firebase.uidKey, isEqualTo: user.uid)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    completion(.failure(.errorGettingVerses(error)))
+                }
+                
+                
+                guard let snapshot = snapshot else {return completion(.failure(.uknownError))}
+                
+                
+                for document in snapshot.documents {
+                    let data = document.data()
+                    
+                    guard let newVerse = ScriptureListEntry(from: data) else { return completion(.failure(.errorPullingFromSnapshotData))}
+
+                    
+                    scriptureList.append(newVerse)
+                }
+                return completion(.success(scriptureList))
+            }
     }
 }

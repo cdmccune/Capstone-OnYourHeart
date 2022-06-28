@@ -17,6 +17,7 @@ class BibleController {
     var chapters: [Chapter] = []
     var verses: [Verse] = []
     var searchVerses: [SearchVerse] = []
+    var moodVerses: [ScriptureListEntry] = []
     
     // MARK: - Bible API Fetching Functions
     

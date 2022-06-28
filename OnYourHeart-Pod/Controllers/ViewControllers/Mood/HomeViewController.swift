@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
-    var uid: String?
     
     
     
@@ -25,18 +24,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        do {
-//           try Auth.auth().signOut()
-//        } catch let e {
-//            print(e)
-//        }
-        
-        
 //        Authentication check
         handle = Auth.auth().addStateDidChangeListener({ auth, user in
             if let user = user {
-                self.uid = user.uid
-                self.updateViews()
+//                let newUser = AppUser(
+//                FirebaseDataController.shared.user = newUser
+                self.updateViews(uid: user.uid)
             }
         })
     }
@@ -50,27 +43,25 @@ class HomeViewController: UIViewController {
     
     //MARK: - Helper Functions
     
-    func updateViews() {
+    func updateViews(uid: String) {
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        guard let uid = uid else {return}
-
-        DispatchQueue.main.async {
-            self.db.collection(Constants.Firebase.usersKey).whereField(Constants.Firebase.uidKey, isEqualTo: uid).getDocuments { snapshot, error in
-                if let error = error {
-                    print(error)
-                }
-                if let snapshot = snapshot {
-                    let data = snapshot.documents[0].data()
-                    guard let user = User(from: data) else {return}
+        FirebaseDataController.shared.getUserInfo(uid: uid) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let user):
                     FirebaseDataController.shared.user = user
+                    
                     self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
                 }
             }
         }
+
+        
         
         
     }

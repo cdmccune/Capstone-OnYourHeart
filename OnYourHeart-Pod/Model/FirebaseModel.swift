@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
-class User {
+class AppUser {
     
     var firstName: String
     var lastName: String
@@ -26,12 +27,19 @@ class User {
     }
 }
 
-extension User {
+extension AppUser {
     convenience init?(from data: [String: Any]) {
         
-        guard let firstName = data[Constants.Firebase.firstNameKey] as? String, let lastName = data[Constants.Firebase.lastNameKey] as? String, let uid = data[Constants.Firebase.uidKey] as? String, let lists = data[Constants.Firebase.listKey] as? [ListItem] else {return nil}
+        guard let firstName = data[Constants.Firebase.firstNameKey] as? String, let lastName = data[Constants.Firebase.lastNameKey] as? String, let uid = data[Constants.Firebase.uidKey] as? String, let lists = data[Constants.Firebase.listKey] as? [[String: Any]] else {return nil}
+        
+        var listItems: [ListItem] = []
+        
+        for listItem in lists {
+            guard let newListItem = ListItem(from: listItem) else {return nil}
+            listItems.append(newListItem)
+        }
             
-        self.init(firstName: firstName, lastName: lastName, uid: uid, lists: lists)
+        self.init(firstName: firstName, lastName: lastName, uid: uid, lists: listItems)
     }
 }
 
@@ -54,6 +62,20 @@ class ScriptureListEntry {
     }
 }
 
+extension ScriptureListEntry {
+    convenience init?(from data: [String: Any]) {
+        guard let chapterId = data[Constants.Firebase.chapterId] as? String, let listName = data[Constants.Firebase.listName] as? String, let scriptureTitle = data[Constants.Firebase.scriptureTitle] as? String, let scriptureNumbers = data[Constants.Firebase.scriptureNumbers] as? [Int] else {return nil}
+        
+        
+        self.init(chapterId: chapterId, listName: listName, scriptureTitle: scriptureTitle, scriptureNumbers: scriptureNumbers)
+    }
+}
+
+extension ScriptureListEntry: Equatable {}
+func ==(lhs: ScriptureListEntry, rhs: ScriptureListEntry) -> Bool{
+    return lhs.scriptureTitle == rhs.scriptureTitle
+}
+
 class ListItem {
     
     
@@ -67,4 +89,15 @@ class ListItem {
         self.textColor = textColor
     }
     
+}
+
+extension ListItem {
+    convenience init?(from listData: [String: Any]) {
+        guard let color = listData[Constants.Firebase.colorKey] as? [Double],
+              let name = listData[Constants.Firebase.nameKey] as? String,
+              let textColor = listData[Constants.Firebase.textColorKey] as? String else {return nil}
+        
+        
+        self.init(name: name, color: color, textColor: textColor)
+    }
 }
