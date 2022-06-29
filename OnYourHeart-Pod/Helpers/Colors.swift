@@ -15,6 +15,12 @@ struct Colors {
     
 }
 
+class ColorUtilities {
+    static func getColorsFromRGB(rGB: [Double]) -> UIColor {
+        return UIColor(red: rGB[0]/255, green: rGB[1]/255, blue: rGB[2]/255, alpha: 1.0)
+    }
+}
+
 
 enum MoodColor: String {
     case black

@@ -18,7 +18,7 @@ class FirebaseDataController {
     static var shared = FirebaseDataController()
     
     var currentListTag: Int? = nil
-    var lists: [ListItem] = []
+    var lists: [ListItem] = [ListItem(name: "Favorites", color: [255.0,255.0,255.0])]
     var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
     let db = Firestore.firestore()
     
@@ -99,6 +99,36 @@ class FirebaseDataController {
                 completion(.failure(.errorSavingUserData(error)))
             } else {return completion(.success(true))}
         }
+    }
+    
+    func delete(scripture: ScriptureListEntry, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        
+        //Finds the verse
+        db.collection(Constants.Firebase.scriptureListEntryKey)
+            .whereField(Constants.Firebase.scriptureTitle, isEqualTo: scripture.scriptureTitle)
+            .whereField(Constants.Firebase.uidKey, isEqualTo: scripture.uid)
+            .whereField(Constants.Firebase.listName, isEqualTo: scripture.listName)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    completion(.failure(.errorFetchingVerse(error)))
+                }
+                
+                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+                
+                let document = snapshot.documents[0]
+                
+                //Actually Delete
+                self.db.collection(Constants.Firebase.scriptureListEntryKey).document(document.documentID)
+                    .delete { error in
+                        if let error = error {
+                            completion(.failure(.errorDeletingVerse(error)))
+                        }
+                        
+                        return completion(.success(true))
+                    }
+                
+            }
+            
     }
     
     func getVerses(for mood: String, completion: @escaping (Result<[ScriptureListEntry], FirebaseError>) -> Void) {

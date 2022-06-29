@@ -22,9 +22,23 @@ class ListsViewController: UIViewController {
         tableView.dataSource = self
         
         getListData()
+        
+        updateViews()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+        print("hit")
     }
     
     //MARK: - Helper Functions
+    
+    func updateViews() {
+        tableView.sectionHeaderTopPadding = 0
+    }
+    
+    
     func getListData() {
         FirebaseDataController.shared.fetchAllLists(for: FirebaseDataController.shared.user.uid) { result in
             DispatchQueue.main.async {
@@ -69,15 +83,24 @@ class ListsViewController: UIViewController {
 
 extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60.0
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        
+        let list = FirebaseDataController.shared.lists[section]
+        let backgroundColor = ColorUtilities.getColorsFromRGB(rGB: list.color)
+        
+        
         let myLabel = UILabel()
-        myLabel.frame = CGRect(x: 20, y:0, width: 320, height: 30)
+        myLabel.frame = CGRect(x: 20, y:0, width: 320, height: 60)
         myLabel.font = UIFont.boldSystemFont(ofSize: 25)
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        myLabel.textColor = MoodColor(rawValue: list.textColor)?.create ?? .black
         
         let myButton = UIButton()
-        myButton.frame = CGRect(x: view.frame.width - 120, y: 0, width: 100, height: 30)
+        myButton.frame = CGRect(x: view.frame.width - 120, y: 0, width: 100, height: 60)
         myButton.setTitle("See All", for: .normal)
         myButton.setTitleColor(.systemBlue, for: .normal)
         
@@ -89,7 +112,8 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
         
     
         let headerView = UIView()
-        headerView.backgroundColor = .systemBackground
+        
+        headerView.backgroundColor = backgroundColor
         headerView.addSubview(myLabel)
         headerView.addSubview(myButton)
         

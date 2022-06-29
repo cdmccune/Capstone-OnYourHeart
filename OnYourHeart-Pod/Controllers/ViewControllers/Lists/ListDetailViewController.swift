@@ -69,5 +69,24 @@ extension ListDetailViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let verse = FirebaseDataController.shared.lists[tag].scriptureListEntries[indexPath.row]
+            
+            FirebaseDataController.shared.delete(scripture: verse) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(_):
+                        FirebaseDataController.shared.lists[self.tag].scriptureListEntries.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .left)
+//                        self.tableView.reloadData()
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }
+        }
+    }
+    
     
 }
