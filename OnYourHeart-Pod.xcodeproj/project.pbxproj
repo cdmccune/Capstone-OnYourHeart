@@ -20,7 +20,6 @@
 		24471D4A286A603300A0AEE4 /* ScriptureSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24471D49286A603300A0AEE4 /* ScriptureSearchTableViewCell.swift */; };
 		24471D4C286A6E6300A0AEE4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24471D4B286A6E6300A0AEE4 /* Colors.swift */; };
 		24971AAE286527DE00A84A69 /* ChapterNumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24971AAD286527DC00A84A69 /* ChapterNumberCollectionViewCell.swift */; };
-		24971AB02865344600A84A69 /* ScriptureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24971AAF2865344600A84A69 /* ScriptureDetailViewController.swift */; };
 		24971AB22865362500A84A69 /* ScriptureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24971AB12865362500A84A69 /* ScriptureListViewController.swift */; };
 		24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */; };
 		24E22D6E28628D44004CE717 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6D28628D44004CE717 /* SignUpViewController.swift */; };
@@ -41,6 +40,9 @@
 		24E73289286631EB002FFC73 /* FirebaseDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E73288286631EB002FFC73 /* FirebaseDataController.swift */; };
 		24E7328B286633AF002FFC73 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7328A286633AF002FFC73 /* FirebaseError.swift */; };
 		24E7328D28663506002FFC73 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7328C28663506002FFC73 /* FirebaseModel.swift */; };
+		24F228EF286CBDD400521313 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F228EE286CBDD400521313 /* ListDetailViewController.swift */; };
+		24F228F1286CBDE300521313 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F228F0286CBDE300521313 /* AddListViewController.swift */; };
+		24F228F3286CD59400521313 /* ListVerseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F228F2286CD59400521313 /* ListVerseTableViewCell.swift */; };
 		32E0FCAAD23233EE03A360D1 /* Pods_OnYourHeart_Pod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +62,6 @@
 		24471D49286A603300A0AEE4 /* ScriptureSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureSearchTableViewCell.swift; sourceTree = "<group>"; };
 		24471D4B286A6E6300A0AEE4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		24971AAD286527DC00A84A69 /* ChapterNumberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterNumberCollectionViewCell.swift; sourceTree = "<group>"; };
-		24971AAF2865344600A84A69 /* ScriptureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureDetailViewController.swift; sourceTree = "<group>"; };
 		24971AB12865362500A84A69 /* ScriptureListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureListViewController.swift; sourceTree = "<group>"; };
 		24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodScriptureViewController.swift; sourceTree = "<group>"; };
 		24E22D6D28628D44004CE717 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +83,9 @@
 		24E73288286631EB002FFC73 /* FirebaseDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataController.swift; sourceTree = "<group>"; };
 		24E7328A286633AF002FFC73 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		24E7328C28663506002FFC73 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
+		24F228EE286CBDD400521313 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		24F228F0286CBDE300521313 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		24F228F2286CD59400521313 /* ListVerseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVerseTableViewCell.swift; sourceTree = "<group>"; };
 		2D7DF3F114C56AE05B4051B4 /* Pods-OnYourHeart-Pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.debug.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.debug.xcconfig"; sourceTree = "<group>"; };
 		2D8F089091021A1DC641E71E /* Pods-OnYourHeart-Pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.release.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.release.xcconfig"; sourceTree = "<group>"; };
 		F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnYourHeart_Pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				24E22D8328637E48004CE717 /* ListsViewController.swift */,
+				24F228EE286CBDD400521313 /* ListDetailViewController.swift */,
+				24F228F0286CBDE300521313 /* AddListViewController.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -159,7 +165,6 @@
 			children = (
 				24E22D8528637EAD004CE717 /* DiscoverViewController.swift */,
 				24E22D972863EF4F004CE717 /* BibleBookListViewController.swift */,
-				24971AAF2865344600A84A69 /* ScriptureDetailViewController.swift */,
 				24971AB12865362500A84A69 /* ScriptureListViewController.swift */,
 				24471D47286A349800A0AEE4 /* ScriptureSearchTableViewController.swift */,
 			);
@@ -244,6 +249,7 @@
 				24237D222866178200CE8F20 /* VerseTableViewCell.swift */,
 				24471D49286A603300A0AEE4 /* ScriptureSearchTableViewCell.swift */,
 				243F249D286B5EC1001D5B05 /* MoodTableViewCell.swift */,
+				24F228F2286CD59400521313 /* ListVerseTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,11 +412,12 @@
 				24971AB22865362500A84A69 /* ScriptureListViewController.swift in Sources */,
 				24E22D8228637277004CE717 /* AuthenticationState.swift in Sources */,
 				24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */,
+				24F228F3286CD59400521313 /* ListVerseTableViewCell.swift in Sources */,
+				24F228F1286CBDE300521313 /* AddListViewController.swift in Sources */,
 				24E22D9428639B02004CE717 /* BibleController.swift in Sources */,
 				242763B228617C8700D0C87E /* AppDelegate.swift in Sources */,
 				24471D4A286A603300A0AEE4 /* ScriptureSearchTableViewCell.swift in Sources */,
 				24971AAE286527DE00A84A69 /* ChapterNumberCollectionViewCell.swift in Sources */,
-				24971AB02865344600A84A69 /* ScriptureDetailViewController.swift in Sources */,
 				24471D4C286A6E6300A0AEE4 /* Colors.swift in Sources */,
 				24E22D9B2863F315004CE717 /* BibleBookCollectionViewCell.swift in Sources */,
 				243F249E286B5EC1001D5B05 /* MoodTableViewCell.swift in Sources */,
@@ -424,6 +431,7 @@
 				24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */,
 				24E73289286631EB002FFC73 /* FirebaseDataController.swift in Sources */,
 				242763B428617C8700D0C87E /* SceneDelegate.swift in Sources */,
+				24F228EF286CBDD400521313 /* ListDetailViewController.swift in Sources */,
 				24E22D8628637EAD004CE717 /* DiscoverViewController.swift in Sources */,
 				24E22D9228639363004CE717 /* BibleModel.swift in Sources */,
 				24471D48286A349900A0AEE4 /* ScriptureSearchTableViewController.swift in Sources */,

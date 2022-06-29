@@ -9,13 +9,17 @@ import UIKit
 
 class DiscoverViewController: UIViewController {
 
+    //MARK: - Properties
+    
+    
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-        
+    //MARK: - Helper Functions
 
     /*
     // MARK: - Navigation

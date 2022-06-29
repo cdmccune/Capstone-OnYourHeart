@@ -10,13 +10,12 @@ import UIKit
 class MoodScriptureViewController: UIViewController {
 
     //MARK: Properties
-    
     @IBOutlet var nextVerseButton: UIButton!
     @IBOutlet var scripture: UILabel!
     var listName: String = ""
     var currentVerse: ScriptureListEntry?
     
-    
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +29,8 @@ class MoodScriptureViewController: UIViewController {
         currentVerse = nil
     }
     
+    
+    //MARK: - Helper Functions
     func updateViews() {
         
 //        let attrs = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]

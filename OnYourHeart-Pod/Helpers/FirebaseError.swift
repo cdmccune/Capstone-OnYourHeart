@@ -9,18 +9,20 @@ import Foundation
 
 enum FirebaseError: LocalizedError {
     case creatingUserError(Error)
-    case uknownError
+    case unknownError
     case errorSavingUserData(Error)
     case errorGettingVerses(Error)
     case errorPullingFromSnapshotData
     case errorPullingUserInfo(Error)
     case errorFetchingList(Error)
+    case noListError(String)
+    
     
     var errorDescription: String? {
         switch self {
         case .creatingUserError(let error):
             return("Error creating user \(error)")
-        case .uknownError:
+        case .unknownError:
             return "Uknown error occured"
         case .errorSavingUserData(let error):
             return "Error saving user data: \(error)"
@@ -32,6 +34,9 @@ enum FirebaseError: LocalizedError {
             return "Couldn't get user info: \(error)"
         case .errorFetchingList(let error):
             return "There was an error getting the list data: \(error)"
+        case .noListError(let listName):
+            return "Could not find a list for user of name \(listName)"
+        
         }
 
     }

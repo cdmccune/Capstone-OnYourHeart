@@ -10,14 +10,13 @@ import UIKit
 class ScriptureSearchTableViewController: UITableViewController {
 
     //MARK: Properties
-    
     @IBOutlet var copyrightLabel: UIView!
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var addVerseBarButton: UIBarButtonItem!
     var searchVerse: SearchVerse?
     
     
-    
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +25,6 @@ class ScriptureSearchTableViewController: UITableViewController {
     }
 
     //MARK: - Helper Functions
-    
     func setUpAddButtonMenu() {
       
         
@@ -68,9 +66,6 @@ class ScriptureSearchTableViewController: UITableViewController {
     
     
     // MARK: - Table view data source
-
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return BibleController.shared.searchVerses.count

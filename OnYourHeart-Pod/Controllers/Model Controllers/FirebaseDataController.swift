@@ -17,7 +17,7 @@ class FirebaseDataController {
     
     static var shared = FirebaseDataController()
     
-    
+    var currentListTag: Int? = nil
     var lists: [ListItem] = []
     var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
     let db = Firestore.firestore()
@@ -34,7 +34,7 @@ class FirebaseDataController {
                                   
             if let snapshot = snapshot {
                 let data = snapshot.documents[0].data()
-                guard let user = AppUser(from: data) else {return completion(.failure(.uknownError))}
+                guard let user = AppUser(from: data) else {return completion(.failure(.unknownError))}
                 return completion(.success(user))
                 
                 } else {
@@ -52,7 +52,7 @@ class FirebaseDataController {
             }
             
             guard let result = result else {
-                return completion(.failure(.uknownError))
+                return completion(.failure(.unknownError))
             }
             
             print(result.description)
@@ -113,7 +113,7 @@ class FirebaseDataController {
                 }
                 
                 
-                guard let snapshot = snapshot else {return completion(.failure(.uknownError))}
+                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
                 
                 
                 for document in snapshot.documents {
@@ -128,9 +128,7 @@ class FirebaseDataController {
             }
     }
     
-    func fetchAllLists(for uid: String, completion: @escaping (Result<ScriptureListEntry, FirebaseError>) -> Void) {
-        
-        var listInfo: [ScriptureListEntry] = []
+    func fetchAllLists(for uid: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         
         db.collection(Constants.Firebase.scriptureListEntryKey)
             .whereField(Constants.Firebase.uidKey, isEqualTo: uid)
@@ -139,13 +137,20 @@ class FirebaseDataController {
                     return completion(.failure(.errorFetchingList(error)))
                 }
                 
-                guard let snapshot = snapshot else {return completion(.failure(.uknownError))}
+                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+                
                 
                 for document in snapshot.documents {
                     let data = document.data()
+                    guard let newScriptureListEntry = ScriptureListEntry(from: data) else {
+                        return completion(.failure(.errorPullingFromSnapshotData))
+                    }
+                    
+                    guard let index = self.lists.firstIndex(where: {$0.name == newScriptureListEntry.listName}) else {return completion(.failure(.noListError(newScriptureListEntry.listName)))}
+                    
+                    self.lists[index].scriptureListEntries.append(newScriptureListEntry)
                 }
+                return completion(.success(true))
             }
-        
-        
     }
 }

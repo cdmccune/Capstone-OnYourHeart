@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 
+//In App User Object
 class AppUser {
     
     var firstName: String
@@ -43,6 +44,7 @@ extension AppUser {
     }
 }
 
+//Object created for a scripture that a user saves to a list
 class ScriptureListEntry {
     
     var uid: String
@@ -51,8 +53,6 @@ class ScriptureListEntry {
     var scriptureTitle: String
     var scriptureNumbers: [Int]
     var scriptureContent: String
-    
-    
     
     init(uid: String = FirebaseDataController.shared.user.uid, chapterId: String, listName: String, scriptureTitle: String, scriptureNumbers: [Int], scriptureContent: String) {
         self.uid = uid
@@ -64,6 +64,7 @@ class ScriptureListEntry {
     }
 }
 
+//Building a ScriptureListEntry from the firebase data
 extension ScriptureListEntry {
     convenience init?(from data: [String: Any]) {
         guard let chapterId = data[Constants.Firebase.chapterId] as? String,
@@ -83,29 +84,32 @@ func ==(lhs: ScriptureListEntry, rhs: ScriptureListEntry) -> Bool{
     return lhs.scriptureTitle == rhs.scriptureTitle
 }
 
+
+//The Item object contained within the User object in Firebase
 class ListItem {
-    
-    
     var name: String
     var color: [Double]
     var textColor: String
+    var scriptureListEntries: [ScriptureListEntry]
 
-    init(name: String, color: [Double], textColor: String = "black") {
+    init(name: String, color: [Double], textColor: String = "black", scriptureListEntries: [ScriptureListEntry] = []) {
         self.name = name
         self.color = color
         self.textColor = textColor
+        self.scriptureListEntries = scriptureListEntries
     }
     
 }
 
+//Making list items from the firebase data
 extension ListItem {
     convenience init?(from listData: [String: Any]) {
         guard let color = listData[Constants.Firebase.colorKey] as? [Double],
               let name = listData[Constants.Firebase.nameKey] as? String,
               let textColor = listData[Constants.Firebase.textColorKey] as? String else {return nil}
+            
         
-        
-        self.init(name: name, color: color, textColor: textColor)
+        self.init(name: name, color: color, textColor: textColor, scriptureListEntries: [])
     }
 }
 

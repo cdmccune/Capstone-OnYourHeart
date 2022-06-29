@@ -9,6 +9,7 @@ import UIKit
 
 class BibleBookListViewController: UIViewController {
 
+    //MARK: - Properties
     @IBOutlet var bookLabelButton: UIButton!
     //    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var bibleBookTableView: UITableView!
@@ -17,7 +18,6 @@ class BibleBookListViewController: UIViewController {
     
     
     //MARK: - Lifecycles
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,21 +27,14 @@ class BibleBookListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-        
         if let index = bibleBookTableView.indexPathForSelectedRow {
             bookLabelButton.setTitle(BibleController.shared.books[index.row].name, for: .normal)
         }
-   
-            
             
     }
     
 
     //MARK: - Helper Functions
-    
-    
-    
     func getbooks() {
         BibleController.shared.fetchBooks { result in
             DispatchQueue.main.async {

@@ -1,19 +1,14 @@
 //
-//  ScriptureDetailViewController.swift
+//  AddListViewController.swift
 //  OnYourHeart-Pod
 //
-//  Created by Curt McCune on 6/23/22.
+//  Created by Curt McCune on 6/29/22.
 //
 
 import UIKit
 
-class ScriptureDetailViewController: UIViewController {
+class AddListViewController: UIViewController {
 
-    //MARK: - Properties
-    
- 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -11,12 +11,13 @@ import FirebaseAuth
 
 class LogInViewController: UIViewController {
 
+    //MARK: - Properties
     @IBOutlet var emailTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
     
-    
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +25,7 @@ class LogInViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
+    //MARK: - Helper Functions
     func setUpElements() {
         
         errorLabel.alpha = 0

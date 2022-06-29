@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class SignUpViewController: UIViewController {
 
-    
+    //MARK: - Properties
     @IBOutlet var firstNameTF: UITextField!
     @IBOutlet var lastNameTF: UITextField!
     @IBOutlet var emailTF: UITextField!
@@ -19,7 +19,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var signUpButton: UIButton!
     
-    
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +27,7 @@ class SignUpViewController: UIViewController {
         setUpElements()
     }
     
+    //MARK: - Helper Functions
     func setUpElements() {
         errorLabel.alpha = 0
         

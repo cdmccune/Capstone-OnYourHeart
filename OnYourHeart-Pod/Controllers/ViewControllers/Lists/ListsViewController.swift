@@ -10,26 +10,35 @@ import FirebaseAuth
 
 class ListsViewController: UIViewController {
     
+    //MARK: - Properties
     @IBOutlet var tableView: UITableView!
     
     
-    
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        getListData()
-        
-        
-        
-        
-        
         tableView.delegate = self
         tableView.dataSource = self
+        
+        getListData()
     }
     
+    //MARK: - Helper Functions
     func getListData() {
-        
+        FirebaseDataController.shared.fetchAllLists(for: FirebaseDataController.shared.user.uid) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    self.tableView.reloadData()
+                    print("success")
+                    
+//FirebaseDataController.shared.lists.forEach({print($0.scriptureListEntries?.count)})
+                case .failure(let e):
+                    print(e)
+                }
+            }
+        }
     }
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
@@ -42,6 +51,8 @@ class ListsViewController: UIViewController {
             print(e)
         }
     }
+    
+    
     
     
     /*
@@ -57,27 +68,70 @@ class ListsViewController: UIViewController {
 }
 
 extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       
+        let myLabel = UILabel()
+        myLabel.frame = CGRect(x: 20, y:0, width: 320, height: 30)
+        myLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        
+        let myButton = UIButton()
+        myButton.frame = CGRect(x: view.frame.width - 120, y: 0, width: 100, height: 30)
+        myButton.setTitle("See All", for: .normal)
+        myButton.setTitleColor(.systemBlue, for: .normal)
+        
+        myButton.tag = section
+        
+        myButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
+        
+//        myButton.backgroundColor = .blue
+        
+    
+        let headerView = UIView()
+        headerView.backgroundColor = .systemBackground
+        headerView.addSubview(myLabel)
+        headerView.addSubview(myButton)
+        
+        return headerView
+        
+    }
+    
+    @objc func seeAllButtonTapped(sender: UIButton) {
+        
+        FirebaseDataController.shared.currentListTag = sender.tag
+        guard let listDetailVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.listDetailVC) as? UIViewController else {return}
+        
+        self.navigationController?.pushViewController(listDetailVC, animated: true)
+        
+    
+        
+    //ListDetailVC
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return FirebaseDataController.shared.lists.count
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return FirebaseDataController.shared.lists[section].name
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if FirebaseDataController.shared.
+        let count = FirebaseDataController.shared.lists[section].scriptureListEntries.count
         
-        
-        return 3
+        return count < 3 ? count : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.listCell, for: indexPath)
         
-        let content = cell.defaultContentConfiguration()
-        content.text =
+        var content = cell.defaultContentConfiguration()
+        content.text = FirebaseDataController.shared.lists[indexPath.section].scriptureListEntries[indexPath.row].scriptureTitle
         
+        cell.contentConfiguration = content
         
+        return cell
     }
     
     

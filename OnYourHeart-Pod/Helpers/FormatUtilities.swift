@@ -5,15 +5,20 @@
 //  Created by Curt McCune on 6/24/22.
 //
 
-//MRK.16
 
 import Foundation
 
+
+//Formates sscripture strings
 class FormatUtilities {
+    
+    //Gets verse code like 4:12
     static func formatVerseCode(verseId: String) -> String {
         let splitVerseCode = verseId.split(separator: ".")
         return splitVerseCode[1] + ":" + splitVerseCode[2]
     }
+    
+    //Inputs a chapter Id like "Gen.3" and outputs "Genesis 3"
     static func getBookAndChapter(chapterId: String) -> String {
         if let name = BibleController.shared.books.first(where: {chapterId.contains($0.abbreviation)})?.name {
             let chapter = chapterId.split(separator: ".")[1]
@@ -22,6 +27,8 @@ class FormatUtilities {
             return "Couldn't find name"
         }
     }
+    
+    //Inputs a list of scriptures [9,10,11] and book and chapter title, outputs Philippians 4: 9-11
     static func getScriptureTitle(title: String, scriptureNumbers: [Int]) -> String {
         
         var formattedScriptures = ""
@@ -39,6 +46,7 @@ class FormatUtilities {
         //Phillipians 4:6-8 or Philippians 4:5,6,8,20, Philippians 4:7
     }
     
+    //Pulls verse number from the verse Id
     static func getVerseFromId(verseId: String) -> [Int] {
         
         let splitNumber = verseId.split(separator: ".")[2]
@@ -47,6 +55,7 @@ class FormatUtilities {
         return [numbers]
     }
     
+    //Checks if a list of numbers increments by one or not
     static private func isIncremented(numList: [Int]) -> Bool {
         
         for num in (0..<numList.count-1) {
@@ -57,6 +66,5 @@ class FormatUtilities {
         
         return true
     }
-    
     
 }

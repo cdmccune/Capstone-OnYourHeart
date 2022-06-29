@@ -10,7 +10,6 @@ import UIKit
 class ScriptureListViewController: UIViewController {
 
     //MARK: - Properties
-    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var titleLabel: UILabel!
     
@@ -23,7 +22,6 @@ class ScriptureListViewController: UIViewController {
     
     
     //MARK: - Lifecycles
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +34,6 @@ class ScriptureListViewController: UIViewController {
     
     
     //MARK: - Helper Functions
-    
     func updateViews(id: String) {
         self.pageTitle = FormatUtilities.getBookAndChapter(chapterId: id)
         titleLabel.text = self.pageTitle

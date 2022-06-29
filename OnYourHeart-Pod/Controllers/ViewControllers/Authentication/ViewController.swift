@@ -12,14 +12,16 @@ import FirebaseCore
 
 class ViewController: UIViewController {
     
+    //MARK: - Properties
     var handle: AuthStateDidChangeListenerHandle?
     @IBOutlet var signUpButton: UIButton!
     @IBOutlet var loginButton: UIButton!
+    
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        
         setUpElements()
     }
     
@@ -28,6 +30,7 @@ class ViewController: UIViewController {
         //        setUpVideo()
     }
     
+    //MARK: - Helper Functions
     func setUpElements() {
         
         LoginUtilities.styleFilledButton(signUpButton)

@@ -12,7 +12,6 @@ import FirebaseFirestore
 class HomeViewController: UIViewController {
 
     //MARK: - Properties
-    
     @IBOutlet var tableView: UITableView!
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
@@ -20,7 +19,6 @@ class HomeViewController: UIViewController {
     
     
     //MARK: - Lifecycles
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +32,6 @@ class HomeViewController: UIViewController {
         })
     }
     
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         Auth.auth().removeStateDidChangeListener(handle!)
@@ -42,7 +39,6 @@ class HomeViewController: UIViewController {
     
     
     //MARK: - Helper Functions
-    
     func updateViews(uid: String) {
         
         tableView.delegate = self

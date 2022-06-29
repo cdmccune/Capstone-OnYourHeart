@@ -7,13 +7,7 @@
 
 import Foundation
 
-//FirebaseStorage
-
-
-//Bible Api
-
 //Bible Book Search
-
 struct TopLevelBooksObject: Codable {
     var data: [Book]
 }
@@ -35,7 +29,6 @@ struct Chapter: Codable {
 
 
 //Chapter Search
-
 struct TopLevelChapterObject: Codable {
     var data: ChapterContent
 }
@@ -71,7 +64,6 @@ struct Verse: Codable {
 
 
 //Verse Search
-
 struct TopLevelVerseObject: Codable {
     var data: VerseInfo
 }

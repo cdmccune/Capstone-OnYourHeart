@@ -7,6 +7,8 @@
 
 import Foundation
 
+//Constants to avoid "magic strings"
+
 struct Constants {
     struct Storyboard {
         //Controllers
@@ -14,6 +16,7 @@ struct Constants {
         static let tabBarController = "TabBarController"
         static let loginNavController = "LoginNavController"
         static let mainStoryboard = "Main"
+        static let listDetailVC = "ListDetailVC"
         //Segues
         static let segueScriptureListVC = "ToScriptureListViewController"
         static let segueScriptureDetailView = "toScriptureDetailView"
@@ -25,6 +28,7 @@ struct Constants {
         static let searchVerseCell = "SearchVerseCell"
         static let moodCell = "MoodCell"
         static let listCell = "ListCell"
+        static let listVerseCell = "ListVerseCell"
         //Static Sections
         static let listsSections = ListItem(name: "Favorites", color: [210.0,180.0,140.0])
     }
