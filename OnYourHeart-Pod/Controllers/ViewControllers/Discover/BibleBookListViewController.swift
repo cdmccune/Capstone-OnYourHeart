@@ -30,7 +30,7 @@ class BibleBookListViewController: UIViewController {
         
         
         if let index = bibleBookTableView.indexPathForSelectedRow {
-            bookLabelButton.titleLabel?.text = BibleController.shared.books[index.row].name
+            bookLabelButton.setTitle(BibleController.shared.books[index.row].name, for: .normal)
         }
    
             
@@ -150,7 +150,7 @@ extension BibleBookListViewController: UITableViewDelegate, UITableViewDataSourc
 //        guard let cell = bibleBookTableView.cellForRow(at: indexPath) else {return}
         
         
-        bookLabelButton.titleLabel?.text = BibleController.shared.books[indexPath.row].name
+        bookLabelButton.setTitle(BibleController.shared.books[indexPath.row].name, for: .normal)
 
         bibleBookTableView.isHidden = true
         chapterNumberCollectionView.isHidden = false

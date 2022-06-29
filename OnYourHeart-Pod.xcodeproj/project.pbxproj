@@ -137,6 +137,14 @@
 			path = "OnYourHeart-Pod";
 			sourceTree = "<group>";
 		};
+		242EAE8F286BF1450045053A /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				24E22D8328637E48004CE717 /* ListsViewController.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
 		243F249C286B5AFE001D5B05 /* Mood */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +181,7 @@
 			children = (
 				24971AB52865364600A84A69 /* Authentication */,
 				243F249C286B5AFE001D5B05 /* Mood */,
-				24E22D8328637E48004CE717 /* ListsViewController.swift */,
+				242EAE8F286BF1450045053A /* Lists */,
 				24971AB32865362D00A84A69 /* Discover */,
 			);
 			path = ViewControllers;

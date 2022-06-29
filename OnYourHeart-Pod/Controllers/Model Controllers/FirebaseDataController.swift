@@ -17,6 +17,8 @@ class FirebaseDataController {
     
     static var shared = FirebaseDataController()
     
+    
+    var lists: [ListItem] = []
     var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
     let db = Firestore.firestore()
     
@@ -124,5 +126,26 @@ class FirebaseDataController {
                 }
                 return completion(.success(scriptureList))
             }
+    }
+    
+    func fetchAllLists(for uid: String, completion: @escaping (Result<ScriptureListEntry, FirebaseError>) -> Void) {
+        
+        var listInfo: [ScriptureListEntry] = []
+        
+        db.collection(Constants.Firebase.scriptureListEntryKey)
+            .whereField(Constants.Firebase.uidKey, isEqualTo: uid)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    return completion(.failure(.errorFetchingList(error)))
+                }
+                
+                guard let snapshot = snapshot else {return completion(.failure(.uknownError))}
+                
+                for document in snapshot.documents {
+                    let data = document.data()
+                }
+            }
+        
+        
     }
 }

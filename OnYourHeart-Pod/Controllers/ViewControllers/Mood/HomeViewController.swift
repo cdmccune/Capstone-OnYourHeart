@@ -53,6 +53,7 @@ class HomeViewController: UIViewController {
                 switch result {
                 case .success(let user):
                     FirebaseDataController.shared.user = user
+                    FirebaseDataController.shared.lists.append(contentsOf: user.lists)
                     
                     self.tableView.reloadData()
                 case .failure(let error):

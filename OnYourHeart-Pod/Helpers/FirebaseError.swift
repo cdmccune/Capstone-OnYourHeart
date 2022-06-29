@@ -14,6 +14,7 @@ enum FirebaseError: LocalizedError {
     case errorGettingVerses(Error)
     case errorPullingFromSnapshotData
     case errorPullingUserInfo(Error)
+    case errorFetchingList(Error)
     
     var errorDescription: String? {
         switch self {
@@ -29,6 +30,8 @@ enum FirebaseError: LocalizedError {
             return "Could not pull fields from snapshot data"
         case .errorPullingUserInfo(let error):
             return "Couldn't get user info: \(error)"
+        case .errorFetchingList(let error):
+            return "There was an error getting the list data: \(error)"
         }
 
     }

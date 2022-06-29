@@ -25,6 +25,8 @@ struct Constants {
         static let searchVerseCell = "SearchVerseCell"
         static let moodCell = "MoodCell"
         static let listCell = "ListCell"
+        //Static Sections
+        static let listsSections = ListItem(name: "Favorites", color: [210.0,180.0,140.0])
     }
     
     struct Firebase {
