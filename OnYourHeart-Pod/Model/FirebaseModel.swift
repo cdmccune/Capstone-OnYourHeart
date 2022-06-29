@@ -50,24 +50,31 @@ class ScriptureListEntry {
     var listName: String
     var scriptureTitle: String
     var scriptureNumbers: [Int]
+    var scriptureContent: String
     
     
     
-    init(uid: String = FirebaseDataController.shared.user.uid, chapterId: String, listName: String, scriptureTitle: String, scriptureNumbers: [Int]) {
+    init(uid: String = FirebaseDataController.shared.user.uid, chapterId: String, listName: String, scriptureTitle: String, scriptureNumbers: [Int], scriptureContent: String) {
         self.uid = uid
         self.chapterId = chapterId
         self.listName = listName
         self.scriptureTitle = scriptureTitle
         self.scriptureNumbers = scriptureNumbers
+        self.scriptureContent = scriptureContent
     }
 }
 
 extension ScriptureListEntry {
     convenience init?(from data: [String: Any]) {
-        guard let chapterId = data[Constants.Firebase.chapterId] as? String, let listName = data[Constants.Firebase.listName] as? String, let scriptureTitle = data[Constants.Firebase.scriptureTitle] as? String, let scriptureNumbers = data[Constants.Firebase.scriptureNumbers] as? [Int] else {return nil}
+        guard let chapterId = data[Constants.Firebase.chapterId] as? String,
+              let listName = data[Constants.Firebase.listName] as? String,
+              let scriptureTitle = data[Constants.Firebase.scriptureTitle] as? String,
+              let scriptureNumbers = data[Constants.Firebase.scriptureNumbers] as? [Int],
+              let scriptureContent = data[Constants.Firebase.scriptureContentKey] as? String
+        else {return nil}
         
         
-        self.init(chapterId: chapterId, listName: listName, scriptureTitle: scriptureTitle, scriptureNumbers: scriptureNumbers)
+        self.init(chapterId: chapterId, listName: listName, scriptureTitle: scriptureTitle, scriptureNumbers: scriptureNumbers, scriptureContent: scriptureContent)
     }
 }
 

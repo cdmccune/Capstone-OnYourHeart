@@ -62,6 +62,7 @@ class MoodScriptureViewController: UIViewController {
         guard let theCurrentVerse = currentVerse else {
             currentVerse = BibleController.shared.moodVerses[0]
             title = BibleController.shared.moodVerses[0].scriptureTitle
+            scripture.text = BibleController.shared.moodVerses[0].scriptureContent
             return}
         
         guard let index = BibleController.shared.moodVerses.firstIndex(of: theCurrentVerse) else {
@@ -72,10 +73,12 @@ class MoodScriptureViewController: UIViewController {
             
             currentVerse = BibleController.shared.moodVerses[0]
             title = BibleController.shared.moodVerses[0].scriptureTitle
+            scripture.text = BibleController.shared.moodVerses[0].scriptureContent
             return
         }
         let nextVerse = BibleController.shared.moodVerses[index + 1]
         title = nextVerse.scriptureTitle
+        scripture.text = nextVerse.scriptureContent
         currentVerse = nextVerse
     }
     

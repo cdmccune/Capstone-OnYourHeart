@@ -81,16 +81,17 @@ class FirebaseDataController {
         }
     }
     
-    func add(scriptures: [Int], to listName: String, scriptureTitle: String, chapterId: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+    func add(scriptures: [Int], to listName: String, scriptureTitle: String, chapterId: String, scriptureContent: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         
-        let newScriptureListEntry = ScriptureListEntry(chapterId: chapterId, listName: listName, scriptureTitle: scriptureTitle, scriptureNumbers: scriptures)
+        let newScriptureListEntry = ScriptureListEntry(chapterId: chapterId, listName: listName, scriptureTitle: scriptureTitle, scriptureNumbers: scriptures, scriptureContent: scriptureContent)
         
         self.db.collection(Constants.Firebase.scriptureListEntryKey).addDocument(data: [
             Constants.Firebase.uidKey : newScriptureListEntry.uid,
             Constants.Firebase.chapterId : newScriptureListEntry.chapterId,
             Constants.Firebase.listName : newScriptureListEntry.listName,
             Constants.Firebase.scriptureTitle : newScriptureListEntry.scriptureTitle,
-            Constants.Firebase.scriptureNumbers : newScriptureListEntry.scriptureNumbers
+            Constants.Firebase.scriptureNumbers : newScriptureListEntry.scriptureNumbers,
+            Constants.Firebase.scriptureContentKey : newScriptureListEntry.scriptureContent
         ]) {error in
             if let error = error {
                 completion(.failure(.errorSavingUserData(error)))

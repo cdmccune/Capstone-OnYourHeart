@@ -56,7 +56,7 @@ class ScriptureSearchTableViewController: UITableViewController {
         guard let searchVerse = searchVerse else {return}
         let scriptures = FormatUtilities.getVerseFromId(verseId: searchVerse.id)
         
-        FirebaseDataController.shared.add(scriptures:scriptures, to: list, scriptureTitle: searchVerse.reference, chapterId: searchVerse.chapterId) { result in
+        FirebaseDataController.shared.add(scriptures:scriptures, to: list, scriptureTitle: searchVerse.reference, chapterId: searchVerse.chapterId, scriptureContent: searchVerse.text) { result in
             switch result {
             case .success(_):
                 print("success")

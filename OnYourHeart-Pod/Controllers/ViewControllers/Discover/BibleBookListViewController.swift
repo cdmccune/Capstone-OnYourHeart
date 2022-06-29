@@ -15,13 +15,26 @@ class BibleBookListViewController: UIViewController {
     @IBOutlet var chapterNumberCollectionView: UICollectionView!
     
     
+    
     //MARK: - Lifecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getbooks()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        
+        
+        if let index = bibleBookTableView.indexPathForSelectedRow {
+            bookLabelButton.titleLabel?.text = BibleController.shared.books[index.row].name
+        }
+   
+            
+            
     }
     
 

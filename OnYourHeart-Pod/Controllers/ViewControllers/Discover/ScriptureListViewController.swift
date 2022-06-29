@@ -18,6 +18,7 @@ class ScriptureListViewController: UIViewController {
     var scriptureTitle: String = ""
     var scriptureNumbers: [Int] = []
     var pageTitle: String = ""
+    var scriptureContent: String = ""
     var addToListButton = UIBarButtonItem()
     
     
@@ -32,6 +33,7 @@ class ScriptureListViewController: UIViewController {
         updateViews(id: chapterId)
         setUpAddButtonMenu(id: chapterId)
     }
+    
     
     //MARK: - Helper Functions
     
@@ -67,7 +69,7 @@ class ScriptureListViewController: UIViewController {
     }
     
     func addTo(list: String, chapterId: String) {
-        FirebaseDataController.shared.add(scriptures: self.scriptureNumbers, to: list, scriptureTitle: self.scriptureTitle, chapterId: chapterId) { result in
+        FirebaseDataController.shared.add(scriptures: self.scriptureNumbers, to: list, scriptureTitle: self.scriptureTitle, chapterId: chapterId, scriptureContent: self.scriptureContent) { result in
             switch result {
             case .success(_):
                 print("success")
@@ -93,9 +95,14 @@ class ScriptureListViewController: UIViewController {
     
     
     func highlightedScripturesChanged(index: [IndexPath]) {
+        
+        
         var scriptureNumbers = index.map({$0.row + 1})
         scriptureNumbers.sort()
         self.scriptureNumbers = scriptureNumbers
+        
+        scriptureContent = ""
+        scriptureNumbers.forEach({self.scriptureContent = "\(scriptureContent)" + "\(BibleController.shared.verses[$0 - 1].content)"})
         
         self.scriptureTitle = FormatUtilities.getScriptureTitle(title: self.pageTitle, scriptureNumbers: self.scriptureNumbers)
     }
