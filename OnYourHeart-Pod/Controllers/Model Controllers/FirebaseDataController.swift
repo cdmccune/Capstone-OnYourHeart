@@ -26,6 +26,8 @@ class FirebaseDataController {
     
     //MARK: Firebase CRUD Functions
     
+    
+    //User Related
     func getUserInfo(uid: String, completion: @escaping (Result<AppUser, FirebaseError>) -> Void) {
         db.collection(Constants.Firebase.usersKey).whereField(Constants.Firebase.uidKey, isEqualTo: uid).getDocuments { snapshot, error in
             if let error = error {
@@ -81,6 +83,7 @@ class FirebaseDataController {
         }
     }
     
+    //Scripture Related
     func add(scriptures: [Int], to listName: String, scriptureTitle: String, chapterId: String, scriptureContent: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         
         let newScriptureListEntry = ScriptureListEntry(chapterId: chapterId, listName: listName, scriptureTitle: scriptureTitle, scriptureNumbers: scriptures, scriptureContent: scriptureContent)
@@ -154,6 +157,27 @@ class FirebaseDataController {
             }
     }
     
+    func setFavoriteVerse(verse: ScriptureListEntry, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        
+        
+        db.collection(Constants.Firebase.scriptureListEntryKey).document(user.uid).setData([
+            Constants.Firebase.uidKey : verse.uid,
+            Constants.Firebase.chapterId : verse.chapterId,
+            Constants.Firebase.listName : verse.listName,
+            Constants.Firebase.scriptureTitle : verse.scriptureTitle,
+            Constants.Firebase.scriptureNumbers : verse.scriptureNumbers,
+            Constants.Firebase.scriptureContentKey : verse.scriptureContent
+        ]) { error in
+            if let error = error {
+                completion(.failure(.errorSettingFavVerse(error)))
+            } else {
+                completion(.success(true))
+            }
+        }
+    }
+    
+    
+    //List Related
     func fetchAllLists(for uid: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         
         db.collection(Constants.Firebase.scriptureListEntryKey)

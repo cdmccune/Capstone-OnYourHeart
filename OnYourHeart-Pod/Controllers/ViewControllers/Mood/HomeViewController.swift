@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Disable tab bar
+        self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = false})
+        
 //        Authentication check
         handle = Auth.auth().addStateDidChangeListener({ auth, user in
             if let user = user {
@@ -30,6 +33,10 @@ class HomeViewController: UIViewController {
                 self.updateViews(uid: user.uid)
             }
         })
+        
+//        addNotificationObeservers()
+        
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -39,30 +46,52 @@ class HomeViewController: UIViewController {
     
     
     //MARK: - Helper Functions
+    
+    func addNotificationObeservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateFavVerse),
+                                               name: NSNotification.Name(rawValue: Constants.Notifications.favVerseUpdated),
+                                               object: nil)
+    }
+    
+    @objc func updateFavVerse() {
+        self.tableView.reloadData()
+    }
+    
     func updateViews(uid: String) {
         
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        //This gets all the lists
         FirebaseDataController.shared.getUserInfo(uid: uid) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let user):
                     FirebaseDataController.shared.user = user
                     FirebaseDataController.shared.lists.append(contentsOf: user.lists)
-                    
+                    self.getListData()
                     self.tableView.reloadData()
                 case .failure(let error):
                     print(error)
                 }
             }
         }
-
-        
-        
-        
     }
     
+    func getListData() {
+        FirebaseDataController.shared.fetchAllLists(for: FirebaseDataController.shared.user.uid) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = true})
+                case .failure(let e):
+                    print(e)
+                }
+            }
+        }
+    }
 
 }
 

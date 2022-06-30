@@ -11,8 +11,10 @@ class ListDetailViewController: UIViewController {
 
     //MARK: - Properties
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var favoriteButton: UIBarButtonItem!
     
     var tag: Int = 0
+    var favVerse: ScriptureListEntry?
     
     
     //MARK: - LifeCycles
@@ -38,6 +40,24 @@ class ListDetailViewController: UIViewController {
         title = FirebaseDataController.shared.lists[tag].name
     }
     
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        
+        guard let favVerse = favVerse else {return}
+
+        
+        FirebaseDataController.shared.setFavoriteVerse(verse: favVerse) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    self.tableView.selectRow(at: nil, animated: false, scrollPosition: .top)
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.favVerseUpdated), object: self)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
     
     
     /*
@@ -54,15 +74,12 @@ class ListDetailViewController: UIViewController {
 
 extension ListDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        guard let tag = FirebaseDataController.shared.currentListTag else {return 0}
         
         return FirebaseDataController.shared.lists[tag].scriptureListEntries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.listVerseCell, for: indexPath) as? ListVerseTableViewCell else {return UITableViewCell()}
-        
-//        guard let tag = FirebaseDataController.shared.currentListTag else {return UITableViewCell()}
         
         cell.verse = FirebaseDataController.shared.lists[tag].scriptureListEntries[indexPath.row]
         
@@ -79,7 +96,6 @@ extension ListDetailViewController: UITableViewDelegate, UITableViewDataSource {
                     case .success(_):
                         FirebaseDataController.shared.lists[self.tag].scriptureListEntries.remove(at: indexPath.row)
                         tableView.deleteRows(at: [indexPath], with: .left)
-//                        self.tableView.reloadData()
                     case .failure(let error):
                         print(error)
                     }
@@ -87,6 +103,17 @@ extension ListDetailViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        favoriteButton.isEnabled = true
+        favVerse =
+        FirebaseDataController.shared.lists[tag].scriptureListEntries[indexPath.row]
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        favoriteButton.isEnabled = false
+    }
+    
     
     
 }

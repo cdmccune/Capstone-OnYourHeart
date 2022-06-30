@@ -454,8 +454,21 @@
                             <constraint firstItem="2pm-JL-jxZ" firstAttribute="top" secondItem="quc-Xw-fig" secondAttribute="top" id="hLk-PX-M6P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="msE-EL-Q6f"/>
+                    <navigationItem key="navigationItem" id="msE-EL-Q6f">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" id="O2x-Yf-XOg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qUk-Co-tRW">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Favorite"/>
+                            </button>
+                            <connections>
+                                <action selector="favoriteButtonTapped:" destination="IPe-UX-m48" id="vIy-ms-IQM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="favoriteButton" destination="O2x-Yf-XOg" id="ymf-cf-zp5"/>
                         <outlet property="tableView" destination="2pm-JL-jxZ" id="jxZ-CU-o3f"/>
                     </connections>
                 </viewController>

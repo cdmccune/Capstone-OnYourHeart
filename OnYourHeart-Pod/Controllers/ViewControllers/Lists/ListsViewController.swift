@@ -34,6 +34,7 @@ class ListsViewController: UIViewController {
     
     //MARK: - Helper Functions
     
+    
     func updateViews() {
         tableView.sectionHeaderTopPadding = 0
     }
@@ -46,8 +47,6 @@ class ListsViewController: UIViewController {
                 case .success(_):
                     self.tableView.reloadData()
                     print("success")
-                    
-//FirebaseDataController.shared.lists.forEach({print($0.scriptureListEntries?.count)})
                 case .failure(let e):
                     print(e)
                 }

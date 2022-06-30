@@ -10,6 +10,12 @@ import Foundation
 //Constants to avoid "magic strings"
 
 struct Constants {
+    
+    struct Notifications {
+        static let favVerseUpdated = "favVerseUpdated"
+    }
+    
+    
     struct Storyboard {
         //Controllers
         static let homeViewController = "MoodVC"

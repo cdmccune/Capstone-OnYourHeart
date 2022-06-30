@@ -16,15 +16,13 @@ class AppUser {
     var lastName: String
     var uid: String
     var lists: [ListItem]
-    var favVerse: [String: String]
     
     
-    init(firstName: String, lastName: String, uid: String, lists: [ListItem] = Constants.Firebase.listContents, favVerse: [String: String] = [:]) {
+    init(firstName: String, lastName: String, uid: String, lists: [ListItem] = Constants.Firebase.listContents) {
         self.firstName = firstName
         self.lastName = lastName
         self.uid = uid
         self.lists = lists
-        self.favVerse = favVerse
     }
 }
 
