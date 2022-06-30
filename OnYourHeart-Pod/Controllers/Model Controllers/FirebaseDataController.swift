@@ -18,7 +18,7 @@ class FirebaseDataController {
     static var shared = FirebaseDataController()
     
     var currentListTag: Int? = nil
-    var lists: [ListItem] = [ListItem(name: "Favorites", color: [255.0,255.0,255.0])]
+    var lists: [ListItem] = []
     var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
     let db = Firestore.firestore()
     
@@ -60,21 +60,19 @@ class FirebaseDataController {
             let newUser = AppUser(firstName: firstName, lastName: lastName, uid: result.user.uid)
             self.user = newUser
             
+            let listsDictionary = Constants.Firebase.listContents.map({
+                return [Constants.Firebase.nameKey : $0.name,
+                        Constants.Firebase.colorKey : $0.color,
+                        Constants.Firebase.textColorKey : $0.textColor,
+                        Constants.Firebase.isEmotionKey : $0.isEmotion]
+            })
+            
             
             self.db.collection(Constants.Firebase.usersKey).addDocument(data: [
                 Constants.Firebase.firstNameKey : firstName,
                 Constants.Firebase.lastNameKey : lastName,
                 Constants.Firebase.uidKey : result.user.uid,
-                Constants.Firebase.listKey : [[
-                    Constants.Firebase.nameKey : Constants.Firebase.listContents[0].name,
-                    Constants.Firebase.colorKey : Constants.Firebase.listContents[0].color,
-                    Constants.Firebase.textColorKey : Constants.Firebase.listContents[0].textColor],
-                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[1].name,
-                     Constants.Firebase.colorKey : Constants.Firebase.listContents[1].color,
-                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[1].textColor],
-                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[2].name,
-                     Constants.Firebase.colorKey : Constants.Firebase.listContents[2].color,
-                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[2].textColor]]
+                Constants.Firebase.listKey : listsDictionary
             ]) { error in
                 if let error = error {
                     return completion(.failure(.errorSavingUserData(error)))
@@ -213,3 +211,23 @@ class FirebaseDataController {
         
     }
 }
+
+
+
+//Constants.Firebase.listKey : [
+//                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[0].name,
+//                     Constants.Firebase.colorKey : Constants.Firebase.listContents[0].color,
+//                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[0].textColor,
+//                     Constants.Firebase.isEmotionKey : Constants.Firebase.listContents[0].isEmotion],
+//                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[1].name,
+//                     Constants.Firebase.colorKey : Constants.Firebase.listContents[1].color,
+//                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[1].textColor,
+//                     Constants.Firebase.isEmotionKey : Constants.Firebase.listContents[1].isEmotion],
+//                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[2].name,
+//                     Constants.Firebase.colorKey : Constants.Firebase.listContents[2].color,
+//                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[2].textColor,
+//                     Constants.Firebase.isEmotionKey : Constants.Firebase.listContents[2].isEmotion],
+//                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[3].name,
+//                     Constants.Firebase.colorKey : Constants.Firebase.listContents[3].color,
+//                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[3].textColor,
+//                     Constants.Firebase.isEmotionKey : Constants.Firebase.listContents[3].isEmotion]

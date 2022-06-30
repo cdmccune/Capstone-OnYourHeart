@@ -12,7 +12,7 @@ class AddListViewController: UIViewController {
     //MARK: - Properties
     var color: UIColor?
     var colorWell: UIColorWell!
-    var isMood = false
+    var isEmotion = false
     @IBOutlet var listNameTextField: UITextField!
     @IBOutlet var colorWellView: UIView!
     @IBOutlet var moodButton: UIButton!
@@ -38,12 +38,12 @@ class AddListViewController: UIViewController {
         var actions: [UIAction] = []
         
         let noAction = UIAction(title: "No") { _ in
-            self.isMood = false
+            self.isEmotion = false
             self.moodButton.setTitle("No", for: .normal)
         }
         
         let yesAction = UIAction(title: "Yes") { _ in
-            self.isMood = true
+            self.isEmotion = true
             self.moodButton.setTitle("Yes", for: .normal)
         }
         
@@ -78,10 +78,8 @@ class AddListViewController: UIViewController {
         guard let text = listNameTextField.text, text != "", let color = color else {return}
         
         let rgb = ColorUtilities.getRGBFromColor(color: color)
-        let textColor = ColorUtilities.blackOrWhiteText(color: color).rawValue
-    
         
-        let newList = ListItem(name: text, color:rgb, textColor: textColor)
+        let newList = ListItem(name: text, color:rgb, isEmotion: self.isEmotion)
         
         FirebaseDataController.shared.createNewList(list: newList) { result in
             DispatchQueue.main.async {

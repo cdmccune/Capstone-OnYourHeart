@@ -68,13 +68,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FirebaseDataController.shared.user.lists.count
+        return FirebaseDataController.shared.user.lists.filter({$0.isEmotion}).count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.moodCell, for: indexPath) as? MoodTableViewCell else {return UITableViewCell()}
 
-        cell.list = FirebaseDataController.shared.user.lists[indexPath.row]
+        cell.list = FirebaseDataController.shared.user.lists.filter({$0.isEmotion})[indexPath.row]
         return cell
     }
     
@@ -83,7 +83,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == Constants.Storyboard.segueMoodScriptureVC,
         let destinationVC = segue.destination as? MoodScriptureViewController,
         let index = tableView.indexPathForSelectedRow {
-            destinationVC.listName = FirebaseDataController.shared.user.lists[index.row].name
+            destinationVC.listName = FirebaseDataController.shared.user.lists.filter({$0.isEmotion})[index.row].name
         }
     }
 

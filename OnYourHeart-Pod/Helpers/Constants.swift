@@ -29,8 +29,6 @@ struct Constants {
         static let moodCell = "MoodCell"
         static let listCell = "ListCell"
         static let listVerseCell = "ListVerseCell"
-        //Static Sections
-        static let listsSections = ListItem(name: "Favorites", color: [210.0,180.0,140.0])
     }
     
     struct Firebase {
@@ -43,7 +41,8 @@ struct Constants {
         static let nameKey = "name"
         static let colorKey = "color"
         static let textColorKey = "textColor"
-        static let listContents = [ListItem(name: "Frustrated", color: [153.0, 76.0, 0.0]), ListItem(name: "Angry", color: [224.0, 224.0, 224.0]), ListItem(name: "Sad", color: [102.0, 178.0, 255.0])]
+        static let isEmotionKey = "isEmotion"
+        static let listContents = [ListItem(name: "Favorites", color: [0.0, 0.0, 0.0], isEmotion: false), ListItem(name: "Anxiety", color: [255.0, 255.0, 255.0], isEmotion: true), ListItem(name: "Frustration", color: [106.0, 98.0, 98.0], isEmotion: true), ListItem(name: "Anger", color: [115.0, 86.0, 71.0], isEmotion: true), ListItem(name: "Sadness", color: [209.0, 128.0, 93.0], isEmotion: true)]
         
         //For ScriptureList Table
         static let scriptureListEntryKey = "scriptureList"

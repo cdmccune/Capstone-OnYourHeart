@@ -91,12 +91,17 @@ class ListItem {
     var color: [Double]
     var textColor: String
     var scriptureListEntries: [ScriptureListEntry]
+    var isEmotion: Bool
 
-    init(name: String, color: [Double], textColor: String = "black", scriptureListEntries: [ScriptureListEntry] = []) {
+    init(name: String, color: [Double],
+         scriptureListEntries: [ScriptureListEntry] = [],
+         isEmotion: Bool) {
         self.name = name
         self.color = color
-        self.textColor = textColor
+        let colorFromCodes = ColorUtilities.getColorsFromRGB(rGB: color)
+        self.textColor = ColorUtilities.blackOrWhiteText(color: colorFromCodes).rawValue
         self.scriptureListEntries = scriptureListEntries
+        self.isEmotion = isEmotion
     }
     
 }
@@ -106,10 +111,10 @@ extension ListItem {
     convenience init?(from listData: [String: Any]) {
         guard let color = listData[Constants.Firebase.colorKey] as? [Double],
               let name = listData[Constants.Firebase.nameKey] as? String,
-              let textColor = listData[Constants.Firebase.textColorKey] as? String else {return nil}
+              let isEmotion = listData[Constants.Firebase.isEmotionKey] as? Bool else {return nil}
             
         
-        self.init(name: name, color: color, textColor: textColor, scriptureListEntries: [])
+        self.init(name: name, color: color, scriptureListEntries: [], isEmotion: isEmotion)
     }
 }
 
