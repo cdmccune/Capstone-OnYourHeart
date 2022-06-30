@@ -43,6 +43,8 @@
 		24F228EF286CBDD400521313 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F228EE286CBDD400521313 /* ListDetailViewController.swift */; };
 		24F228F1286CBDE300521313 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F228F0286CBDE300521313 /* AddListViewController.swift */; };
 		24F228F3286CD59400521313 /* ListVerseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F228F2286CD59400521313 /* ListVerseTableViewCell.swift */; };
+		24F228F5286E4C0500521313 /* TopListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F228F4286E4C0400521313 /* TopListsViewController.swift */; };
+		24F228F7286E4E1000521313 /* StoryBoardViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F228F6286E4E1000521313 /* StoryBoardViews.swift */; };
 		32E0FCAAD23233EE03A360D1 /* Pods_OnYourHeart_Pod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,8 @@
 		24F228EE286CBDD400521313 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		24F228F0286CBDE300521313 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		24F228F2286CD59400521313 /* ListVerseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVerseTableViewCell.swift; sourceTree = "<group>"; };
+		24F228F4286E4C0400521313 /* TopListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListsViewController.swift; sourceTree = "<group>"; };
+		24F228F6286E4E1000521313 /* StoryBoardViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardViews.swift; sourceTree = "<group>"; };
 		2D7DF3F114C56AE05B4051B4 /* Pods-OnYourHeart-Pod.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.debug.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.debug.xcconfig"; sourceTree = "<group>"; };
 		2D8F089091021A1DC641E71E /* Pods-OnYourHeart-Pod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnYourHeart-Pod.release.xcconfig"; path = "Target Support Files/Pods-OnYourHeart-Pod/Pods-OnYourHeart-Pod.release.xcconfig"; sourceTree = "<group>"; };
 		F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnYourHeart_Pod.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +171,7 @@
 				24E22D972863EF4F004CE717 /* BibleBookListViewController.swift */,
 				24971AB12865362500A84A69 /* ScriptureListViewController.swift */,
 				24471D47286A349800A0AEE4 /* ScriptureSearchTableViewController.swift */,
+				24F228F4286E4C0400521313 /* TopListsViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 		24E22D992863F2F1004CE717 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				24F228F6286E4E1000521313 /* StoryBoardViews.swift */,
 				24E22D9A2863F315004CE717 /* BibleBookCollectionViewCell.swift */,
 				24971AAD286527DC00A84A69 /* ChapterNumberCollectionViewCell.swift */,
 				24237D222866178200CE8F20 /* VerseTableViewCell.swift */,
@@ -412,6 +418,7 @@
 				24971AB22865362500A84A69 /* ScriptureListViewController.swift in Sources */,
 				24E22D8228637277004CE717 /* AuthenticationState.swift in Sources */,
 				24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */,
+				24F228F7286E4E1000521313 /* StoryBoardViews.swift in Sources */,
 				24F228F3286CD59400521313 /* ListVerseTableViewCell.swift in Sources */,
 				24F228F1286CBDE300521313 /* AddListViewController.swift in Sources */,
 				24E22D9428639B02004CE717 /* BibleController.swift in Sources */,
@@ -430,6 +437,7 @@
 				24E22D9628639CF7004CE717 /* ApiError.swift in Sources */,
 				24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */,
 				24E73289286631EB002FFC73 /* FirebaseDataController.swift in Sources */,
+				24F228F5286E4C0500521313 /* TopListsViewController.swift in Sources */,
 				242763B428617C8700D0C87E /* SceneDelegate.swift in Sources */,
 				24F228EF286CBDD400521313 /* ListDetailViewController.swift in Sources */,
 				24E22D8628637EAD004CE717 /* DiscoverViewController.swift in Sources */,

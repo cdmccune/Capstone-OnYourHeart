@@ -696,7 +696,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="79" translatesAutoresizingMaskIntoConstraints="NO" id="L0R-gS-p36">
-                                <rect key="frame" x="126.5" y="325" width="161.5" height="251"/>
+                                <rect key="frame" x="126.5" y="351" width="161.5" height="251"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7s-MB-7p6">
                                         <rect key="frame" x="0.0" y="0.0" width="161.5" height="31"/>
@@ -756,7 +756,7 @@
                             </connections>
                         </searchBar>
                         <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="NLA-Pw-YFP">
-                            <rect key="frame" x="0.0" y="725.5" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="673.5" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berean Study Bible © Bible Hub, 2020." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flm-Ez-juw">
@@ -826,17 +826,42 @@
             </objects>
             <point key="canvasLocation" x="5202.898550724638" y="1829.4642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Top Scriptures-->
         <scene sceneID="unR-Is-ABt">
             <objects>
-                <viewController id="CaJ-1m-WhV" sceneMemberID="viewController">
+                <viewController id="CaJ-1m-WhV" customClass="TopListsViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvX-uM-6PH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RmH-Kz-FJl">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="74" id="vaE-yh-mN9">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vaE-yh-mN9" id="iHA-Le-UkA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="A14-W5-Vuq"/>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.93725490199999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RmH-Kz-FJl" firstAttribute="leading" secondItem="A14-W5-Vuq" secondAttribute="leading" id="FlA-yb-Ip4"/>
+                            <constraint firstItem="A14-W5-Vuq" firstAttribute="trailing" secondItem="RmH-Kz-FJl" secondAttribute="trailing" id="IO8-si-ovz"/>
+                            <constraint firstItem="RmH-Kz-FJl" firstAttribute="top" secondItem="A14-W5-Vuq" secondAttribute="top" id="PeV-Hq-Uri"/>
+                            <constraint firstItem="A14-W5-Vuq" firstAttribute="bottom" secondItem="RmH-Kz-FJl" secondAttribute="bottom" id="jJv-IF-HYz"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JcZ-Hi-VjX"/>
+                    <navigationItem key="navigationItem" title="Top Scriptures" largeTitleDisplayMode="always" id="JcZ-Hi-VjX"/>
+                    <connections>
+                        <outlet property="tableView" destination="RmH-Kz-FJl" id="5jH-Rl-fvi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbG-iS-ZpN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -851,7 +876,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book and Chapter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzY-Rz-fiz">
-                                <rect key="frame" x="110" y="53" width="194" height="30"/>
+                                <rect key="frame" x="110" y="105" width="194" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -863,7 +888,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="873-vm-k64">
-                                <rect key="frame" x="10" y="93" width="394" height="679"/>
+                                <rect key="frame" x="10" y="145" width="394" height="627"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VerseCell" id="NId-VN-xB9" customClass="VerseTableViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
@@ -943,7 +968,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I6C-61-VJ2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnx-Xe-vGg">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
@@ -961,7 +986,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IJ7-5a-fgM">
-                                        <rect key="frame" x="0.0" y="35" width="414" height="655"/>
+                                        <rect key="frame" x="0.0" y="35" width="414" height="603"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BibleBookCell" textLabel="Z4U-QZ-TbE" style="IBUITableViewCellStyleDefault" id="r3x-9P-PJs">
@@ -988,7 +1013,7 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG9-6U-t0f">
-                                        <rect key="frame" x="0.0" y="690" width="414" height="35"/>
+                                        <rect key="frame" x="0.0" y="638" width="414" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Rw6-4Y-y2d"/>
                                         </constraints>
@@ -1000,7 +1025,7 @@
                                         </state>
                                     </button>
                                     <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RKt-rz-y6x">
-                                        <rect key="frame" x="0.0" y="725" width="414" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="673" width="414" height="0.0"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tds-Cq-yrL">
                                             <size key="itemSize" width="75" height="75"/>
@@ -1101,8 +1126,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xEa-7M-ayY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Discover" id="Uo0-5w-e4E"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PDp-Cw-RMM">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="PDp-Cw-RMM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

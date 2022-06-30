@@ -22,6 +22,7 @@ class FirebaseDataController {
     var lists: [ListItem] = []
     var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
     let db = Firestore.firestore()
+    var topLists: [ScriptureListEntry]?
     
     
     
@@ -71,7 +72,6 @@ class FirebaseDataController {
                         Constants.Firebase.isEmotionKey : $0.isEmotion]
             })
             
-            
             self.db.collection(Constants.Firebase.usersKey).addDocument(data: [
                 Constants.Firebase.firstNameKey : firstName,
                 Constants.Firebase.lastNameKey : lastName,
@@ -89,6 +89,8 @@ class FirebaseDataController {
     func add(scriptures: [Int], to listName: String, scriptureTitle: String, chapterId: String, scriptureContent: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         
         let newScriptureListEntry = ScriptureListEntry(chapterId: chapterId, listName: listName, scriptureTitle: scriptureTitle, scriptureNumbers: scriptures, scriptureContent: scriptureContent)
+        
+        print(FormatUtilities.getBookFromChaper(chapterId: chapterId))
         
         self.db.collection(Constants.Firebase.scriptureListEntryKey).addDocument(data: [
             Constants.Firebase.uidKey : newScriptureListEntry.uid,
@@ -176,6 +178,13 @@ class FirebaseDataController {
                 completion(.success(true))
             }
         }
+    }
+    
+    func getTopVerses(completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        
+        
+        
+        
     }
     
     

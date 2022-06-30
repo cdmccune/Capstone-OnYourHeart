@@ -12,6 +12,11 @@ import Foundation
 //Formates sscripture strings
 class FormatUtilities {
     
+    static func getBookFromChaper(chapterId: String) -> String {
+        let splitChapter = chapterId.split(separator: ".")
+        return "\(splitChapter[0])"
+    }
+    
     //Gets verse code like 4:12
     static func formatVerseCode(verseId: String) -> String {
         let splitVerseCode = verseId.split(separator: ".")
