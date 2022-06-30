@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
+    @IBOutlet var favVerseTitleLabel: UILabel!
+    @IBOutlet var favVerseContentLabel: UILabel!
     
     
     
@@ -34,7 +36,7 @@ class HomeViewController: UIViewController {
             }
         })
         
-//        addNotificationObeservers()
+        addNotificationObservers()
         
         
     }
@@ -47,7 +49,7 @@ class HomeViewController: UIViewController {
     
     //MARK: - Helper Functions
     
-    func addNotificationObeservers() {
+    func addNotificationObservers() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateFavVerse),
                                                name: NSNotification.Name(rawValue: Constants.Notifications.favVerseUpdated),
@@ -55,7 +57,9 @@ class HomeViewController: UIViewController {
     }
     
     @objc func updateFavVerse() {
-        self.tableView.reloadData()
+        guard let favVerse = FirebaseDataController.shared.favVerse else {return}
+        favVerseTitleLabel.text = favVerse.scriptureTitle
+        favVerseContentLabel.text = favVerse.scriptureContent
     }
     
     func updateViews(uid: String) {
@@ -85,6 +89,10 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
+                    if let favVerse = FirebaseDataController.shared.favVerse {
+                        self.favVerseTitleLabel.text = favVerse.scriptureTitle
+                        self.favVerseContentLabel.text = favVerse.scriptureContent
+                    }
                     self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = true})
                 case .failure(let e):
                     print(e)

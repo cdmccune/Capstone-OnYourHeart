@@ -69,7 +69,7 @@ class ScriptureListViewController: UIViewController {
         FirebaseDataController.shared.add(scriptures: self.scriptureNumbers, to: list, scriptureTitle: self.scriptureTitle, chapterId: chapterId, scriptureContent: self.scriptureContent) { result in
             switch result {
             case .success(_):
-                print("success")
+                NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.scriptureAdded), object: self)
             case .failure(let error):
                 print(error)
             }

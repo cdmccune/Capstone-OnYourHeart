@@ -21,38 +21,42 @@ class ListsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        getListData()
         
+        addNotificationObservers()
         updateViews()
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-        print("hit")
     }
     
     //MARK: - Helper Functions
     
+    func addNotificationObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateTableView),
+                                               name: NSNotification.Name(rawValue: Constants.Notifications.scriptureAdded),
+                                               object: nil)
+    }
+    
+    @objc func updateTableView() {
+        tableView.reloadData()
+    }
     
     func updateViews() {
         tableView.sectionHeaderTopPadding = 0
     }
     
     
-    func getListData() {
-        FirebaseDataController.shared.fetchAllLists(for: FirebaseDataController.shared.user.uid) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(_):
-                    self.tableView.reloadData()
-                    print("success")
-                case .failure(let e):
-                    print(e)
-                }
-            }
-        }
-    }
+//    func getListData() {
+//        FirebaseDataController.shared.fetchAllLists(for: FirebaseDataController.shared.user.uid) { result in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success(_):
+//                    self.tableView.reloadData()
+//                    print("success")
+//                case .failure(let e):
+//                    print(e)
+//                }
+//            }
+//        }
+//    }
     
     @IBAction func logOutButtonTapped(_ sender: Any) {
         
@@ -115,6 +119,20 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.backgroundColor = backgroundColor
         headerView.addSubview(myLabel)
         headerView.addSubview(myButton)
+        
+        
+//        let bottomLine = CALayer()
+//        bottomLine.frame = CGRect(x: 0, y: headerView.frame.height - 2, width: headerView.frame.width, height: 2)
+//        bottomLine.backgroundColor = UIColor.black.cgColor
+//        bottomLine.bounds = headerView.bounds
+//        
+//        let topLine = CALayer()
+//        topLine.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: 2)
+//        topLine.backgroundColor = UIColor.black.cgColor
+//        topLine.bounds = headerView.bounds
+//        
+//        headerView.layer.addSublayer(topLine)
+//        headerView.layer.addSublayer(bottomLine)
         
         return headerView
         

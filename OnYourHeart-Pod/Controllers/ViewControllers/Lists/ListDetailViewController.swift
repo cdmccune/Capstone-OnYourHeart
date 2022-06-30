@@ -43,14 +43,16 @@ class ListDetailViewController: UIViewController {
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         
         guard let favVerse = favVerse else {return}
-
+        
         
         FirebaseDataController.shared.setFavoriteVerse(verse: favVerse) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
+                    FirebaseDataController.shared.favVerse = favVerse
                     self.tableView.selectRow(at: nil, animated: false, scrollPosition: .top)
                     NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.favVerseUpdated), object: self)
+                    self.favoriteButton.isEnabled = false
                 case .failure(let error):
                     print(error)
                 }

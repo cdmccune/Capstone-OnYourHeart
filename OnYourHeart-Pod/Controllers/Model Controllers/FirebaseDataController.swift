@@ -18,9 +18,11 @@ class FirebaseDataController {
     static var shared = FirebaseDataController()
     
     var currentListTag: Int? = nil
+    var favVerse: ScriptureListEntry?
     var lists: [ListItem] = []
     var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
     let db = Firestore.firestore()
+    
     
     
     
@@ -163,7 +165,7 @@ class FirebaseDataController {
         db.collection(Constants.Firebase.scriptureListEntryKey).document(user.uid).setData([
             Constants.Firebase.uidKey : verse.uid,
             Constants.Firebase.chapterId : verse.chapterId,
-            Constants.Firebase.listName : verse.listName,
+            Constants.Firebase.listName : verse.uid,
             Constants.Firebase.scriptureTitle : verse.scriptureTitle,
             Constants.Firebase.scriptureNumbers : verse.scriptureNumbers,
             Constants.Firebase.scriptureContentKey : verse.scriptureContent
@@ -190,15 +192,22 @@ class FirebaseDataController {
                 guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
                 
                 
+                
                 for document in snapshot.documents {
+                    
                     let data = document.data()
                     guard let newScriptureListEntry = ScriptureListEntry(from: data) else {
                         return completion(.failure(.errorPullingFromSnapshotData))
                     }
                     
+                    if document.documentID == uid {
+                        self.favVerse = newScriptureListEntry
+                    } else {
+                    
                     guard let index = self.lists.firstIndex(where: {$0.name == newScriptureListEntry.listName}) else {return completion(.failure(.noListError(newScriptureListEntry.listName)))}
                     
                     self.lists[index].scriptureListEntries.append(newScriptureListEntry)
+                }
                 }
                 return completion(.success(true))
             }

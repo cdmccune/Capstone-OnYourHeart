@@ -271,6 +271,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="s1W-8Y-tvO"/>
                     <connections>
+                        <outlet property="favVerseContentLabel" destination="dEm-Pm-Ymx" id="TiJ-Ou-Aha"/>
+                        <outlet property="favVerseTitleLabel" destination="cHU-ic-JN7" id="Bok-lr-nrb"/>
                         <outlet property="tableView" destination="qbK-dk-86E" id="qGq-0H-uq1"/>
                     </connections>
                 </viewController>
@@ -461,10 +463,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Favorite"/>
+                                <connections>
+                                    <action selector="favoriteButtonTapped:" destination="IPe-UX-m48" eventType="touchUpInside" id="LbZ-OQ-Y5u"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="favoriteButtonTapped:" destination="IPe-UX-m48" id="vIy-ms-IQM"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

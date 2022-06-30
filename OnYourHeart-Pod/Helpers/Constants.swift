@@ -13,6 +13,7 @@ struct Constants {
     
     struct Notifications {
         static let favVerseUpdated = "favVerseUpdated"
+        static let scriptureAdded = "scriptureAdded"
     }
     
     

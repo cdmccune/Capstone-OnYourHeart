@@ -57,7 +57,7 @@ class ScriptureSearchTableViewController: UITableViewController {
         FirebaseDataController.shared.add(scriptures:scriptures, to: list, scriptureTitle: searchVerse.reference, chapterId: searchVerse.chapterId, scriptureContent: searchVerse.text) { result in
             switch result {
             case .success(_):
-                print("success")
+                NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.scriptureAdded), object: self)
             case .failure(let error):
                 print(error)
             }
