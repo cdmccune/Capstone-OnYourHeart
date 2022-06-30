@@ -18,6 +18,7 @@ enum FirebaseError: LocalizedError {
     case noListError(String)
     case errorFetchingVerse(Error)
     case errorDeletingVerse(Error)
+    case errorAddingList(Error)
     
     
     var errorDescription: String? {
@@ -42,6 +43,8 @@ enum FirebaseError: LocalizedError {
             return "There was an error finding verse: \(error)"
         case .errorDeletingVerse(let error):
             return "There was an error deleting the verse: \(error)"
+        case .errorAddingList(let error):
+            return "There was an error adding a list to the user \(error)"
         }
 
     }

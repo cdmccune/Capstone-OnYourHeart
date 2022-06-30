@@ -491,7 +491,7 @@
                                                     <action selector="textFieldChanged:" destination="tQi-FB-fBn" eventType="editingChanged" id="SRq-mr-IbQ"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Is it a mood?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V7-Od-2EH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Is it an emotion?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7V7-Od-2EH">
                                                 <rect key="frame" x="0.0" y="90.5" width="145" height="36.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36.5" id="8TK-09-ScU"/>

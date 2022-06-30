@@ -79,12 +79,21 @@ class AddListViewController: UIViewController {
         
         let rgb = ColorUtilities.getRGBFromColor(color: color)
         let textColor = ColorUtilities.blackOrWhiteText(color: color).rawValue
-        
-        print(textColor)
+    
         
         let newList = ListItem(name: text, color:rgb, textColor: textColor)
         
-        //FireBase add new list
+        FirebaseDataController.shared.createNewList(list: newList) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    FirebaseDataController.shared.user.lists.append(newList)
+                    self.navigationController?.popViewController(animated: true)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
     /*

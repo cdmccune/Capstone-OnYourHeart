@@ -22,20 +22,24 @@ class ColorUtilities {
     }
     static func getRGBFromColor(color: UIColor) -> [Double] {
         var colors: [Double] = []
-        colors.append(CIColor(color: color).red)
-        colors.append(CIColor(color: color).green)
-        colors.append(CIColor(color: color).blue)
+        colors.append(CIColor(color: color).red*255)
+        colors.append(CIColor(color: color).green*255)
+        colors.append(CIColor(color: color).blue*255)
         
         return colors
     }
     static func blackOrWhiteText(color: UIColor) -> MoodColor {
-        let colorComponents = (color.cgColor).components
+        let colorComponents = (color.cgColor)
         
-        guard let components = colorComponents, components.count >= 3 else {return .black}
+        let newColor = colorComponents.converted(to: CGColorSpaceCreateDeviceRGB(), intent: .defaultIntent, options: nil)
+        
+        
+        guard let components = newColor?.components, components.count >= 3 else {return .black}
+    
         
         let brightness = Float(((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000)
         
-        return brightness > 0.7 ? .white : .black
+        return brightness < 0.5 ? .white : .black
     }
 }
 

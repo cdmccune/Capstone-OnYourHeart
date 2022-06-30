@@ -126,9 +126,7 @@ class FirebaseDataController {
                         
                         return completion(.success(true))
                     }
-                
             }
-            
     }
     
     func getVerses(for mood: String, completion: @escaping (Result<[ScriptureListEntry], FirebaseError>) -> Void) {
@@ -182,5 +180,36 @@ class FirebaseDataController {
                 }
                 return completion(.success(true))
             }
+    }
+    
+    func createNewList(list: ListItem, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        
+        let uid = self.user.uid
+        
+        db.collection(Constants.Firebase.usersKey).whereField(Constants.Firebase.uidKey, isEqualTo: uid)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    return completion(.failure(.errorFetchingList(error)))
+                }
+                
+                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+                
+                let document = snapshot.documents[0]
+                let firebaseListItem: [String: Any] = [
+                    Constants.Firebase.nameKey : list.name,
+                    Constants.Firebase.colorKey : list.color,
+                    Constants.Firebase.textColorKey : list.textColor]
+                
+                self.db.collection(Constants.Firebase.usersKey).document(document.documentID)
+                    .updateData([Constants.Firebase.listKey : FieldValue.arrayUnion([firebaseListItem])]) { error in
+                        if let error = error {
+                            return completion(.failure(.errorAddingList(error)))
+                        } else {
+                            return completion(.success(true))
+                        }
+                    }
+                
+            }
+        
     }
 }

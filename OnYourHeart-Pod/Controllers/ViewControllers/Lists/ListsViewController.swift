@@ -102,7 +102,7 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
         let myButton = UIButton()
         myButton.frame = CGRect(x: view.frame.width - 120, y: 0, width: 100, height: 60)
         myButton.setTitle("See All", for: .normal)
-        myButton.setTitleColor(.systemBlue, for: .normal)
+        myButton.setTitleColor(MoodColor(rawValue: list.textColor)?.create ?? .black, for: .normal)
         
         myButton.tag = section
         
