@@ -22,7 +22,7 @@ class FirebaseDataController {
     var lists: [ListItem] = []
     var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
     let db = Firestore.firestore()
-    var topLists: [ScriptureListEntry]?
+    var topBooksList: [TopBook] = []
     
     
     
@@ -200,13 +200,6 @@ class FirebaseDataController {
         }
     }
     
-    func getTopVerses(completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
-        
-        
-        
-        
-    }
-    
     
     //List Related
     func fetchAllLists(for uid: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
@@ -272,6 +265,35 @@ class FirebaseDataController {
             }
         
     }
+    
+    func fetchTopBooks(completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        self.db.collection(Constants.Firebase.bookPopularityCount)
+            .order(by: Constants.Firebase.countKey, descending: true)
+            .limit(to: 10)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    return completion(.failure(.errorFetchingTopBooks(error)))
+                }
+                
+                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+
+                
+                
+                
+                for documents in snapshot.documents {
+                    let data = documents.data()
+                    
+                    guard let newTopBook = TopBook(from: data) else {return completion(.failure(.errorPullingFromSnapshotData))}
+                    
+                    self.topBooksList.append(newTopBook)
+                }
+                
+                
+                return completion(.success(true))
+            }
+    }
+    
+    
 }
 
 

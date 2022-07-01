@@ -826,7 +826,7 @@
             </objects>
             <point key="canvasLocation" x="5202.898550724638" y="1829.4642857142856"/>
         </scene>
-        <!--Top Scriptures-->
+        <!--Top Books-->
         <scene sceneID="unR-Is-ABt">
             <objects>
                 <viewController id="CaJ-1m-WhV" customClass="TopListsViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
@@ -838,7 +838,7 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="74" id="vaE-yh-mN9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopBookCell" rowHeight="74" id="vaE-yh-mN9">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vaE-yh-mN9" id="iHA-Le-UkA">
@@ -858,7 +858,7 @@
                             <constraint firstItem="A14-W5-Vuq" firstAttribute="bottom" secondItem="RmH-Kz-FJl" secondAttribute="bottom" id="jJv-IF-HYz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Top Scriptures" largeTitleDisplayMode="always" id="JcZ-Hi-VjX"/>
+                    <navigationItem key="navigationItem" title="Top Books" largeTitleDisplayMode="always" id="JcZ-Hi-VjX"/>
                     <connections>
                         <outlet property="tableView" destination="RmH-Kz-FJl" id="5jH-Rl-fvi"/>
                     </connections>

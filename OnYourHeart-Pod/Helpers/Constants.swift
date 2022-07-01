@@ -36,6 +36,7 @@ struct Constants {
         static let moodCell = "MoodCell"
         static let listCell = "ListCell"
         static let listVerseCell = "ListVerseCell"
+        static let topBookCell = "TopBookCell"
     }
     
     struct Firebase {

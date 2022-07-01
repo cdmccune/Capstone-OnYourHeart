@@ -117,3 +117,25 @@ extension ListItem {
 }
 
 
+class TopBook {
+    
+    var name: String
+    var count: Int
+    
+    
+    init(name: String, count: Int) {
+        self.name = name
+        self.count = count
+    }
+    
+}
+
+extension TopBook {
+    convenience init?(from data: [String: Any]) {
+        guard let count = data[Constants.Firebase.countKey] as? Int,
+              let name = data[Constants.Firebase.nameKey] as? String else {return nil}
+        
+        self.init(name: name, count: count)
+    }
+}
+
