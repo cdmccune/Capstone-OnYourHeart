@@ -56,7 +56,10 @@ class ScriptureSearchTableViewController: UITableViewController {
         
         FirebaseDataController.shared.add(scriptures:scriptures, to: list, scriptureTitle: searchVerse.reference, chapterId: searchVerse.chapterId, scriptureContent: searchVerse.text) { result in
             switch result {
-            case .success(_):
+            case .success(let verse):
+                if let index = FirebaseDataController.shared.lists.firstIndex(where: {$0.name == list}) {
+                    FirebaseDataController.shared.lists[index].scriptureListEntries.append(verse)
+                }
                 NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.scriptureAdded), object: self)
             case .failure(let error):
                 print(error)

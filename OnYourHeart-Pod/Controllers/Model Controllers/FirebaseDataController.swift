@@ -86,11 +86,11 @@ class FirebaseDataController {
     }
     
     //Scripture Related
-    func add(scriptures: [Int], to listName: String, scriptureTitle: String, chapterId: String, scriptureContent: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+    func add(scriptures: [Int], to listName: String, scriptureTitle: String, chapterId: String, scriptureContent: String, completion: @escaping (Result<ScriptureListEntry, FirebaseError>) -> Void) {
         
         let newScriptureListEntry = ScriptureListEntry(chapterId: chapterId, listName: listName, scriptureTitle: scriptureTitle, scriptureNumbers: scriptures, scriptureContent: scriptureContent)
         
-        print(FormatUtilities.getBookFromChaper(chapterId: chapterId))
+        let bookAbb = FormatUtilities.getBookFromChaper(chapterId: chapterId)
         
         self.db.collection(Constants.Firebase.scriptureListEntryKey).addDocument(data: [
             Constants.Firebase.uidKey : newScriptureListEntry.uid,
@@ -102,37 +102,57 @@ class FirebaseDataController {
         ]) {error in
             if let error = error {
                 completion(.failure(.errorSavingUserData(error)))
-            } else {return completion(.success(true))}
+            } else {
+                self.db.collection(Constants.Firebase.bookPopularityCount).document(bookAbb)
+                    .updateData([Constants.Firebase.countKey : FieldValue.increment(Int64(1))]) { error in
+                        if let error = error {
+                            completion(.failure(.errorIncrementingBookCount(error)))
+                        } else {
+                            return completion(.success(newScriptureListEntry))
+                        }
+                    }
+            }
         }
     }
     
-    func delete(scripture: ScriptureListEntry, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
-        
-        //Finds the verse
-        db.collection(Constants.Firebase.scriptureListEntryKey)
-            .whereField(Constants.Firebase.scriptureTitle, isEqualTo: scripture.scriptureTitle)
-            .whereField(Constants.Firebase.uidKey, isEqualTo: scripture.uid)
-            .whereField(Constants.Firebase.listName, isEqualTo: scripture.listName)
-            .getDocuments { snapshot, error in
-                if let error = error {
-                    completion(.failure(.errorFetchingVerse(error)))
-                }
-                
-                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
-                
-                let document = snapshot.documents[0]
-                
-                //Actually Delete
-                self.db.collection(Constants.Firebase.scriptureListEntryKey).document(document.documentID)
-                    .delete { error in
-                        if let error = error {
-                            completion(.failure(.errorDeletingVerse(error)))
-                        }
-                        
-                        return completion(.success(true))
+        func delete(scripture: ScriptureListEntry, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+            
+         
+            let bookAbb = FormatUtilities.getBookFromChaper(chapterId: scripture.chapterId)
+            
+            //Finds the verse
+            db.collection(Constants.Firebase.scriptureListEntryKey)
+                .whereField(Constants.Firebase.scriptureTitle, isEqualTo: scripture.scriptureTitle)
+                .whereField(Constants.Firebase.uidKey, isEqualTo: scripture.uid)
+                .whereField(Constants.Firebase.listName, isEqualTo: scripture.listName)
+                .getDocuments { snapshot, error in
+                    if let error = error {
+                        completion(.failure(.errorFetchingVerse(error)))
                     }
-            }
-    }
+                    
+                    guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+                    
+                    let document = snapshot.documents[0]
+                    
+                    //Actually Delete
+                    self.db.collection(Constants.Firebase.scriptureListEntryKey).document(document.documentID)
+                        .delete { error in
+                            if let error = error {
+                                completion(.failure(.errorDeletingVerse(error)))
+                            } else {
+                                self.db.collection(Constants.Firebase.bookPopularityCount).document(bookAbb)
+                                    .updateData([Constants.Firebase.countKey : FieldValue.increment(Int64(-1))]) { error in
+                                        if let error = error {
+                                            completion(.failure(.errorDecrementingBookCount(error)))
+                                        } else {
+                                            return completion(.success(true))
+                                        }
+                                    }
+                                
+                            }
+                        }
+                }
+        }
     
     func getVerses(for mood: String, completion: @escaping (Result<[ScriptureListEntry], FirebaseError>) -> Void) {
         

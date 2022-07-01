@@ -20,6 +20,8 @@ enum FirebaseError: LocalizedError {
     case errorDeletingVerse(Error)
     case errorAddingList(Error)
     case errorSettingFavVerse(Error)
+    case errorIncrementingBookCount(Error)
+    case errorDecrementingBookCount(Error)
     
     
     
@@ -49,6 +51,10 @@ enum FirebaseError: LocalizedError {
             return "There was an error adding a list to the user \(error)"
         case .errorSettingFavVerse(let error):
             return "There was an error setting the favorite verse \(error)"
+        case .errorIncrementingBookCount(let error):
+            return "There was an error incrementing the book count \(error)"
+        case .errorDecrementingBookCount(let error):
+            return "There was an error decrementing the book count \(error)"
         }
 
     }

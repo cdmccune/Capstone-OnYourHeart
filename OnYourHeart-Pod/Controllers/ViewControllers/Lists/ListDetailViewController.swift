@@ -91,6 +91,7 @@ extension ListDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let verse = FirebaseDataController.shared.lists[tag].scriptureListEntries[indexPath.row]
+
             
             FirebaseDataController.shared.delete(scripture: verse) { result in
                 DispatchQueue.main.async {
@@ -98,6 +99,7 @@ extension ListDetailViewController: UITableViewDelegate, UITableViewDataSource {
                     case .success(_):
                         FirebaseDataController.shared.lists[self.tag].scriptureListEntries.remove(at: indexPath.row)
                         tableView.deleteRows(at: [indexPath], with: .left)
+                        NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.scriptureAdded), object: self)
                     case .failure(let error):
                         print(error)
                     }

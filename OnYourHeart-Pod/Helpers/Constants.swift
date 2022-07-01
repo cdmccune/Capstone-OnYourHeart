@@ -62,6 +62,10 @@ struct Constants {
         static let favVerseKey = "favVerse"
         static let scriptureContentKey = "scriptureContent"
         
+        //For Leaderboard
+        static let bookPopularityCount = "bookPopularityCount"
+        static let countKey = "count"
+        
         
     }
     

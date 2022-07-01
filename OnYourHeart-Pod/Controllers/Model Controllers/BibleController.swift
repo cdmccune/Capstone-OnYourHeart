@@ -7,9 +7,11 @@
 
 import Foundation
 
+
 class BibleController {
     
     //MARK: - Properties
+    
     
     static var shared = BibleController()
     
