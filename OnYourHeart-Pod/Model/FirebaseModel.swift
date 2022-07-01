@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import FirebaseAuth
+
 
 //In App User Object
 class AppUser {
@@ -43,7 +43,7 @@ extension AppUser {
 }
 
 //Object created for a scripture that a user saves to a list
-class ScriptureListEntry {
+class ScriptureListEntry: Encodable {
     
     var uid: String
     var chapterId: String

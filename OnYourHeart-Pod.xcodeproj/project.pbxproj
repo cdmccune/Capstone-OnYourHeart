@@ -15,12 +15,21 @@
 		242763B928617C8700D0C87E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242763B728617C8700D0C87E /* Main.storyboard */; };
 		242763BB28617C8D00D0C87E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 242763BA28617C8D00D0C87E /* Assets.xcassets */; };
 		242763BE28617C8D00D0C87E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242763BC28617C8D00D0C87E /* LaunchScreen.storyboard */; };
+		242DE0A6286F6CF0007C80CF /* WidgetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DE0A5286F6CF0007C80CF /* WidgetConstants.swift */; };
+		242DE0A7286F6D09007C80CF /* WidgetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DE0A5286F6CF0007C80CF /* WidgetConstants.swift */; };
 		243F249E286B5EC1001D5B05 /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F249D286B5EC1001D5B05 /* MoodTableViewCell.swift */; };
 		24471D48286A349900A0AEE4 /* ScriptureSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24471D47286A349800A0AEE4 /* ScriptureSearchTableViewController.swift */; };
 		24471D4A286A603300A0AEE4 /* ScriptureSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24471D49286A603300A0AEE4 /* ScriptureSearchTableViewCell.swift */; };
 		24471D4C286A6E6300A0AEE4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24471D4B286A6E6300A0AEE4 /* Colors.swift */; };
 		24971AAE286527DE00A84A69 /* ChapterNumberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24971AAD286527DC00A84A69 /* ChapterNumberCollectionViewCell.swift */; };
 		24971AB22865362500A84A69 /* ScriptureListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24971AB12865362500A84A69 /* ScriptureListViewController.swift */; };
+		2498AD45286F5FAF004E4ACD /* PrimaryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2498AD44286F5FAF004E4ACD /* PrimaryItem.swift */; };
+		2498AD4D286F609A004E4ACD /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2498AD4C286F609A004E4ACD /* WidgetKit.framework */; };
+		2498AD4F286F609A004E4ACD /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2498AD4E286F609A004E4ACD /* SwiftUI.framework */; };
+		2498AD52286F609A004E4ACD /* FavoriteVerse_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2498AD51286F609A004E4ACD /* FavoriteVerse_Widget.swift */; };
+		2498AD54286F609D004E4ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2498AD53286F609D004E4ACD /* Assets.xcassets */; };
+		2498AD58286F609D004E4ACD /* FavoriteVerse-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2498AD4B286F609A004E4ACD /* FavoriteVerse-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2498AD60286F637B004E4ACD /* PrimaryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2498AD44286F5FAF004E4ACD /* PrimaryItem.swift */; };
 		24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */; };
 		24E22D6E28628D44004CE717 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6D28628D44004CE717 /* SignUpViewController.swift */; };
 		24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6F28628D5E004CE717 /* LogInViewController.swift */; };
@@ -48,6 +57,30 @@
 		32E0FCAAD23233EE03A360D1 /* Pods_OnYourHeart_Pod.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2498AD56286F609D004E4ACD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 242763A628617C8700D0C87E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2498AD4A286F609A004E4ACD;
+			remoteInfo = "FavoriteVerse-WidgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2498AD5C286F609D004E4ACD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2498AD58286F609D004E4ACD /* FavoriteVerse-WidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		24237D222866178200CE8F20 /* VerseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerseTableViewCell.swift; sourceTree = "<group>"; };
 		24237D24286621C000CE8F20 /* FormatUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtilities.swift; sourceTree = "<group>"; };
@@ -59,12 +92,22 @@
 		242763BA28617C8D00D0C87E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		242763BD28617C8D00D0C87E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		242763BF28617C8D00D0C87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		242DE0A5286F6CF0007C80CF /* WidgetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConstants.swift; sourceTree = "<group>"; };
 		243F249D286B5EC1001D5B05 /* MoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableViewCell.swift; sourceTree = "<group>"; };
 		24471D47286A349800A0AEE4 /* ScriptureSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureSearchTableViewController.swift; sourceTree = "<group>"; };
 		24471D49286A603300A0AEE4 /* ScriptureSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureSearchTableViewCell.swift; sourceTree = "<group>"; };
 		24471D4B286A6E6300A0AEE4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		24971AAD286527DC00A84A69 /* ChapterNumberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterNumberCollectionViewCell.swift; sourceTree = "<group>"; };
 		24971AB12865362500A84A69 /* ScriptureListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureListViewController.swift; sourceTree = "<group>"; };
+		2498AD44286F5FAF004E4ACD /* PrimaryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryItem.swift; sourceTree = "<group>"; };
+		2498AD46286F606A004E4ACD /* OnYourHeart-Pod.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OnYourHeart-Pod.entitlements"; sourceTree = "<group>"; };
+		2498AD4B286F609A004E4ACD /* FavoriteVerse-WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FavoriteVerse-WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2498AD4C286F609A004E4ACD /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2498AD4E286F609A004E4ACD /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		2498AD51286F609A004E4ACD /* FavoriteVerse_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVerse_Widget.swift; sourceTree = "<group>"; };
+		2498AD53286F609D004E4ACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2498AD55286F609D004E4ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2498AD5D286F60BD004E4ACD /* FavoriteVerse-WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FavoriteVerse-WidgetExtension.entitlements"; sourceTree = "<group>"; };
 		24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodScriptureViewController.swift; sourceTree = "<group>"; };
 		24E22D6D28628D44004CE717 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		24E22D6F28628D5E004CE717 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -104,14 +147,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2498AD48286F609A004E4ACD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2498AD4F286F609A004E4ACD /* SwiftUI.framework in Frameworks */,
+				2498AD4D286F609A004E4ACD /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		242763A528617C8700D0C87E = {
 			isa = PBXGroup;
 			children = (
+				2498AD5D286F60BD004E4ACD /* FavoriteVerse-WidgetExtension.entitlements */,
 				24E22D9028638464004CE717 /* Secrets.xcconfig */,
 				242763B028617C8700D0C87E /* OnYourHeart-Pod */,
+				2498AD50286F609A004E4ACD /* FavoriteVerse-Widget */,
 				242763AF28617C8700D0C87E /* Products */,
 				6C58579E707E599B7F26491B /* Pods */,
 				658E18C7C50C7D1FB75E6721 /* Frameworks */,
@@ -122,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				242763AE28617C8700D0C87E /* OnYourHeart-Pod.app */,
+				2498AD4B286F609A004E4ACD /* FavoriteVerse-WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +184,7 @@
 		242763B028617C8700D0C87E /* OnYourHeart-Pod */ = {
 			isa = PBXGroup;
 			children = (
+				2498AD46286F606A004E4ACD /* OnYourHeart-Pod.entitlements */,
 				24E22D7E2862D4AA004CE717 /* Media */,
 				242763B128617C8700D0C87E /* AppDelegate.swift */,
 				242763B328617C8700D0C87E /* SceneDelegate.swift */,
@@ -186,6 +242,16 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		2498AD50286F609A004E4ACD /* FavoriteVerse-Widget */ = {
+			isa = PBXGroup;
+			children = (
+				2498AD51286F609A004E4ACD /* FavoriteVerse_Widget.swift */,
+				2498AD53286F609D004E4ACD /* Assets.xcassets */,
+				2498AD55286F609D004E4ACD /* Info.plist */,
+			);
+			path = "FavoriteVerse-Widget";
+			sourceTree = "<group>";
+		};
 		24E22D7328628D7C004CE717 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				24E22D7C2862D002004CE717 /* Constants.swift */,
+				242DE0A5286F6CF0007C80CF /* WidgetConstants.swift */,
 				24E22D78286292DB004CE717 /* LoginUtilities.swift */,
 				24237D24286621C000CE8F20 /* FormatUtilities.swift */,
 				24E22D8128637276004CE717 /* AuthenticationState.swift */,
@@ -224,6 +291,7 @@
 			children = (
 				24E22D9128639362004CE717 /* BibleModel.swift */,
 				24E7328C28663506002FFC73 /* FirebaseModel.swift */,
+				2498AD44286F5FAF004E4ACD /* PrimaryItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,6 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				F2329E9F21E4B36E897D3DDC /* Pods_OnYourHeart_Pod.framework */,
+				2498AD4C286F609A004E4ACD /* WidgetKit.framework */,
+				2498AD4E286F609A004E4ACD /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -290,15 +360,34 @@
 				242763AC28617C8700D0C87E /* Resources */,
 				FE09DB2C7F1750F0F5302B4D /* [CP] Embed Pods Frameworks */,
 				4C8DB163DC9ED32F38828185 /* [CP] Copy Pods Resources */,
+				2498AD5C286F609D004E4ACD /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2498AD57286F609D004E4ACD /* PBXTargetDependency */,
 			);
 			name = "OnYourHeart-Pod";
 			productName = "OnYourHeart-Pod";
 			productReference = 242763AE28617C8700D0C87E /* OnYourHeart-Pod.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2498AD4A286F609A004E4ACD /* FavoriteVerse-WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2498AD59286F609D004E4ACD /* Build configuration list for PBXNativeTarget "FavoriteVerse-WidgetExtension" */;
+			buildPhases = (
+				2498AD47286F609A004E4ACD /* Sources */,
+				2498AD48286F609A004E4ACD /* Frameworks */,
+				2498AD49286F609A004E4ACD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FavoriteVerse-WidgetExtension";
+			productName = "FavoriteVerse-WidgetExtension";
+			productReference = 2498AD4B286F609A004E4ACD /* FavoriteVerse-WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -311,6 +400,9 @@
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					242763AD28617C8700D0C87E = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					2498AD4A286F609A004E4ACD = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
@@ -329,6 +421,7 @@
 			projectRoot = "";
 			targets = (
 				242763AD28617C8700D0C87E /* OnYourHeart-Pod */,
+				2498AD4A286F609A004E4ACD /* FavoriteVerse-WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -343,6 +436,14 @@
 				24E22D7B28629555004CE717 /* GoogleService-Info.plist in Resources */,
 				242763BB28617C8D00D0C87E /* Assets.xcassets in Resources */,
 				242763B928617C8700D0C87E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2498AD49286F609A004E4ACD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2498AD54286F609D004E4ACD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,11 +514,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				24E7328D28663506002FFC73 /* FirebaseModel.swift in Sources */,
+				2498AD45286F5FAF004E4ACD /* PrimaryItem.swift in Sources */,
 				24237D25286621C000CE8F20 /* FormatUtilities.swift in Sources */,
 				242763B628617C8700D0C87E /* ViewController.swift in Sources */,
 				24971AB22865362500A84A69 /* ScriptureListViewController.swift in Sources */,
 				24E22D8228637277004CE717 /* AuthenticationState.swift in Sources */,
 				24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */,
+				242DE0A6286F6CF0007C80CF /* WidgetConstants.swift in Sources */,
 				24F228F7286E4E1000521313 /* StoryBoardViews.swift in Sources */,
 				24F228F3286CD59400521313 /* ListVerseTableViewCell.swift in Sources */,
 				24F228F1286CBDE300521313 /* AddListViewController.swift in Sources */,
@@ -448,7 +551,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2498AD47286F609A004E4ACD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2498AD52286F609A004E4ACD /* FavoriteVerse_Widget.swift in Sources */,
+				242DE0A7286F6D09007C80CF /* WidgetConstants.swift in Sources */,
+				2498AD60286F637B004E4ACD /* PrimaryItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2498AD57286F609D004E4ACD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2498AD4A286F609A004E4ACD /* FavoriteVerse-WidgetExtension */;
+			targetProxy = 2498AD56286F609D004E4ACD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		242763B728617C8700D0C87E /* Main.storyboard */ = {
@@ -590,8 +711,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D7DF3F114C56AE05B4051B4 /* Pods-OnYourHeart-Pod.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "OnYourHeart-Pod/OnYourHeart-Pod.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X39HH6F75Z;
@@ -619,8 +742,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D8F089091021A1DC641E71E /* Pods-OnYourHeart-Pod.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "OnYourHeart-Pod/OnYourHeart-Pod.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X39HH6F75Z;
@@ -644,6 +769,62 @@
 			};
 			name = Release;
 		};
+		2498AD5A286F609D004E4ACD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "FavoriteVerse-WidgetExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X39HH6F75Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FavoriteVerse-Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FavoriteVerse-Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CurtMcCune.OnYourHeart-Pod.FavoriteVerse-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2498AD5B286F609D004E4ACD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "FavoriteVerse-WidgetExtension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X39HH6F75Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FavoriteVerse-Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "FavoriteVerse-Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CurtMcCune.OnYourHeart-Pod.FavoriteVerse-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -661,6 +842,15 @@
 			buildConfigurations = (
 				242763C328617C8D00D0C87E /* Debug */,
 				242763C428617C8D00D0C87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2498AD59286F609D004E4ACD /* Build configuration list for PBXNativeTarget "FavoriteVerse-WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2498AD5A286F609D004E4ACD /* Debug */,
+				2498AD5B286F609D004E4ACD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

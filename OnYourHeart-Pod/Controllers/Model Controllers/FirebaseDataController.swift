@@ -183,7 +183,6 @@ class FirebaseDataController {
     
     func setFavoriteVerse(verse: ScriptureListEntry, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         
-        
         db.collection(Constants.Firebase.scriptureListEntryKey).document(user.uid).setData([
             Constants.Firebase.uidKey : verse.uid,
             Constants.Firebase.chapterId : verse.chapterId,
@@ -195,8 +194,18 @@ class FirebaseDataController {
             if let error = error {
                 completion(.failure(.errorSettingFavVerse(error)))
             } else {
+                
+                self.saveFavoriteVerse(item: FavoriteVerse(scriptureTitle: verse.scriptureTitle, scriptureContent: verse.scriptureContent))
+                
                 completion(.success(true))
             }
+        }
+    }
+    
+    func saveFavoriteVerse(item: FavoriteVerse) {
+        if #available(iOS 14, *) {
+            let newPrimary = PrimaryItem(primaryItem: item)
+            newPrimary.storeItem()
         }
     }
     
