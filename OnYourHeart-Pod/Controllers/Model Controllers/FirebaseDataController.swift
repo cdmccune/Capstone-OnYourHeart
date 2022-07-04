@@ -60,8 +60,6 @@ class FirebaseDataController {
                 return completion(.failure(.unknownError))
             }
             
-            print(result.description)
-            
             let newUser = AppUser(firstName: firstName, lastName: lastName, uid: result.user.uid)
             self.user = newUser
             
@@ -307,12 +305,43 @@ class FirebaseDataController {
                             return completion(.success(true))
                         }
                     }
-                
-                
-                
             }
-        
     }
+    
+    func deleteList(list: ListItem, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        
+        db.collection(Constants.Firebase.usersKey).whereField(Constants.Firebase.uidKey, isEqualTo: user.uid)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    return completion(.failure(.errorPullingUserInfo(error)))
+                }
+                
+                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+                
+                let document = snapshot.documents[0]
+                
+                let firebaseListItem: [String: Any] = [
+                    Constants.Firebase.nameKey : list.name,
+                    Constants.Firebase.colorKey : list.color,
+                    Constants.Firebase.textColorKey : list.textColor,
+                    Constants.Firebase.isEmotionKey : list.isEmotion]
+              
+                
+                self.db.collection(Constants.Firebase.usersKey).document(document.documentID)
+                    .updateData([Constants.Firebase.listKey : FieldValue.arrayRemove([firebaseListItem])]) { error in
+                        if let error = error {
+                            return completion(.failure(.errorDeletingList(error)))
+                        } else {
+                            guard let index = self.lists.firstIndex(of: list) else {return completion(.failure(.errorFindingListIndex))}
+                            guard let index2 = self.lists.firstIndex(of: list) else {return completion(.failure(.errorFindingListIndex))}
+                            self.lists.remove(at: index)
+                            self.user.lists.remove(at: index2)
+                            return completion(.success(true))
+                        }
+                    }
+            }
+    }
+    
     
     func fetchTopBooks(completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         self.db.collection(Constants.Firebase.bookPopularityCount)

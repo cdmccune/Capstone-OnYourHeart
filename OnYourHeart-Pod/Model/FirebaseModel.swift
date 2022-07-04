@@ -117,6 +117,12 @@ extension ListItem {
     }
 }
 
+extension ListItem: Equatable {}
+func ==(lhs: ListItem, rhs: ListItem) -> Bool {
+    return lhs.name == rhs.name && lhs.scriptureListEntries == rhs.scriptureListEntries
+}
+
+
 
 class TopBook {
     

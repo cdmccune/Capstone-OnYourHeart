@@ -104,6 +104,28 @@ class AddListViewController: UIViewController {
         }
     }
     
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+        print("hit")
+        guard let list = list else {
+            print("nope")
+            
+            return
+        }
+
+        FirebaseDataController.shared.deleteList(list: list) { result in
+            switch result {
+            case .success(_):
+                print("success")
+                NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.listAdded), object: self)
+                self.navigationController?.popViewController(animated: true)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
+    
     @IBAction func createListButtonTapped(_ sender: Any) {
         if let list = list {
             guard let color = color else {return}
@@ -115,8 +137,8 @@ class AddListViewController: UIViewController {
                 switch result {
                 case .success(_):
                     print("success")
-                    self.navigationController?.popViewController(animated: true)
                     NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.listAdded), object: self)
+                    self.navigationController?.popViewController(animated: true)
                 case .failure(let error):
                     print(error)
                 }

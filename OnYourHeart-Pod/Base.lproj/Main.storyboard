@@ -604,6 +604,9 @@
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="tQi-FB-fBn" eventType="touchUpInside" id="nlA-WM-d2F"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

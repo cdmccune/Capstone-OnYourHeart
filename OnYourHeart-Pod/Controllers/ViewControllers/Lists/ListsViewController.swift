@@ -33,6 +33,7 @@ class ListsViewController: UIViewController {
     //MARK: - Helper Functions
     
     func setUpEditButton() {
+        
         let lists = FirebaseDataController.shared.user.lists
         
         var actions: [UIAction] = []
@@ -72,6 +73,7 @@ class ListsViewController: UIViewController {
     
     @objc func updateTableView() {
         tableView.reloadData()
+        setUpEditButton()
     }
     
     func updateViews() {

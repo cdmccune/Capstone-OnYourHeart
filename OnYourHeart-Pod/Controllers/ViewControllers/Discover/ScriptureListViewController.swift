@@ -30,15 +30,30 @@ class ScriptureListViewController: UIViewController {
         getScriptures(id: chapterId)
         updateViews(id: chapterId)
         setUpAddButtonMenu(id: chapterId)
+        setUpNotificationListeners()
     }
     
     
     //MARK: - Helper Functions
+    
+    func setUpNotificationListeners() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(heardEventPost),
+                                               name: NSNotification.Name(rawValue: Constants.Notifications.listAdded),
+                                               object: nil)
+    }
+    
     func updateViews(id: String) {
         self.pageTitle = FormatUtilities.getBookAndChapter(chapterId: id)
         titleLabel.text = self.pageTitle
         
         tableView.allowsMultipleSelection = true
+    }
+    
+    @objc func heardEventPost() {
+        guard let chapterId = chapterId else {return}
+
+        setUpAddButtonMenu(id: chapterId)
     }
     
     func setUpAddButtonMenu(id: String) {
