@@ -86,7 +86,9 @@ class AddListViewController: UIViewController {
                 switch result {
                 case .success(_):
                     FirebaseDataController.shared.user.lists.append(newList)
+                    FirebaseDataController.shared.lists.append(newList)
                     self.navigationController?.popViewController(animated: true)
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.listAdded), object: self)
                 case .failure(let error):
                     print(error)
                 }

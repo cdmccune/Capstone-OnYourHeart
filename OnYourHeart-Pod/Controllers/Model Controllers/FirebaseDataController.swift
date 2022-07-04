@@ -260,7 +260,8 @@ class FirebaseDataController {
                 let firebaseListItem: [String: Any] = [
                     Constants.Firebase.nameKey : list.name,
                     Constants.Firebase.colorKey : list.color,
-                    Constants.Firebase.textColorKey : list.textColor]
+                    Constants.Firebase.textColorKey : list.textColor,
+                    Constants.Firebase.isEmotionKey : list.isEmotion]
                 
                 self.db.collection(Constants.Firebase.usersKey).document(document.documentID)
                     .updateData([Constants.Firebase.listKey : FieldValue.arrayUnion([firebaseListItem])]) { error in

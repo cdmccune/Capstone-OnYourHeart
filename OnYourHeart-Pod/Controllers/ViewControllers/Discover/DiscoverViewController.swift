@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DiscoverViewController: UIViewController {
 
@@ -21,6 +22,17 @@ class DiscoverViewController: UIViewController {
     
     //MARK: - Helper Functions
 
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            let window = self.view.window
+            LoginUtilities.routeToLogin(window: window )
+        } catch let e {
+            print(e)
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

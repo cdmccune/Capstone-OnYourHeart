@@ -14,6 +14,7 @@ struct Constants {
     struct Notifications {
         static let favVerseUpdated = "favVerseUpdated"
         static let scriptureAdded = "scriptureAdded"
+        static let listAdded = "listAdded"
     }
     
     
@@ -70,6 +71,7 @@ struct Constants {
         
     }
     
+       
     struct API {
         //General
         static let apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String

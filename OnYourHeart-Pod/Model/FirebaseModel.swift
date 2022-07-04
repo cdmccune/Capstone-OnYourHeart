@@ -109,9 +109,10 @@ extension ListItem {
     convenience init?(from listData: [String: Any]) {
         guard let color = listData[Constants.Firebase.colorKey] as? [Double],
               let name = listData[Constants.Firebase.nameKey] as? String,
-              let isEmotion = listData[Constants.Firebase.isEmotionKey] as? Bool else {return nil}
-            
+              let isEmotion = listData[Constants.Firebase.isEmotionKey] as? Bool else {
+            return nil}
         
+       
         self.init(name: name, color: color, scriptureListEntries: [], isEmotion: isEmotion)
     }
 }

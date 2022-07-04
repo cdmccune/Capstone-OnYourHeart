@@ -30,8 +30,6 @@ class HomeViewController: UIViewController {
 //        Authentication check
         handle = Auth.auth().addStateDidChangeListener({ auth, user in
             if let user = user {
-//                let newUser = AppUser(
-//                FirebaseDataController.shared.user = newUser
                 self.updateViews(uid: user.uid)
             }
         })
@@ -54,6 +52,14 @@ class HomeViewController: UIViewController {
                                                selector: #selector(updateFavVerse),
                                                name: NSNotification.Name(rawValue: Constants.Notifications.favVerseUpdated),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateTableView),
+                                               name: NSNotification.Name(rawValue: Constants.Notifications.listAdded),
+                                               object: nil)
+    }
+    
+    @objc func updateTableView() {
+        tableView.reloadData()
     }
     
     @objc func updateFavVerse() {
@@ -79,6 +85,7 @@ class HomeViewController: UIViewController {
                     self.tableView.reloadData()
                 case .failure(let error):
                     print(error)
+                    print("Error getting user")
                 }
             }
         }

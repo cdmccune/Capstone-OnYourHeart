@@ -33,6 +33,10 @@ class ListsViewController: UIViewController {
                                                selector: #selector(updateTableView),
                                                name: NSNotification.Name(rawValue: Constants.Notifications.scriptureAdded),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateTableView),
+                                               name: NSNotification.Name(rawValue: Constants.Notifications.listAdded),
+                                               object: nil)
     }
     
     @objc func updateTableView() {
@@ -43,44 +47,7 @@ class ListsViewController: UIViewController {
         tableView.sectionHeaderTopPadding = 0
     }
     
-    
-//    func getListData() {
-//        FirebaseDataController.shared.fetchAllLists(for: FirebaseDataController.shared.user.uid) { result in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(_):
-//                    self.tableView.reloadData()
-//                    print("success")
-//                case .failure(let e):
-//                    print(e)
-//                }
-//            }
-//        }
-//    }
-    
-    @IBAction func logOutButtonTapped(_ sender: Any) {
-        
-        do {
-            try Auth.auth().signOut()
-            let window = self.view.window
-            LoginUtilities.routeToLogin(window: window )
-        } catch let e {
-            print(e)
-        }
-    }
-    
-    
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -104,36 +71,21 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let myButton = UIButton()
         myButton.frame = CGRect(x: view.frame.width - 120, y: 0, width: 100, height: 60)
-        myButton.setTitle("See All", for: .normal)
         myButton.setTitleColor(MoodColor(rawValue: list.textColor)?.create ?? .black, for: .normal)
         
+        if FirebaseDataController.shared.lists[section].scriptureListEntries.count == 0 {
+            myButton.setTitle("Empty", for: .normal)
+        } else {
+            myButton.setTitle("See All", for: .normal)
+            myButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
+        }
         myButton.tag = section
         
-        myButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
-        
-//        myButton.backgroundColor = .blue
-        
-    
         let headerView = UIView()
         
         headerView.backgroundColor = backgroundColor
         headerView.addSubview(myLabel)
         headerView.addSubview(myButton)
-        
-        
-//        let bottomLine = CALayer()
-//        bottomLine.frame = CGRect(x: 0, y: headerView.frame.height - 2, width: headerView.frame.width, height: 2)
-//        bottomLine.backgroundColor = UIColor.black.cgColor
-//        bottomLine.bounds = headerView.bounds
-//        
-//        let topLine = CALayer()
-//        topLine.frame = CGRect(x: 0, y: 0, width: headerView.frame.width, height: 2)
-//        topLine.backgroundColor = UIColor.black.cgColor
-//        topLine.bounds = headerView.bounds
-//        
-//        headerView.layer.addSublayer(topLine)
-//        headerView.layer.addSublayer(bottomLine)
-        
         return headerView
         
     }
