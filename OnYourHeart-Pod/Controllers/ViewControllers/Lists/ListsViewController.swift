@@ -11,7 +11,10 @@ import FirebaseAuth
 class ListsViewController: UIViewController {
     
     //MARK: - Properties
+   
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var editListButton: UIButton!
+  
     
     
     //MARK: - Lifecycles
@@ -24,9 +27,37 @@ class ListsViewController: UIViewController {
         
         addNotificationObservers()
         updateViews()
+        setUpEditButton()
     }
     
     //MARK: - Helper Functions
+    
+    func setUpEditButton() {
+        let lists = FirebaseDataController.shared.user.lists
+        
+        var actions: [UIAction] = []
+        
+        lists.forEach { list in
+            let action = UIAction(title: list.name, image: UIImage(named: "X.circle")) { editAction in
+                self.editList(list)
+            }
+            actions.append(action)
+        }
+        
+        let menu = UIMenu(title: "Edit a List", options: .displayInline, children: actions)
+        
+        editListButton.menu = menu
+    }
+    
+    func editList(_ list: ListItem) {
+        
+        guard let editListVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addListVC) as? AddListViewController else {return}
+        
+        editListVC.list = list
+        
+        self.navigationController?.pushViewController(editListVC, animated: true)
+        
+    }
     
     func addNotificationObservers() {
         NotificationCenter.default.addObserver(self,
@@ -46,9 +77,6 @@ class ListsViewController: UIViewController {
     func updateViews() {
         tableView.sectionHeaderTopPadding = 0
     }
-    
-
-
 }
 
 extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -93,7 +121,7 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func seeAllButtonTapped(sender: UIButton) {
         
         FirebaseDataController.shared.currentListTag = sender.tag
-        guard let listDetailVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.listDetailVC) as? UIViewController else {return}
+        guard let listDetailVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.listDetailVC) as? ListDetailViewController else {return}
         
         self.navigationController?.pushViewController(listDetailVC, animated: true)
         

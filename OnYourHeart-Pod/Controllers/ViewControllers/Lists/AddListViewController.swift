@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import SwiftUI
 
 class AddListViewController: UIViewController {
 
     //MARK: - Properties
+    
+    var list: ListItem?
+    
+    
+    @IBOutlet var deleteButton: UIButton!
     var color: UIColor?
     var colorWell: UIColorWell!
     var isEmotion = false
@@ -40,11 +46,21 @@ class AddListViewController: UIViewController {
         let noAction = UIAction(title: "No") { _ in
             self.isEmotion = false
             self.moodButton.setTitle("No", for: .normal)
+            
+            if self.color != nil, let text = self.listNameTextField.text, text != "" {
+                self.createListButton.isEnabled = true
+            }
+            
         }
         
         let yesAction = UIAction(title: "Yes") { _ in
             self.isEmotion = true
             self.moodButton.setTitle("Yes", for: .normal)
+            
+            if self.color != nil, let text = self.listNameTextField.text, text != "" {
+                self.createListButton.isEnabled = true
+            }
+            
         }
         
         actions.append(noAction)
@@ -53,7 +69,21 @@ class AddListViewController: UIViewController {
         moodButton.menu = menu
         moodButton.showsMenuAsPrimaryAction = true
         
-        
+        if let list = list {
+            
+            let uiColor = ColorUtilities.getColorsFromRGB(rGB: list.color)
+            color = uiColor
+            colorWell.selectedColor = uiColor
+            
+            isEmotion = list.isEmotion
+            isEmotion ? moodButton.setTitle("Yes", for: .normal) : moodButton.setTitle("No", for: .normal)
+            
+            listNameTextField.text = list.name
+            listNameTextField.isEnabled = false
+            createListButton.setTitle("Update List", for: .normal)
+            
+            deleteButton.isHidden = false
+        }
         
         
     }
@@ -75,10 +105,27 @@ class AddListViewController: UIViewController {
     }
     
     @IBAction func createListButtonTapped(_ sender: Any) {
+        if let list = list {
+            guard let color = color else {return}
+            
+            let textColor = ColorUtilities.blackOrWhiteText(color: color).rawValue
+            list.color = ColorUtilities.getRGBFromColor(color: color)
+            
+            FirebaseDataController.shared.updateList(list: list, color: color, textColor: textColor, isEmotion: isEmotion) { result in
+                switch result {
+                case .success(_):
+                    print("success")
+                    self.navigationController?.popViewController(animated: true)
+                    NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.listAdded), object: self)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+        } else {
+        
         guard let text = listNameTextField.text, text != "", let color = color else {return}
-        
         let rgb = ColorUtilities.getRGBFromColor(color: color)
-        
         let newList = ListItem(name: text, color:rgb, isEmotion: self.isEmotion)
         
         FirebaseDataController.shared.createNewList(list: newList) { result in
@@ -93,6 +140,7 @@ class AddListViewController: UIViewController {
                     print(error)
                 }
             }
+        }
         }
     }
     

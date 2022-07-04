@@ -371,19 +371,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Lists" largeTitleDisplayMode="always" id="SaB-u5-wqO">
-                        <barButtonItem key="leftBarButtonItem" style="done" id="MCz-nm-k82">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="YsR-ob-CjS">
-                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
+                        <barButtonItem key="leftBarButtonItem" style="done" changesSelectionAsPrimaryAction="YES" id="MCz-nm-k82">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="YsR-ob-CjS">
+                                <rect key="frame" x="20" y="5" width="105" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Edit"/>
-                                <connections>
-                                    <action selector="logOutButtonTapped:" destination="jy0-AQ-dHW" eventType="touchUpInside" id="VrQ-ci-myS"/>
-                                </connections>
+                                <buttonConfiguration key="configuration" style="plain" title="Edit List"/>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="zBf-Hd-Bw3">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9z3-aU-ofw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9z3-aU-ofw">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -395,6 +392,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editListButton" destination="YsR-ob-CjS" id="yhh-1K-U1e"/>
                         <outlet property="tableView" destination="20v-Yb-ORb" id="M2L-aA-Vpe"/>
                     </connections>
                 </viewController>
@@ -486,7 +484,7 @@
         <!--Add List View Controller-->
         <scene sceneID="8ZS-ZY-FvI">
             <objects>
-                <viewController id="tQi-FB-fBn" customClass="AddListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddListVC" id="tQi-FB-fBn" customClass="AddListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3MR-Bi-lmH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -598,10 +596,21 @@
                             <constraint firstItem="dSu-M2-pkz" firstAttribute="centerY" secondItem="a6F-FE-cSN" secondAttribute="centerY" id="ia9-TM-dAi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8jf-oB-nMk"/>
+                    <navigationItem key="navigationItem" id="8jf-oB-nMk">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="mSW-g0-z8T">
+                            <button key="customView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dTL-rq-JNd">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="colorWellView" destination="Nl6-ES-TY3" id="mfR-oZ-L6U"/>
                         <outlet property="createListButton" destination="2AW-nc-32i" id="DW4-0E-EWn"/>
+                        <outlet property="deleteButton" destination="dTL-rq-JNd" id="gmq-o6-GtQ"/>
                         <outlet property="listNameTextField" destination="Gaw-It-CVb" id="WKK-D0-Ldj"/>
                         <outlet property="moodButton" destination="Qvf-Hs-7Ie" id="MiT-Ku-AXC"/>
                     </connections>
@@ -773,7 +782,7 @@
                             </connections>
                         </searchBar>
                         <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="NLA-Pw-YFP">
-                            <rect key="frame" x="0.0" y="745.5" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="673.5" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berean Study Bible © Bible Hub, 2020." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flm-Ez-juw">

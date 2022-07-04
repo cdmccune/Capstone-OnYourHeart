@@ -25,10 +25,12 @@ struct Constants {
         static let loginNavController = "LoginNavController"
         static let mainStoryboard = "Main"
         static let listDetailVC = "ListDetailVC"
+        static let addListVC = "AddListVC"
         //Segues
         static let segueScriptureListVC = "ToScriptureListViewController"
         static let segueScriptureDetailView = "toScriptureDetailView"
         static let segueMoodScriptureVC = "toMoodScripture"
+        static let toEditList = "EditList"
         //CellIds
         static let chapterNumberCell = "ChapterNumberCell"
         static let bibleBookCell = "BibleBookCell"

@@ -276,6 +276,44 @@ class FirebaseDataController {
         
     }
     
+    func updateList(list: ListItem, color: UIColor, textColor: String, isEmotion: Bool, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        
+        list.isEmotion = isEmotion
+        list.textColor = ColorUtilities.blackOrWhiteText(color: color).rawValue
+        list.color = ColorUtilities.getRGBFromColor(color: color)
+        
+        db.collection(Constants.Firebase.usersKey).whereField(Constants.Firebase.uidKey, isEqualTo: user.uid)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    return completion(.failure(.errorPullingUserInfo(error)))
+                }
+                
+                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+                
+                let document = snapshot.documents[0]
+                
+                let listsDictionary = self.user.lists.map({
+                    return [Constants.Firebase.nameKey : $0.name,
+                            Constants.Firebase.colorKey : $0.color,
+                            Constants.Firebase.textColorKey : $0.textColor,
+                            Constants.Firebase.isEmotionKey : $0.isEmotion]
+                })
+                
+                self.db.collection(Constants.Firebase.usersKey).document(document.documentID)
+                    .updateData([Constants.Firebase.listKey : listsDictionary]) { error in
+                        if let error = error {
+                            return completion(.failure(.errorAddingList(error)))
+                        } else {
+                            return completion(.success(true))
+                        }
+                    }
+                
+                
+                
+            }
+        
+    }
+    
     func fetchTopBooks(completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         self.db.collection(Constants.Firebase.bookPopularityCount)
             .order(by: Constants.Firebase.countKey, descending: true)
