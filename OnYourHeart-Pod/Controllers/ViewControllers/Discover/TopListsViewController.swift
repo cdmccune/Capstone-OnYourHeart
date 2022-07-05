@@ -23,6 +23,8 @@ class TopListsViewController: UIViewController {
     
     func updateViews() {
         
+        self.showSpinner()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -30,8 +32,8 @@ class TopListsViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(_):
-                    print("hit")
                     self.tableView.reloadData()
+                    self.removeSpinner()
                 case .failure(let error):
                     print(error)
                 }

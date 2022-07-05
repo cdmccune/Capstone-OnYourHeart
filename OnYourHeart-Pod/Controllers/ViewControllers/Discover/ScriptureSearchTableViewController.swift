@@ -22,7 +22,6 @@ class ScriptureSearchTableViewController: UITableViewController {
 
      setUpAddButtonMenu()
      setUpNotificationListeners()
-        
     }
 
     //MARK: - Helper Functions
@@ -78,7 +77,6 @@ class ScriptureSearchTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return BibleController.shared.searchVerses.count
     }
 
@@ -116,12 +114,9 @@ extension ScriptureSearchTableViewController: UISearchBarDelegate {
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        
-        
         guard let text = searchBar.text, text != "" else { return }
-
-
+        self.showSpinner()
+        
         BibleController.shared.fetchQuery(text) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -130,6 +125,7 @@ extension ScriptureSearchTableViewController: UISearchBarDelegate {
                     self.searchBar.resignFirstResponder()
                     self.tableView.reloadData()
                     self.copyrightLabel.isHidden = false
+                    self.removeSpinner()
                 case .failure(let error):
                     print(error)
                 }

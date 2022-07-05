@@ -13,6 +13,7 @@ class ScriptureListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var titleLabel: UILabel!
     
+    @IBOutlet var copyrightLabel: UILabel!
     var chapterId: String?
     var scriptureTitle: String = ""
     var scriptureNumbers: [Int] = []
@@ -46,19 +47,15 @@ class ScriptureListViewController: UIViewController {
     func updateViews(id: String) {
         self.pageTitle = FormatUtilities.getBookAndChapter(chapterId: id)
         titleLabel.text = self.pageTitle
-        
         tableView.allowsMultipleSelection = true
     }
     
     @objc func heardEventPost() {
         guard let chapterId = chapterId else {return}
-
         setUpAddButtonMenu(id: chapterId)
     }
     
     func setUpAddButtonMenu(id: String) {
-      
-        
         //Adding the button (Required to show menu on primary action)
         self.addToListButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:nil)
         self.navigationItem.setRightBarButton(self.addToListButton, animated: true)
@@ -77,7 +74,6 @@ class ScriptureListViewController: UIViewController {
         let menu = UIMenu(title: "Add to List", options: .displayInline, children: actions)
         
         addToListButton.menu = menu
-        
     }
     
     func addTo(list: String, chapterId: String) {
@@ -95,12 +91,15 @@ class ScriptureListViewController: UIViewController {
     }
     
     func getScriptures(id: String) {
+        self.showSpinner()
         BibleController.shared.fetchChapter(id) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let verses):
                     BibleController.shared.verses = verses
                     self.tableView.reloadData()
+                    self.removeSpinner()
+                    self.copyrightLabel.isHidden = false
                 case .failure(let error):
                     print(error)
                 }

@@ -11,6 +11,7 @@ class MoodScriptureViewController: UIViewController {
 
     //MARK: Properties
     @IBOutlet var nextVerseButton: UIButton!
+    @IBOutlet var scriptureView: UIView!
     @IBOutlet var scripture: UILabel!
     var listName: String = ""
     var currentVerse: ScriptureListEntry?
@@ -19,9 +20,10 @@ class MoodScriptureViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showSpinner()
+        
         updateViews()
         getVerses(from: listName)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -33,9 +35,12 @@ class MoodScriptureViewController: UIViewController {
     //MARK: - Helper Functions
     func updateViews() {
         
-//        let attrs = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
-//        UINavigationBar.appearance().titleTextAttributes = attrs
+        //        let attrs = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
+        //        UINavigationBar.appearance().titleTextAttributes = attrs
         
+        scriptureView.layer.cornerRadius = 25
+        scriptureView.layer.borderWidth = 2
+        scriptureView.layer.borderColor = Colors.titleBrown.cgColor
     }
     
     func getVerses(from list: String) {
@@ -51,6 +56,8 @@ class MoodScriptureViewController: UIViewController {
                     }
                     
                     verses.count > 0 ? self.showNextVerse() : self.showDefaultText()
+                    self.scriptureView.isHidden = false
+                    self.removeSpinner()
                     
                 case .failure(let error):
                     print(error)
@@ -67,7 +74,6 @@ class MoodScriptureViewController: UIViewController {
             return}
         
         guard let index = BibleController.shared.moodVerses.firstIndex(of: theCurrentVerse) else {
-            
             return}
         
         if BibleController.shared.moodVerses.count - 1 == index  {

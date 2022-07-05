@@ -21,6 +21,7 @@ class BibleBookListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showSpinner()
         getbooks()
     }
     
@@ -40,8 +41,11 @@ class BibleBookListViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let books):
+                    self.bibleBookTableView.isHidden = false
+                    self.chapterNumberCollectionView.isHidden = true
                     BibleController.shared.books = books
                     self.bibleBookTableView.reloadData()
+                    self.removeSpinner()
                 case .failure(let error):
                     print(error)
                 }
@@ -52,6 +56,7 @@ class BibleBookListViewController: UIViewController {
     @IBAction func bookButtonPressed(_ sender: Any) {
         bibleBookTableView.isHidden = false
         chapterNumberCollectionView.isHidden = true
+        bookLabelButton.setTitle("Book", for: .normal)
     }
     
 

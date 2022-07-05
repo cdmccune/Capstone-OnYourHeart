@@ -30,6 +30,7 @@
 		2498AD54286F609D004E4ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2498AD53286F609D004E4ACD /* Assets.xcassets */; };
 		2498AD58286F609D004E4ACD /* FavoriteVerse-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2498AD4B286F609A004E4ACD /* FavoriteVerse-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2498AD60286F637B004E4ACD /* PrimaryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2498AD44286F5FAF004E4ACD /* PrimaryItem.swift */; };
+		24B1DD7528749D24008AB115 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */; };
 		24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */; };
 		24E22D6E28628D44004CE717 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6D28628D44004CE717 /* SignUpViewController.swift */; };
 		24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6F28628D5E004CE717 /* LogInViewController.swift */; };
@@ -108,6 +109,7 @@
 		2498AD53286F609D004E4ACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2498AD55286F609D004E4ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2498AD5D286F60BD004E4ACD /* FavoriteVerse-WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FavoriteVerse-WidgetExtension.entitlements"; sourceTree = "<group>"; };
+		24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodScriptureViewController.swift; sourceTree = "<group>"; };
 		24E22D6D28628D44004CE717 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		24E22D6F28628D5E004CE717 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				24E22D9528639CF7004CE717 /* ApiError.swift */,
 				24E7328A286633AF002FFC73 /* FirebaseError.swift */,
 				24471D4B286A6E6300A0AEE4 /* Colors.swift */,
+				24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */,
 				242DE0A6286F6CF0007C80CF /* WidgetConstants.swift in Sources */,
 				24F228F7286E4E1000521313 /* StoryBoardViews.swift in Sources */,
+				24B1DD7528749D24008AB115 /* StoryboardUtilities.swift in Sources */,
 				24F228F3286CD59400521313 /* ListVerseTableViewCell.swift in Sources */,
 				24F228F1286CBDE300521313 /* AddListViewController.swift in Sources */,
 				24E22D9428639B02004CE717 /* BibleController.swift in Sources */,

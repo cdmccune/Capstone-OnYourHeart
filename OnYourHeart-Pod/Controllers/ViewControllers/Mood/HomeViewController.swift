@@ -12,6 +12,7 @@ import FirebaseFirestore
 class HomeViewController: UIViewController {
 
     //MARK: - Properties
+    @IBOutlet var favoriteVerseView: UIView!
     @IBOutlet var tableView: UITableView!
     let db = Firestore.firestore()
     var handle: AuthStateDidChangeListenerHandle?
@@ -26,17 +27,10 @@ class HomeViewController: UIViewController {
         
         //Disable tab bar
         self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = false})
-        
-//        Authentication check
-        handle = Auth.auth().addStateDidChangeListener({ auth, user in
-            if let user = user {
-                self.updateViews(uid: user.uid)
-            }
-        })
-        
+
+        style()
+        checkAuthentication()
         addNotificationObservers()
-        
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -46,6 +40,20 @@ class HomeViewController: UIViewController {
     
     
     //MARK: - Helper Functions
+    
+    func style() {
+        favoriteVerseView.layer.cornerRadius = 25
+        favoriteVerseView.layer.borderWidth = 2
+        favoriteVerseView.layer.borderColor = Colors.titleBrown.cgColor
+    }
+    
+    func checkAuthentication() {
+        handle = Auth.auth().addStateDidChangeListener({ auth, user in
+            if let user = user {
+                self.updateViews(uid: user.uid)
+            }
+        })
+    }
     
     func addNotificationObservers() {
         NotificationCenter.default.addObserver(self,
@@ -70,6 +78,8 @@ class HomeViewController: UIViewController {
     
     func updateViews(uid: String) {
         
+        self.showSpinner()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -83,6 +93,7 @@ class HomeViewController: UIViewController {
                     FirebaseDataController.shared.lists.append(contentsOf: user.lists)
                     self.getListData()
                     self.tableView.reloadData()
+                    self.removeSpinner()
                 case .failure(let error):
                     print(error)
                     print("Error getting user")
@@ -99,6 +110,7 @@ class HomeViewController: UIViewController {
                     if let favVerse = FirebaseDataController.shared.favVerse {
                         self.favVerseTitleLabel.text = favVerse.scriptureTitle
                         self.favVerseContentLabel.text = favVerse.scriptureContent
+                        self.showLabels()
                     }
                     self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = true})
                 case .failure(let e):
@@ -106,6 +118,11 @@ class HomeViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func showLabels() {
+        favVerseTitleLabel.isHidden = false
+        favVerseContentLabel.isHidden = false
     }
 
 }
