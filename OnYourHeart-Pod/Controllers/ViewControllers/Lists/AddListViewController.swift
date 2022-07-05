@@ -14,7 +14,7 @@ class AddListViewController: UIViewController {
     
     var list: ListItem?
     
-    
+    var doneBarButton: UIBarButtonItem?
     @IBOutlet var deleteButton: UIButton!
     var color: UIColor?
     var colorWell: UIColorWell!
@@ -34,6 +34,7 @@ class AddListViewController: UIViewController {
     
     //MARK: - Helper Functions
     func updateViews() {
+        listNameTextField.delegate = self
         
         colorWell = UIColorWell(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         colorWellView.addSubview(colorWell)
@@ -176,6 +177,27 @@ class AddListViewController: UIViewController {
     }
     */
 
+}
+
+extension AddListViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneClicked))
+        self.navigationItem.setRightBarButton(doneBarButton, animated: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.navigationItem.rightBarButtonItems = nil
+    }
+    
+    @objc func doneClicked() {
+        self.listNameTextField.resignFirstResponder()
+    }
+                                            
 }
 
 

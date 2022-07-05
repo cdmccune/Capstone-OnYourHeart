@@ -12,6 +12,7 @@ import FirebaseFirestore
 class HomeViewController: UIViewController {
 
     //MARK: - Properties
+    @IBOutlet var copyrightLabel: UILabel!
     @IBOutlet var favoriteVerseView: UIView!
     @IBOutlet var tableView: UITableView!
     let db = Firestore.firestore()
@@ -27,8 +28,8 @@ class HomeViewController: UIViewController {
         
         //Disable tab bar
         self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = false})
-
-        style()
+    
+        
         checkAuthentication()
         addNotificationObservers()
     }
@@ -45,6 +46,7 @@ class HomeViewController: UIViewController {
         favoriteVerseView.layer.cornerRadius = 25
         favoriteVerseView.layer.borderWidth = 2
         favoriteVerseView.layer.borderColor = Colors.titleBrown.cgColor
+        favoriteVerseView.backgroundColor = .systemBackground
     }
     
     func checkAuthentication() {
@@ -110,8 +112,10 @@ class HomeViewController: UIViewController {
                     if let favVerse = FirebaseDataController.shared.favVerse {
                         self.favVerseTitleLabel.text = favVerse.scriptureTitle
                         self.favVerseContentLabel.text = favVerse.scriptureContent
-                        self.showLabels()
+                        self.copyrightLabel.isHidden = false
                     }
+                    self.style()
+                    self.showLabels()
                     self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = true})
                 case .failure(let e):
                     print(e)

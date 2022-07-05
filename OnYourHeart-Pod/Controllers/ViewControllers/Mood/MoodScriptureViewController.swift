@@ -10,6 +10,7 @@ import UIKit
 class MoodScriptureViewController: UIViewController {
 
     //MARK: Properties
+    @IBOutlet var copyrightLabel: UILabel!
     @IBOutlet var nextVerseButton: UIButton!
     @IBOutlet var scriptureView: UIView!
     @IBOutlet var scripture: UILabel!
@@ -35,8 +36,7 @@ class MoodScriptureViewController: UIViewController {
     //MARK: - Helper Functions
     func updateViews() {
         
-        //        let attrs = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
-        //        UINavigationBar.appearance().titleTextAttributes = attrs
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
         
         scriptureView.layer.cornerRadius = 25
         scriptureView.layer.borderWidth = 2
@@ -53,6 +53,7 @@ class MoodScriptureViewController: UIViewController {
                     
                     if verses.count > 1 {
                         self.nextVerseButton.isHidden = false
+                        self.copyrightLabel.isHidden = false
                     }
                     
                     verses.count > 0 ? self.showNextVerse() : self.showDefaultText()
@@ -67,6 +68,9 @@ class MoodScriptureViewController: UIViewController {
     }
     
     func showNextVerse() {
+        copyrightLabel.isHidden = false
+        
+        
         guard let theCurrentVerse = currentVerse else {
             currentVerse = BibleController.shared.moodVerses[0]
             title = BibleController.shared.moodVerses[0].scriptureTitle

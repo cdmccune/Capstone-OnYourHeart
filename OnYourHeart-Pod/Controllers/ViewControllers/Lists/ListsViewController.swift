@@ -77,6 +77,7 @@ class ListsViewController: UIViewController {
     }
     
     func updateViews() {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
         tableView.sectionHeaderTopPadding = 0
     }
 }

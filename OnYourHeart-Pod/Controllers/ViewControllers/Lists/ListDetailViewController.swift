@@ -10,6 +10,7 @@ import UIKit
 class ListDetailViewController: UIViewController {
 
     //MARK: - Properties
+    @IBOutlet var copyrightLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var favoriteButton: UIBarButtonItem!
     
@@ -37,6 +38,9 @@ class ListDetailViewController: UIViewController {
         
         tag = newTag
         title = FirebaseDataController.shared.lists[tag].name
+        if FirebaseDataController.shared.lists[tag].scriptureListEntries.count > 0 {
+            copyrightLabel.isHidden = false 
+        }
     }
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {

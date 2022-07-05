@@ -27,6 +27,8 @@ class DiscoverViewController: UIViewController {
             try Auth.auth().signOut()
             let window = self.view.window
             LoginUtilities.routeToLogin(window: window )
+            FirebaseDataController.shared.user = AppUser(firstName: "john", lastName: "doe", uid: "2")
+            FirebaseDataController.shared.lists = []
         } catch let e {
             print(e)
         }

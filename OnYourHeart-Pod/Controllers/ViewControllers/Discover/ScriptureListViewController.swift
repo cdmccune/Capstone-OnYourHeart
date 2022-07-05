@@ -48,6 +48,7 @@ class ScriptureListViewController: UIViewController {
         self.pageTitle = FormatUtilities.getBookAndChapter(chapterId: id)
         titleLabel.text = self.pageTitle
         tableView.allowsMultipleSelection = true
+        titleLabel.textColor = Colors.titleBrown
     }
     
     @objc func heardEventPost() {

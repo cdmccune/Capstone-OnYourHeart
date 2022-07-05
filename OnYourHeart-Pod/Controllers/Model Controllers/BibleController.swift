@@ -23,10 +23,6 @@ class BibleController {
     
     // MARK: - Bible API Fetching Functions
     
-    
-    
-    
-    
     func fetchBooks(completion: @escaping(Result<[Book], ApiError>) -> Void) {
         
         //URL Building
@@ -67,7 +63,16 @@ class BibleController {
 
             do {
                 let topLevelBooksObject = try JSONDecoder().decode(TopLevelBooksObject.self, from: data)
-                return completion(.success(topLevelBooksObject.data))
+                 
+                var bookData: [Book] = []
+                
+                topLevelBooksObject.data.forEach { book in
+                    var thisBook = book
+                    thisBook.chapters.remove(at: 0)
+                    bookData.append(thisBook)
+                }
+                
+                return completion(.success(bookData))
             } catch let e {
                 return completion(.failure(.errorDecodingData(e)))
             }

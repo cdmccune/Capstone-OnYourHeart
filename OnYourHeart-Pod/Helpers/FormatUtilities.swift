@@ -45,7 +45,7 @@ class FormatUtilities {
             formattedScriptures = scriptureNumbers.map({"\($0)"}).joined(separator: ",")
         }
         
-        return title + ": " + formattedScriptures
+        return title + ":" + formattedScriptures
         
         
         //Phillipians 4:6-8 or Philippians 4:5,6,8,20, Philippians 4:7
