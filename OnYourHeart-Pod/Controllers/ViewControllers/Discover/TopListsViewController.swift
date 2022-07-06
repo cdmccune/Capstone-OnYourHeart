@@ -23,10 +23,13 @@ class TopListsViewController: UIViewController {
     
     func updateViews() {
         
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
+        
         self.showSpinner()
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         
         FirebaseDataController.shared.fetchTopBooks { result in
             DispatchQueue.main.async {
@@ -63,12 +66,9 @@ extension TopListsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.topBookCell, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.topBookCell, for: indexPath) as? TopBookTableViewCell else {return UITableViewCell()}
         
-        var content = cell.defaultContentConfiguration()
-        content.text = FirebaseDataController.shared.topBooksList[indexPath.row].name
-        
-        cell.contentConfiguration = content
+        cell.book = "\(indexPath.row+1). \(FirebaseDataController.shared.topBooksList[indexPath.row].name)"
         
         return cell
     }

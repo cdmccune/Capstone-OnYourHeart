@@ -346,7 +346,7 @@ class FirebaseDataController {
     func fetchTopBooks(completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         self.db.collection(Constants.Firebase.bookPopularityCount)
             .order(by: Constants.Firebase.countKey, descending: true)
-            .limit(to: 10)
+            .limit(to: 20)
             .getDocuments { snapshot, error in
                 if let error = error {
                     return completion(.failure(.errorFetchingTopBooks(error)))
@@ -354,8 +354,7 @@ class FirebaseDataController {
                 
                 guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
 
-                
-                
+                self.topBooksList = []
                 
                 for documents in snapshot.documents {
                     let data = documents.data()
