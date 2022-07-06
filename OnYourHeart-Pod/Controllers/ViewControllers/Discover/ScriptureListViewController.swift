@@ -97,6 +97,7 @@ class ScriptureListViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let verses):
+                    print("success")
                     BibleController.shared.verses = verses
                     self.tableView.reloadData()
                     self.removeSpinner()

@@ -21,6 +21,7 @@ class FirebaseDataController {
     var favVerse: ScriptureListEntry?
     var lists: [ListItem] = []
     var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
+    var sId: String = "12345"
     let db = Firestore.firestore()
     var topBooksList: [TopBook] = []
     
@@ -29,6 +30,7 @@ class FirebaseDataController {
     
     //MARK: Firebase CRUD Functions
     
+
     
     //User Related
     func getUserInfo(uid: String, completion: @escaping (Result<AppUser, FirebaseError>) -> Void) {
@@ -40,6 +42,7 @@ class FirebaseDataController {
             if let snapshot = snapshot {
                 let data = snapshot.documents[0].data()
                 guard let user = AppUser(from: data) else {return completion(.failure(.unknownError))}
+                self.sId = "\(Int.random(in: 1...1000000000000))"
                 return completion(.success(user))
                 
                 } else {

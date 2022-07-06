@@ -83,6 +83,11 @@ struct Constants {
         static let trueKey = "true"
         static let falseKey = "false"
         static let version = "v1"
+        static let fumsBaseURL = "https://fums.api.bible/f3"
+        static let fumsTokenQuery = "t"
+        static let dIdQuery = "dId"
+        static let sIdQuery = "sId"
+        static let uIdQuery = "uId"
         //Books Endpoint
         static let booksComponent = "books"
         static let biblesComponent = "bibles"

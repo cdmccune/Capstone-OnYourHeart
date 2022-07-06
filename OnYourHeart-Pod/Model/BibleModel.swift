@@ -31,6 +31,7 @@ struct Chapter: Codable {
 //Chapter Search
 struct TopLevelChapterObject: Codable {
     var data: ChapterContent
+    var meta: FUMS
 }
 
 struct ChapterContent: Codable {
@@ -66,6 +67,7 @@ struct Verse: Codable {
 //Verse Search
 struct TopLevelVerseObject: Codable {
     var data: VerseInfo
+    var meta: FUMS
 }
 
 struct VerseInfo: Codable {
@@ -79,4 +81,8 @@ struct SearchVerse: Codable {
     var reference: String
     var text: String
     var chapterId: String
+}
+
+struct FUMS: Codable {
+    var fumsId: String
 }

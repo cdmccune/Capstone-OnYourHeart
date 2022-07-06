@@ -15,6 +15,7 @@ enum ApiError: LocalizedError {
     case responseNot200(HTTPURLResponse)
     case badData
     case errorDecodingData(Error)
+    case errorReportingFUMS(Error)
     
     var errorDescription: String?{
         switch self {
@@ -32,6 +33,8 @@ enum ApiError: LocalizedError {
             return "The data could not be unwrapped"
         case .errorDecodingData(let error):
             return "Error decoding the data: \(error.localizedDescription)"
+        case .errorReportingFUMS(let error):
+            return "There was an error reporting to FUMS \(error)"
         }
 
     }

@@ -148,9 +148,17 @@ class BibleController {
                     }
                 }
                 
+                //FUMS Reporting
+                let fumsId = topLevelChapterObject.meta.fumsId
+                self.reportToFUMS(fumsId: fumsId) { result in
+                    switch result {
+                    case .success(_):
+                        return completion(.success(verses))
+                    case .failure(let error):
+                        completion(.failure(.errorReportingFUMS(error)))
+                    }
+                }
                 
-                
-                return completion(.success(verses))
             } catch let e {
                 return completion(.failure(.errorDecodingData(e)))
             }
@@ -216,10 +224,52 @@ class BibleController {
             do {
                 let topLevelSearchObject = try JSONDecoder().decode(TopLevelVerseObject.self, from: data)
                 let verses = topLevelSearchObject.data.verses
-                return completion(.success(verses))
+                
+                //FUMS Reporting
+                let fumsId = topLevelSearchObject.meta.fumsId
+                self.reportToFUMS(fumsId: fumsId) { result in
+                    switch result {
+                    case .success(_):
+                        return completion(.success(verses))
+                    case .failure(let error):
+                        completion(.failure(.errorReportingFUMS(error)))
+                    }
+                }
+                
             } catch let e {
                 return completion(.failure(.errorDecodingData(e)))
             }
+        }.resume()
+    }
+    
+    func reportToFUMS(fumsId: String, completion: @escaping (Result<Bool, ApiError>) -> Void) {
+        
+        //RequestBuilding
+        
+        guard let baseURL = URL(string: Constants.API.fumsBaseURL) else {return completion(.failure(.badBaseURL))}
+        guard var url = URLComponents(url: baseURL, resolvingAgainstBaseURL: true) else {return completion(.failure(.badBaseURL))}
+        
+        let dIdQuery = URLQueryItem(name: Constants.API.dIdQuery, value: FirebaseDataController.shared.user.uid)
+        let sIdQuery = URLQueryItem(name: Constants.API.sIdQuery, value: FirebaseDataController.shared.sId)
+        let uIdQuery = URLQueryItem(name: Constants.API.uIdQuery, value: FirebaseDataController.shared.user.uid)
+        
+        
+        
+        url.queryItems = [dIdQuery, sIdQuery, uIdQuery]
+        
+        guard let finalURL = url.url else {return completion(.failure(.badBuiltURL))}
+        
+        URLSession.shared.dataTask(with: finalURL) { data, response, error in
+            if let error = error {
+                return completion(.failure(.sessionError(error)))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 200 {
+                    return completion(.failure(.responseNot200(response)))
+                }
+            }
+            return completion(.success(true))
         }.resume()
     }
 }
