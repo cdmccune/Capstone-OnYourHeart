@@ -31,6 +31,7 @@
 		2498AD54286F609D004E4ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2498AD53286F609D004E4ACD /* Assets.xcassets */; };
 		2498AD58286F609D004E4ACD /* FavoriteVerse-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2498AD4B286F609A004E4ACD /* FavoriteVerse-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2498AD60286F637B004E4ACD /* PrimaryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2498AD44286F5FAF004E4ACD /* PrimaryItem.swift */; };
+		249B1A9F28776DFD00FA42A6 /* Bible Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249B1A9E28776DFD00FA42A6 /* Bible Utilities.swift */; };
 		24B1DD7528749D24008AB115 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */; };
 		24B1DD792875F6C7008AB115 /* TopBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1DD782875F6C6008AB115 /* TopBookTableViewCell.swift */; };
 		24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */; };
@@ -111,6 +112,7 @@
 		2498AD53286F609D004E4ACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2498AD55286F609D004E4ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2498AD5D286F60BD004E4ACD /* FavoriteVerse-WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FavoriteVerse-WidgetExtension.entitlements"; sourceTree = "<group>"; };
+		249B1A9E28776DFD00FA42A6 /* Bible Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bible Utilities.swift"; sourceTree = "<group>"; };
 		24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		24B1DD782875F6C6008AB115 /* TopBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBookTableViewCell.swift; sourceTree = "<group>"; };
 		24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodScriptureViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				24E7328A286633AF002FFC73 /* FirebaseError.swift */,
 				24471D4B286A6E6300A0AEE4 /* Colors.swift */,
 				24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */,
+				249B1A9E28776DFD00FA42A6 /* Bible Utilities.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				24E22D9628639CF7004CE717 /* ApiError.swift in Sources */,
 				24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */,
 				24E73289286631EB002FFC73 /* FirebaseDataController.swift in Sources */,
+				249B1A9F28776DFD00FA42A6 /* Bible Utilities.swift in Sources */,
 				24F228F5286E4C0500521313 /* TopListsViewController.swift in Sources */,
 				242763B428617C8700D0C87E /* SceneDelegate.swift in Sources */,
 				24F228EF286CBDD400521313 /* ListDetailViewController.swift in Sources */,

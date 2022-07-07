@@ -10,6 +10,7 @@ import UIKit
 class BibleBookListViewController: UIViewController {
 
     //MARK: - Properties
+    var pageLoaded: Bool = false
     @IBOutlet var bookLabelButton: UIButton!
     //    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var bibleBookTableView: UITableView!
@@ -47,12 +48,15 @@ class BibleBookListViewController: UIViewController {
     @objc func couldNotConnect() {
         self.removeSpinner()
         
+        if !pageLoaded {
+        
         let alert = UIAlertController(title: "Error", message: "There was an error reaching the database", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Okay", style: .default) { action in
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(okayAction)
         self.present(alert, animated: true)
+        }
     }
     
     func getbooks() {
@@ -60,6 +64,7 @@ class BibleBookListViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let books):
+                    self.pageLoaded = true
                     self.bibleBookTableView.isHidden = false
                     self.chapterNumberCollectionView.isHidden = true
                     BibleController.shared.books = books

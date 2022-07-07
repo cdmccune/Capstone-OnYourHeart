@@ -82,6 +82,13 @@ class BibleController {
     
     func fetchChapter(_ chapterID: String, completion: @escaping (Result<[Verse], ApiError>) -> Void) {
         
+        //Hab exception
+        
+        if chapterID == "HAB.3" {
+            return completion(.success(BibleUtilities.verses))
+        }
+        
+        
         //Request Building
         
         //BaseURL + Components
@@ -111,6 +118,7 @@ class BibleController {
                            includesVerseSpansQuery]
         guard let finalURL = url.url else {return completion(.failure(.badBuiltURL))}
         
+        
         //Header
         var request = URLRequest(url:finalURL)
         guard let apiKey = Constants.API.apiKey else {return completion(.failure(.invalidApiKey))}
@@ -134,6 +142,9 @@ class BibleController {
                 let topLevelChapterObject = try JSONDecoder().decode(TopLevelChapterObject.self, from: data)
                 let chapterContent = topLevelChapterObject.data
                 var verses: [Verse] = []
+                
+        
+                
                 chapterContent.content.forEach { verseContent in
                     if verseContent.items.count > 0 {
                         verseContent.items.forEach { verseFragment in

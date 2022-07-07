@@ -10,6 +10,7 @@ import UIKit
 class ScriptureSearchTableViewController: UITableViewController {
 
     //MARK: Properties
+    var pageLoaded: Bool = false
     @IBOutlet var copyrightLabel: UIView!
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var addVerseBarButton: UIBarButtonItem!
@@ -40,12 +41,15 @@ class ScriptureSearchTableViewController: UITableViewController {
     @objc func couldNotConnect() {
         self.removeSpinner()
         
+        if !pageLoaded {
+        
         let alert = UIAlertController(title: "Error", message: "There was an error reaching the database", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Okay", style: .default) { action in
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(okayAction)
         self.present(alert, animated: true)
+        }
     }
     
     @objc func heardEventPost() {

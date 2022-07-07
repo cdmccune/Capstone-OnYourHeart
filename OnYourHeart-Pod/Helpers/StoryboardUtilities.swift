@@ -20,12 +20,6 @@ extension UIViewController {
         ai.startAnimating()
         aView?.addSubview(ai)
         self.view.addSubview(aView!)
-        
-        Timer.scheduledTimer(withTimeInterval: 15, repeats: false) { (t) in
-            self.removeSpinner()
-            NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.couldNotConnect) , object: self)
-        }
-        
     }
     
     func removeSpinner() {

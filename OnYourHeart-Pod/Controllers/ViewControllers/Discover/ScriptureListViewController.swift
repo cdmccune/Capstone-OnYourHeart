@@ -85,6 +85,7 @@ class ScriptureListViewController: UIViewController {
                     FirebaseDataController.shared.lists[index].scriptureListEntries.append(verse)
                 }
                 NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.scriptureAdded), object: self)
+                self.tableView.selectRow(at: nil, animated: true, scrollPosition: .top)
             case .failure(let error):
                 print(error)
             }
