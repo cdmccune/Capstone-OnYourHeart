@@ -681,7 +681,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J1z-er-Nhi">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cQv-1S-q8d">
@@ -947,7 +947,7 @@
                             </connections>
                         </searchBar>
                         <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="NLA-Pw-YFP">
-                            <rect key="frame" x="0.0" y="673.5" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="725.5" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berean Study Bible © Bible Hub, 2020." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flm-Ez-juw">
@@ -1004,7 +1004,7 @@
                             <outlet property="delegate" destination="vGi-gj-pPz" id="nwo-me-Nuy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="34V-Na-Ohb">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="34V-Na-Ohb">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="add" id="hFR-Ro-mvL"/>
                     </navigationItem>
                     <connections>

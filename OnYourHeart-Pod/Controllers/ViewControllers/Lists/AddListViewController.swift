@@ -66,7 +66,7 @@ class AddListViewController: UIViewController {
         
         actions.append(noAction)
         actions.append(yesAction)
-        let menu = UIMenu(title: "Is it a mood?", options: .displayInline, children: actions)
+        let menu = UIMenu(title: "Is it an emotion?", options: .displayInline, children: actions)
         moodButton.menu = menu
         moodButton.showsMenuAsPrimaryAction = true
         

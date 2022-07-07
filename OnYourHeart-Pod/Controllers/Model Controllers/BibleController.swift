@@ -137,10 +137,21 @@ class BibleController {
                 chapterContent.content.forEach { verseContent in
                     if verseContent.items.count > 0 {
                         verseContent.items.forEach { verseFragment in
+                            var verseFragmentCopy = verseFragment
                             if let index = verses.firstIndex(where: { $0.id == verseFragment.attrs.verseId}) {
-                                verses[index].content += verseFragment.text
+                                
+                                if verses[index].content.last != " " {
+                                    verses[index].content += " "
+                                }
+                                
+                                if verseFragment.text.first == " " {
+                                    verseFragmentCopy.text.removeFirst()
+                                }
+                                    
+                                verses[index].content += verseFragmentCopy.text
                             } else {
                                 let newVerse = Verse(content: verseFragment.text, id: verseFragment.attrs.verseId, chapterId: chapterContent.id)
+//                                print(newVerse)
                                 verses.append(newVerse)
                             }
                                 
