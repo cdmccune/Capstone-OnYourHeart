@@ -151,7 +151,6 @@ class BibleController {
                                 verses[index].content += verseFragmentCopy.text
                             } else {
                                 let newVerse = Verse(content: verseFragment.text, id: verseFragment.attrs.verseId, chapterId: chapterContent.id)
-//                                print(newVerse)
                                 verses.append(newVerse)
                             }
                                 

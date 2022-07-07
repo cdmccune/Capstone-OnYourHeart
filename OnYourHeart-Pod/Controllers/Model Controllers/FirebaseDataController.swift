@@ -347,26 +347,25 @@ class FirebaseDataController {
     
     
     func fetchTopBooks(completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
-        self.db.collection(Constants.Firebase.bookPopularityCount)
+         db.collection(Constants.Firebase.bookPopularityCount)
             .order(by: Constants.Firebase.countKey, descending: true)
             .limit(to: 20)
             .getDocuments { snapshot, error in
                 if let error = error {
                     return completion(.failure(.errorFetchingTopBooks(error)))
                 }
-                
                 guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
-
                 self.topBooksList = []
+                
+                if snapshot.documents.count == 0 {
+                    return completion(.failure(.noTopBooks))
+                }
                 
                 for documents in snapshot.documents {
                     let data = documents.data()
-                    
                     guard let newTopBook = TopBook(from: data) else {return completion(.failure(.errorPullingFromSnapshotData))}
-                    
                     self.topBooksList.append(newTopBook)
                 }
-                
                 
                 return completion(.success(true))
             }
@@ -374,23 +373,3 @@ class FirebaseDataController {
     
     
 }
-
-
-
-//Constants.Firebase.listKey : [
-//                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[0].name,
-//                     Constants.Firebase.colorKey : Constants.Firebase.listContents[0].color,
-//                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[0].textColor,
-//                     Constants.Firebase.isEmotionKey : Constants.Firebase.listContents[0].isEmotion],
-//                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[1].name,
-//                     Constants.Firebase.colorKey : Constants.Firebase.listContents[1].color,
-//                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[1].textColor,
-//                     Constants.Firebase.isEmotionKey : Constants.Firebase.listContents[1].isEmotion],
-//                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[2].name,
-//                     Constants.Firebase.colorKey : Constants.Firebase.listContents[2].color,
-//                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[2].textColor,
-//                     Constants.Firebase.isEmotionKey : Constants.Firebase.listContents[2].isEmotion],
-//                    [Constants.Firebase.nameKey : Constants.Firebase.listContents[3].name,
-//                     Constants.Firebase.colorKey : Constants.Firebase.listContents[3].color,
-//                     Constants.Firebase.textColorKey : Constants.Firebase.listContents[3].textColor,
-//                     Constants.Firebase.isEmotionKey : Constants.Firebase.listContents[3].isEmotion]

@@ -23,6 +23,7 @@ class BibleBookListViewController: UIViewController {
         
         self.showSpinner()
         getbooks()
+        addNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,6 +37,24 @@ class BibleBookListViewController: UIViewController {
     
 
     //MARK: - Helper Functions
+    func addNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(couldNotConnect),
+                                               name: NSNotification.Name(Constants.Notifications.couldNotConnect),
+                                               object: nil)
+    }
+    
+    @objc func couldNotConnect() {
+        self.removeSpinner()
+        
+        let alert = UIAlertController(title: "Error", message: "There was an error reaching the database", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default) { action in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okayAction)
+        self.present(alert, animated: true)
+    }
+    
     func getbooks() {
         BibleController.shared.fetchBooks { result in
             DispatchQueue.main.async {

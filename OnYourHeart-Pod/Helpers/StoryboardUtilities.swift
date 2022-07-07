@@ -21,8 +21,9 @@ extension UIViewController {
         aView?.addSubview(ai)
         self.view.addSubview(aView!)
         
-        Timer.scheduledTimer(withTimeInterval: 20.0, repeats: false) { (t) in
+        Timer.scheduledTimer(withTimeInterval: 15, repeats: false) { (t) in
             self.removeSpinner()
+            NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.couldNotConnect) , object: self)
         }
         
     }

@@ -51,7 +51,6 @@ class ViewController: UIViewController {
          
             //Get the path to the resource in the bundle
             guard let bundlePath = Bundle.main.path(forResource: Constants.Storyboard.videoName, ofType: Constants.Storyboard.videoType) else {
-               print("nope")
                 return
             }
     

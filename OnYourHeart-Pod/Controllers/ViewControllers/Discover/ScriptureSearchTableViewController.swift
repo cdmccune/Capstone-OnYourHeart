@@ -31,6 +31,21 @@ class ScriptureSearchTableViewController: UITableViewController {
                                                selector: #selector(heardEventPost),
                                                name: NSNotification.Name(rawValue: Constants.Notifications.listAdded),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(couldNotConnect),
+                                               name: NSNotification.Name(Constants.Notifications.couldNotConnect),
+                                               object: nil)
+        
+    }
+    @objc func couldNotConnect() {
+        self.removeSpinner()
+        
+        let alert = UIAlertController(title: "Error", message: "There was an error reaching the database", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default) { action in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okayAction)
+        self.present(alert, animated: true)
     }
     
     @objc func heardEventPost() {
@@ -103,15 +118,6 @@ class ScriptureSearchTableViewController: UITableViewController {
 
 
 extension ScriptureSearchTableViewController: UISearchBarDelegate {
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        print("changed")
-//    }
-    
-    
-    
-    
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, text != "" else { return }

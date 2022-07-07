@@ -25,6 +25,7 @@ enum FirebaseError: LocalizedError {
     case errorFetchingTopBooks(Error)
     case errorDeletingList(Error)
     case errorFindingListIndex
+    case noTopBooks
     
     
     
@@ -64,7 +65,10 @@ enum FirebaseError: LocalizedError {
             return "There was an error deleting list \(error)"
         case .errorFindingListIndex:
             return "There was an error finding an index"
+        case .noTopBooks:
+            return "Could not fetch top books, count of zero"
         }
+        
 
     }
 }

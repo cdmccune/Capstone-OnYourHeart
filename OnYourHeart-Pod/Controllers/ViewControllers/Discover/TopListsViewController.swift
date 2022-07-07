@@ -15,7 +15,7 @@ class TopListsViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         updateViews()
     }
     
@@ -38,7 +38,14 @@ class TopListsViewController: UIViewController {
                     self.tableView.reloadData()
                     self.removeSpinner()
                 case .failure(let error):
+                    self.removeSpinner()
                     print(error)
+                    let alert = UIAlertController(title: "Error", message: "There was an error reaching the database", preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "Okay", style: .default) { action in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alert.addAction(okayAction)
+                    self.present(alert, animated: true)
                 }
             }
         }

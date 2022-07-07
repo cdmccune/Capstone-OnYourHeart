@@ -15,6 +15,7 @@ struct Constants {
         static let favVerseUpdated = "favVerseUpdated"
         static let scriptureAdded = "scriptureAdded"
         static let listAdded = "listAdded"
+        static let couldNotConnect = "CouldNotConnect"
     }
     
     
