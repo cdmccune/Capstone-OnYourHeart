@@ -22,6 +22,11 @@ class SignUpViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailTF.delegate = self
+        passwordTF.delegate = self
+        firstNameTF.delegate = self
+        lastNameTF.delegate = self
 
         // Do any additional setup after loading the view.
         setUpElements()
@@ -56,14 +61,25 @@ class SignUpViewController: UIViewController {
         
         let cleanPassword = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if LoginUtilities.isPasswordValid(cleanPassword) {
+        if !LoginUtilities.isPasswordValid(cleanPassword) {
             return "Please make sure your password is at least 8 characters, contains a special character and a number."
         }
+        
+        let cleanEmail = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         return nil
     }
     
     
     @IBAction func signUpTapped(_ sender: Any) {
+        emailTF.resignFirstResponder()
+        firstNameTF.resignFirstResponder()
+        lastNameTF.resignFirstResponder()
+        passwordTF.resignFirstResponder()
+        signUp()
+    }
+    
+    func signUp() {
         //Validate Fields
         let error = validateFields()
         
@@ -98,6 +114,7 @@ class SignUpViewController: UIViewController {
     func showError(_ message: String) {
         errorLabel.text = message
         errorLabel.alpha = 1
+        print(message)
     }
     
     func transitionToHome() {
@@ -106,5 +123,25 @@ class SignUpViewController: UIViewController {
         self.view.window?.rootViewController = tabBarController
         self.view.window?.makeKeyAndVisible()
     }
+    
+}
+
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == firstNameTF {
+            lastNameTF.becomeFirstResponder()
+        } else if textField == lastNameTF {
+            emailTF.becomeFirstResponder()
+        } else if textField == emailTF {
+            passwordTF.becomeFirstResponder()
+        } else if textField == passwordTF {
+            passwordTF.resignFirstResponder()
+            signUp()
+        }
+        return true
+    }
+    
+    
     
 }

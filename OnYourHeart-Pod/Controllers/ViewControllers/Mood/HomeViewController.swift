@@ -91,6 +91,7 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let user):
+                    
                     FirebaseDataController.shared.user = user
                     FirebaseDataController.shared.lists.append(contentsOf: user.lists)
                     self.getListData()

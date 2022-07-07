@@ -40,6 +40,9 @@ struct Constants {
         static let listCell = "ListCell"
         static let listVerseCell = "ListVerseCell"
         static let topBookCell = "TopBookCell"
+        //Media
+        static let videoName = "ScriptureTypingWithVerse"
+        static let videoType = "mp4"
     }
     
     struct Firebase {

@@ -38,7 +38,7 @@ class FirebaseDataController {
             if let error = error {
                 return completion(.failure(.errorPullingUserInfo(error)))
             }
-                                  
+            
             if let snapshot = snapshot {
                 let data = snapshot.documents[0].data()
                 guard let user = AppUser(from: data) else {return completion(.failure(.unknownError))}
