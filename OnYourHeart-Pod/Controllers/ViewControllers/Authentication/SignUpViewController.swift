@@ -57,15 +57,20 @@ class SignUpViewController: UIViewController {
             return "Please fill in all fields"
         }
         
-        //Check if password is valid
+        //Check if email is valid
+        let cleanEmail = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        if !LoginUtilities.isEmailValid(cleanEmail) {
+            return "Please make sure your email has been formatted properly (name@website.com)"
+        }
+        
+        
+        //Check if password is valid
         let cleanPassword = passwordTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if !LoginUtilities.isPasswordValid(cleanPassword) {
             return "Please make sure your password is at least 8 characters, contains a special character and a number."
         }
-        
-        let cleanEmail = emailTF.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         return nil
     }

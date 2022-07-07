@@ -52,6 +52,12 @@ class LoginUtilities {
         return passwordTest.evaluate(with: password)
     }
     
+    static func isEmailValid(_ email: String) -> Bool {
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+        return emailTest.evaluate(with: email)
+    }
+    
+    
     //Checks if user is logged in
     static func isUserLoggedIn() -> Bool{
         return Auth.auth().currentUser != nil

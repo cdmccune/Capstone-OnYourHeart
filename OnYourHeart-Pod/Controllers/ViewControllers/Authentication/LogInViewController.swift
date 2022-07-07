@@ -89,7 +89,6 @@ class LogInViewController: UIViewController {
 
 extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("hey")
         if textField == emailTF {
             passwordTF.becomeFirstResponder()
         } else if textField == passwordTF {
