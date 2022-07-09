@@ -26,7 +26,7 @@ enum FirebaseError: LocalizedError {
     case errorDeletingList(Error)
     case errorFindingListIndex
     case noTopBooks
-    
+    case errorDeletingUser(Error)
     
     
     var errorDescription: String? {
@@ -67,7 +67,10 @@ enum FirebaseError: LocalizedError {
             return "There was an error finding an index"
         case .noTopBooks:
             return "Could not fetch top books, count of zero"
+        case .errorDeletingUser(let error):
+            return "There was an error deleting the user: \(error)"
         }
+        
         
 
     }

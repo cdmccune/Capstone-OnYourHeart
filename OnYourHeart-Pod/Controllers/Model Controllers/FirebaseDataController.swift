@@ -86,6 +86,59 @@ class FirebaseDataController {
         }
     }
     
+    func deleteUser(completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
+        db.collection(Constants.Firebase.usersKey)
+            .whereField(Constants.Firebase.uidKey, isEqualTo: user.uid)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    completion(.failure(.errorPullingUserInfo(error)))
+                }
+                
+                guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+                
+                let documentId = snapshot.documents[0].documentID
+                
+                //Deleting from user
+                self.db.collection(Constants.Firebase.usersKey).document(documentId)
+                    .delete { error in
+                        if let error = error {
+                            completion(.failure(.errorFetchingVerse(error)))
+                        }
+                    }
+                
+                //Deleting from Scripture list
+                
+                self.db.collection(Constants.Firebase.scriptureListEntryKey)
+                    .whereField(Constants.Firebase.uidKey, isEqualTo: self.user.uid)
+                    .getDocuments { snapshot, error in
+                        if let error = error {
+                            completion(.failure(.errorFetchingVerse(error)))
+                        }
+                        
+                        guard let snapshot = snapshot else {return completion(.failure(.unknownError))}
+                        
+                        for documents in snapshot.documents {
+                            
+                            let data = documents.data()
+                            
+                            guard let scriptureListEntry = ScriptureListEntry(from: data) else { return completion(.failure(.errorPullingFromSnapshotData))}
+                            
+                            
+                            self.delete(scripture: scriptureListEntry) { result in
+                                switch result {
+                                case .success(_):
+                                    print("deleted")
+                                case .failure(let error):
+                                    return completion(.failure(.errorDeletingVerse(error)))
+                                }
+                            }
+                        }
+                        return completion(.success(true))
+                    }
+                
+            }
+    }
+    
     //Scripture Related
     func add(scriptures: [Int], to listName: String, scriptureTitle: String, chapterId: String, scriptureContent: String, completion: @escaping (Result<ScriptureListEntry, FirebaseError>) -> Void) {
         

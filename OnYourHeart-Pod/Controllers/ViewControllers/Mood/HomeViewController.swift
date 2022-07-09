@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class HomeViewController: UIViewController {
-
+    
     //MARK: - Properties
     @IBOutlet var copyrightLabel: UILabel!
     @IBOutlet var favoriteVerseView: UIView!
@@ -28,7 +28,17 @@ class HomeViewController: UIViewController {
         
         //Disable tab bar
         self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = false})
-    
+        
+        
+//        do {
+//            try Auth.auth().signOut()
+//            let window = self.view.window
+//            LoginUtilities.routeToLogin(window: window )
+//            FirebaseDataController.shared.user = AppUser(firstName: "john", lastName: "doe", uid: "2")
+//            FirebaseDataController.shared.lists = []
+//        } catch let e {
+//            print(e)
+//        }
         
         checkAuthentication()
         addNotificationObservers()
@@ -50,6 +60,8 @@ class HomeViewController: UIViewController {
     }
     
     func checkAuthentication() {
+        
+        
         handle = Auth.auth().addStateDidChangeListener({ auth, user in
             if let user = user {
                 self.updateViews(uid: user.uid)
@@ -129,17 +141,17 @@ class HomeViewController: UIViewController {
         favVerseTitleLabel.isHidden = false
         favVerseContentLabel.isHidden = false
     }
-
+    
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FirebaseDataController.shared.user.lists.filter({$0.isEmotion}).count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.moodCell, for: indexPath) as? MoodTableViewCell else {return UITableViewCell()}
-
+        
         cell.list = FirebaseDataController.shared.user.lists.filter({$0.isEmotion})[indexPath.row]
         return cell
     }
@@ -147,11 +159,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.Storyboard.segueMoodScriptureVC,
-        let destinationVC = segue.destination as? MoodScriptureViewController,
-        let index = tableView.indexPathForSelectedRow {
+           let destinationVC = segue.destination as? MoodScriptureViewController,
+           let index = tableView.indexPathForSelectedRow {
             destinationVC.listName = FirebaseDataController.shared.user.lists.filter({$0.isEmotion})[index.row].name
         }
     }
-
-
+    
+    
 }

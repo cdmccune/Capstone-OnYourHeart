@@ -35,6 +35,7 @@
 		24B1DD7528749D24008AB115 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */; };
 		24B1DD792875F6C7008AB115 /* TopBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1DD782875F6C6008AB115 /* TopBookTableViewCell.swift */; };
 		24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */; };
+		24D5E8762878D952001A656F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D5E8752878D952001A656F /* AccountViewController.swift */; };
 		24E22D6E28628D44004CE717 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6D28628D44004CE717 /* SignUpViewController.swift */; };
 		24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6F28628D5E004CE717 /* LogInViewController.swift */; };
 		24E22D7228628D72004CE717 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D7128628D72004CE717 /* HomeViewController.swift */; };
@@ -116,6 +117,7 @@
 		24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		24B1DD782875F6C6008AB115 /* TopBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBookTableViewCell.swift; sourceTree = "<group>"; };
 		24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodScriptureViewController.swift; sourceTree = "<group>"; };
+		24D5E8752878D952001A656F /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		24E22D6D28628D44004CE717 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		24E22D6F28628D5E004CE717 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		24E22D7128628D72004CE717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -258,9 +260,18 @@
 			path = "FavoriteVerse-Widget";
 			sourceTree = "<group>";
 		};
+		24D5E8742878D932001A656F /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				24D5E8752878D952001A656F /* AccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		24E22D7328628D7C004CE717 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				24D5E8742878D932001A656F /* Account */,
 				24971AB52865364600A84A69 /* Authentication */,
 				243F249C286B5AFE001D5B05 /* Mood */,
 				242EAE8F286BF1450045053A /* Lists */,
@@ -524,6 +535,7 @@
 			files = (
 				24E7328D28663506002FFC73 /* FirebaseModel.swift in Sources */,
 				2498AD45286F5FAF004E4ACD /* PrimaryItem.swift in Sources */,
+				24D5E8762878D952001A656F /* AccountViewController.swift in Sources */,
 				24237D25286621C000CE8F20 /* FormatUtilities.swift in Sources */,
 				242763B628617C8700D0C87E /* ViewController.swift in Sources */,
 				24971AB22865362500A84A69 /* ScriptureListViewController.swift in Sources */,

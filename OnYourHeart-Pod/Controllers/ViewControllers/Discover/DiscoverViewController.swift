@@ -39,28 +39,4 @@ class DiscoverViewController: UIViewController {
         //Sets large title to brown
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
     }
-
-    @IBAction func logOutButtonTapped(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            let window = self.view.window
-            LoginUtilities.routeToLogin(window: window )
-            FirebaseDataController.shared.user = AppUser(firstName: "john", lastName: "doe", uid: "2")
-            FirebaseDataController.shared.lists = []
-        } catch let e {
-            print(e)
-        }
-    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
