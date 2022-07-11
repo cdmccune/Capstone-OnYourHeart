@@ -39,9 +39,8 @@ class AccountViewController: UIViewController {
         do {
             try Auth.auth().signOut()
             let window = self.view.window
+            self.tabBarController?.view.removeFromSuperview()
             LoginUtilities.userIsLoggedOut(window: window)
-            FirebaseDataController.shared.user = AppUser(firstName: "john", lastName: "doe", uid: "2")
-            FirebaseDataController.shared.lists = []
         } catch let e {
             print(e)
         }

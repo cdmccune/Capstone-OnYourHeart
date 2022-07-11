@@ -65,6 +65,9 @@ class LoginUtilities {
     
     //Calls tabBarController with 4 tabs with Account Page
     static func userIsLoggedIn(window: UIWindow?) {
+        //Resets the lists
+        FirebaseDataController.shared.lists = []
+        
         let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: nil)
         
         guard let homeNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavBar) as? UINavigationController else {return}
@@ -72,7 +75,9 @@ class LoginUtilities {
         guard let discoverNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.discoverNavBar) as? UINavigationController else {return}
         guard let accountNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.accountNavBar) as? UINavigationController else {return}
         
+        
         guard let tabBar = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.tabBarController) as? UITabBarController else {return}
+
         
         tabBar.viewControllers = [homeNav, listNav, discoverNav, accountNav]
         tabBar.selectedIndex = 0
@@ -83,7 +88,9 @@ class LoginUtilities {
     //Calls tabBarController with 4 tabs with Login Page
     static func userIsLoggedOut(window: UIWindow?) {
         //Sets the default list
-        FirebaseDataController.shared.lists = Constants.Firebase.notLoggedInList
+        
+        FirebaseDataController.shared.user = Constants.Firebase.defaultUser
+        FirebaseDataController.shared.lists = FirebaseDataController.shared.user.lists
         
         //Add the correct tabBar
         let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: nil)

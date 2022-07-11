@@ -20,7 +20,7 @@ class FirebaseDataController {
     var currentListTag: Int? = nil
     var favVerse: ScriptureListEntry?
     var lists: [ListItem] = []
-    var user: AppUser = AppUser(firstName: "John", lastName: "Doe", uid: "2")
+    var user: AppUser = Constants.Firebase.defaultUser
     var sId: String = "12345"
     let db = Firestore.firestore()
     var topBooksList: [TopBook] = []

@@ -114,16 +114,28 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
         let list = FirebaseDataController.shared.lists[section]
         let backgroundColor = ColorUtilities.getColorsFromRGB(rGB: list.color)
         
-        
+        let myButton = UIButton()
         let myLabel = UILabel()
-        myLabel.frame = CGRect(x: 20, y:0, width: 320, height: 60)
+        let headerView = UIView()
+        
+        headerView.backgroundColor = backgroundColor
+        headerView.addSubview(myLabel)
+        headerView.addSubview(myButton)
+        
+        myLabel.frame = CGRect(x: 20, y:0, width: view.frame.width - 140, height: 60)
         myLabel.font = UIFont.boldSystemFont(ofSize: 25)
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
         myLabel.textColor = MoodColor(rawValue: list.textColor)?.create ?? .black
+        myLabel.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 20).isActive = true
+        myLabel.rightAnchor.constraint(equalTo: myButton.leftAnchor, constant: 10).isActive = true
+        myLabel.numberOfLines = 0
         
-        let myButton = UIButton()
+        
+        
         myButton.frame = CGRect(x: view.frame.width - 120, y: 0, width: 100, height: 60)
         myButton.setTitleColor(MoodColor(rawValue: list.textColor)?.create ?? .black, for: .normal)
+        myButton.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: 20).isActive = true
+        myButton.leftAnchor.constraint(equalTo: myLabel.rightAnchor, constant: 20).isActive = true
         
         if FirebaseDataController.shared.lists[section].scriptureListEntries.count == 0 {
             myButton.setTitle("Empty", for: .normal)
@@ -133,11 +145,6 @@ extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         myButton.tag = section
         
-        let headerView = UIView()
-        
-        headerView.backgroundColor = backgroundColor
-        headerView.addSubview(myLabel)
-        headerView.addSubview(myButton)
         return headerView
         
     }

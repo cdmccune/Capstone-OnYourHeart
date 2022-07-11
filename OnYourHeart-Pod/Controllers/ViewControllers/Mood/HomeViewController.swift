@@ -109,7 +109,6 @@ class HomeViewController: UIViewController {
                     self.removeSpinner()
                 case .failure(let error):
                     print(error)
-                    print("Error getting user")
                 }
             }
         }

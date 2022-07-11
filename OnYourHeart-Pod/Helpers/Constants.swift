@@ -54,6 +54,7 @@ struct Constants {
     
     struct Firebase {
         //For Users Table
+        static let defaultUser = AppUser(firstName: "John", lastName: "Doe", uid: "2", lists: [ListItem(name: "Login to Access Feature", color: [255.0,255.0,255.0], isEmotion: true)])
         static let usersKey = "users"
         static let firstNameKey = "firstName"
         static let lastNameKey = "lastName"
