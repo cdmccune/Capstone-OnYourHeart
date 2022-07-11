@@ -106,17 +106,13 @@ class AddListViewController: UIViewController {
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        print("hit")
         guard let list = list else {
-            print("nope")
-            
             return
         }
 
         FirebaseDataController.shared.deleteList(list: list) { result in
             switch result {
             case .success(_):
-                print("success")
                 NotificationCenter.default.post(name: NSNotification.Name(Constants.Notifications.listAdded), object: self)
                 self.navigationController?.popViewController(animated: true)
             case .failure(let error):
@@ -166,18 +162,9 @@ class AddListViewController: UIViewController {
         }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
 
 extension AddListViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

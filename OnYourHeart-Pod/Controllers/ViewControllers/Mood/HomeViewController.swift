@@ -73,7 +73,6 @@ class HomeViewController: UIViewController {
     }
     
     func showNotLoggedInMessage() {
-        FirebaseDataController.shared.lists = Constants.Firebase.notLoggedInList
         tableView.reloadData()
         tableView.isUserInteractionEnabled = false 
         style()

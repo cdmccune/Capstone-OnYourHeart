@@ -998,7 +998,7 @@
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="add" id="hFR-Ro-mvL"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="addVerseBarButton" destination="hFR-Ro-mvL" id="hDl-lV-ag3"/>
+                        <outlet property="addVerseButton" destination="hFR-Ro-mvL" id="zno-nw-LaO"/>
                         <outlet property="copyrightLabel" destination="NLA-Pw-YFP" id="aJw-Pf-rbp"/>
                         <outlet property="searchBar" destination="S1g-Oq-eFl" id="P44-DZ-Icl"/>
                     </connections>

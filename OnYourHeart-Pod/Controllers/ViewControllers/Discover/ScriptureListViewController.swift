@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ScriptureListViewController: UIViewController {
 
@@ -57,9 +58,17 @@ class ScriptureListViewController: UIViewController {
     }
     
     func setUpAddButtonMenu(id: String) {
+        
+        guard Auth.auth().currentUser != nil else {
+            self.addToListButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:#selector(notLoggedInAlert))
+            self.navigationItem.setRightBarButton(self.addToListButton, animated: true)
+            return
+        }
+        
         //Adding the button (Required to show menu on primary action)
         self.addToListButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action:nil)
         self.navigationItem.setRightBarButton(self.addToListButton, animated: true)
+        
         
         let lists = FirebaseDataController.shared.user.lists
         
@@ -75,6 +84,10 @@ class ScriptureListViewController: UIViewController {
         let menu = UIMenu(title: "Add to List", options: .displayInline, children: actions)
         
         addToListButton.menu = menu
+    }
+    
+    @objc func notLoggedInAlert() {
+        LoginUtilities.presentNotLoggedInAlert(viewController: self, tabbar: self.tabBarController)
     }
     
     func addTo(list: String, chapterId: String) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class TopListsViewController: UIViewController {
 
@@ -22,6 +23,12 @@ class TopListsViewController: UIViewController {
     //MARK: - Helper Functions
     
     func updateViews() {
+        
+        guard Auth.auth().currentUser != nil else {
+            notLoggedInAlert()
+            return
+        }
+        
         
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
         
@@ -49,6 +56,11 @@ class TopListsViewController: UIViewController {
                 }
             }
         }
+        
+    func notLoggedInAlert() {
+            LoginUtilities.presentNotLoggedInAlert(viewController: self, tabbar: self.tabBarController)
+    }
+        
     }
     
     

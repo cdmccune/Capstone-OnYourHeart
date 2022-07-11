@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ScriptureSearchTableViewController: UITableViewController {
 
@@ -13,7 +14,8 @@ class ScriptureSearchTableViewController: UITableViewController {
     var pageLoaded: Bool = false
     @IBOutlet var copyrightLabel: UIView!
     @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var addVerseBarButton: UIBarButtonItem!
+    @IBOutlet var addVerseButton: UIBarButtonItem!
+    
     var searchVerse: SearchVerse?
     
     
@@ -32,24 +34,7 @@ class ScriptureSearchTableViewController: UITableViewController {
                                                selector: #selector(heardEventPost),
                                                name: NSNotification.Name(rawValue: Constants.Notifications.listAdded),
                                                object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(couldNotConnect),
-                                               name: NSNotification.Name(Constants.Notifications.couldNotConnect),
-                                               object: nil)
         
-    }
-    @objc func couldNotConnect() {
-        self.removeSpinner()
-        
-        if !pageLoaded {
-        
-        let alert = UIAlertController(title: "Error", message: "There was an error reaching the database", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "Okay", style: .default) { action in
-            self.navigationController?.popViewController(animated: true)
-        }
-        alert.addAction(okayAction)
-        self.present(alert, animated: true)
-        }
     }
     
     @objc func heardEventPost() {
@@ -58,7 +43,13 @@ class ScriptureSearchTableViewController: UITableViewController {
     
     func setUpAddButtonMenu() {
         
-        let lists = FirebaseDataController.shared.user.lists
+        guard Auth.auth().currentUser != nil else {
+            self.addVerseButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(notLoggedInAlert))
+            self.navigationItem.setRightBarButton(self.addVerseButton, animated: true)
+            return
+        }
+        
+        let lists = FirebaseDataController.shared.lists
         
         var actions: [UIAction] = []
         
@@ -71,9 +62,11 @@ class ScriptureSearchTableViewController: UITableViewController {
         
         let menu = UIMenu(title: "Add to List", options: .displayInline, children: actions)
         
-        addVerseBarButton.menu = menu
+        addVerseButton.menu = menu
         
     }
+    
+    
     
     func addTo(list: String) {
         
@@ -93,6 +86,10 @@ class ScriptureSearchTableViewController: UITableViewController {
         }
     }
     
+    @objc func notLoggedInAlert() {
+        LoginUtilities.presentNotLoggedInAlert(viewController: self, tabbar: self.tabBarController)
+    }
+    
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,12 +107,12 @@ class ScriptureSearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        addVerseBarButton.isEnabled = true
+        addVerseButton.isEnabled = true
         searchVerse = BibleController.shared.searchVerses[indexPath.row]
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        addVerseBarButton.isEnabled = false
+        addVerseButton.isEnabled = false
         
     }
 }
@@ -144,3 +141,19 @@ extension ScriptureSearchTableViewController: UISearchBarDelegate {
     }
     
 }
+
+
+
+//    @objc func couldNotConnect() {
+//        self.removeSpinner()
+//
+//        if !pageLoaded {
+//
+//        let alert = UIAlertController(title: "Error", message: "There was an error reaching the database", preferredStyle: .alert)
+//        let okayAction = UIAlertAction(title: "Okay", style: .default) { action in
+//            self.navigationController?.popViewController(animated: true)
+//        }
+//        alert.addAction(okayAction)
+//        self.present(alert, animated: true)
+//        }
+//    }

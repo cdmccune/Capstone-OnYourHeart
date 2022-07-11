@@ -82,6 +82,10 @@ class LoginUtilities {
     
     //Calls tabBarController with 4 tabs with Login Page
     static func userIsLoggedOut(window: UIWindow?) {
+        //Sets the default list
+        FirebaseDataController.shared.lists = Constants.Firebase.notLoggedInList
+        
+        //Add the correct tabBar
         let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: nil)
         
         guard let homeNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavBar) as? UINavigationController else {return}
