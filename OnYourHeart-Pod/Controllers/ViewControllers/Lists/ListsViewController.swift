@@ -34,10 +34,13 @@ class ListsViewController: UIViewController {
     
     func setUpEditButton() {
         
+        guard Auth.auth().currentUser != nil else {
+            editListButton.addTarget(self, action: #selector(notLoggedInAlert), for: .touchUpInside)
+            return
+        }
+        
         let lists = FirebaseDataController.shared.user.lists
-        
         var actions: [UIAction] = []
-        
         lists.forEach { list in
             let action = UIAction(title: list.name, image: UIImage(named: "X.circle")) { editAction in
                 self.editList(list)
@@ -46,8 +49,11 @@ class ListsViewController: UIViewController {
         }
         
         let menu = UIMenu(title: "Edit a List", options: .displayInline, children: actions)
-        
         editListButton.menu = menu
+    }
+    
+    @objc func notLoggedInAlert() {
+        LoginUtilities.presentNotLoggedInAlert(viewController: self, tabbar: self.tabBarController)
     }
     
     func editList(_ list: ListItem) {
@@ -80,7 +86,22 @@ class ListsViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Colors.titleBrown]
         tableView.sectionHeaderTopPadding = 0
     }
+    
+    @IBAction func addListButtonTapped(_ sender: Any) {
+        guard Auth.auth().currentUser != nil else {
+            notLoggedInAlert()
+            return
+        }
+        guard let addListVC = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.addListVC) as? AddListViewController else {return}
+        navigationController?.pushViewController(addListVC, animated: true)
+    }
+    
+    
 }
+
+
+
+
 
 extension ListsViewController: UITableViewDelegate, UITableViewDataSource {
     

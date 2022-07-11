@@ -62,12 +62,12 @@ class LogInViewController: UIViewController {
                     print(error.localizedDescription)
                     return
                 } else {
-                    let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tabBarController) as? UITabBarController
-                    
-                    self.view.window?.rootViewController = tabBarController
-                    self.view.window?.makeKeyAndVisible()
-                    
-                    
+//                    let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.tabBarController) as? UITabBarController
+//
+//                    self.view.window?.rootViewController = tabBarController
+//                    self.view.window?.makeKeyAndVisible()
+                    let window = self.view.window
+                    LoginUtilities.userIsLoggedIn(window: window)
                 }
         }
         

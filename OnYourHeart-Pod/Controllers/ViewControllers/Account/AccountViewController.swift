@@ -39,7 +39,7 @@ class AccountViewController: UIViewController {
         do {
             try Auth.auth().signOut()
             let window = self.view.window
-            LoginUtilities.routeToLogin(window: window )
+            LoginUtilities.userIsLoggedOut(window: window)
             FirebaseDataController.shared.user = AppUser(firstName: "john", lastName: "doe", uid: "2")
             FirebaseDataController.shared.lists = []
         } catch let e {
@@ -53,9 +53,6 @@ class AccountViewController: UIViewController {
         user?.delete { error in
           if let error = error {
             print(error)
-          } else {
-              let window = self.view.window
-        LoginUtilities.routeToLogin(window: window )
           }
         }
         
@@ -71,7 +68,7 @@ class AccountViewController: UIViewController {
                     print(error)
                   } else {
                       let window = self.view.window
-                LoginUtilities.routeToLogin(window: window )
+                      LoginUtilities.userIsLoggedOut(window: window)
                   }
                 }
             case .failure(let error):

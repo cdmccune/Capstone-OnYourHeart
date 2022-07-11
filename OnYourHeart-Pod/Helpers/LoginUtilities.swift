@@ -63,20 +63,52 @@ class LoginUtilities {
         return Auth.auth().currentUser != nil
     }
     
-    //brings User to main tab bar
-    static func routeToTB(window: UIWindow? ){
+    //Calls tabBarController with 4 tabs with Account Page
+    static func userIsLoggedIn(window: UIWindow?) {
         let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: nil)
-        let tB  = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.tabBarController) as? UITabBarController
-        window?.rootViewController = tB
+        
+        guard let homeNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavBar) as? UINavigationController else {return}
+        guard let listNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.listNavBar) as? UINavigationController else {return}
+        guard let discoverNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.discoverNavBar) as? UINavigationController else {return}
+        guard let accountNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.accountNavBar) as? UINavigationController else {return}
+        
+        guard let tabBar = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.tabBarController) as? UITabBarController else {return}
+        
+        tabBar.viewControllers = [homeNav, listNav, discoverNav, accountNav]
+        tabBar.selectedIndex = 0
+        window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
     }
     
-    //Brings User to login screen
-    static func routeToLogin(window: UIWindow?) {
+    //Calls tabBarController with 4 tabs with Login Page
+    static func userIsLoggedOut(window: UIWindow?) {
         let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: nil)
-        let navigationBar = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginNavController) as? UINavigationController
-        window?.rootViewController = navigationBar
+        
+        guard let homeNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.homeNavBar) as? UINavigationController else {return}
+        guard let listNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.listNavBar) as? UINavigationController else {return}
+        guard let discoverNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.discoverNavBar) as? UINavigationController else {return}
+        guard let loginNav = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginNavController) as? UINavigationController else {return}
+        
+        guard let tabBar = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.tabBarController) as? UITabBarController else {return}
+        
+        tabBar.viewControllers = [loginNav, homeNav, listNav, discoverNav]
+        tabBar.selectedIndex = 0
+        window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
     }
     
+    static func presentNotLoggedInAlert(viewController: UIViewController, tabbar: UITabBarController?){
+        let alert = UIAlertController(title: "Not Logged in", message: "Please login to access this feature", preferredStyle: .alert)
+        
+        let loginAction = UIAlertAction(title: "Login", style: .default) { _ in
+            tabbar?.selectedIndex = 0
+        }
+        let continueAction = UIAlertAction(title: "Continue", style: .default)
+        
+        alert.addAction(loginAction)
+        alert.addAction(continueAction)
+        
+        viewController.present(alert, animated: true)
+        
+    }
 }

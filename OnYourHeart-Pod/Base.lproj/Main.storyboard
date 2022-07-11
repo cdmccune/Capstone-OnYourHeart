@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7qv-4d-hJe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2T-wY-0DK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XaI-os-BQJ">
-                                <rect key="frame" x="10" y="813.5" width="394" height="38.5"/>
+                                <rect key="frame" x="10" y="764.5" width="394" height="38.5"/>
                                 <string key="text">Scriptures taken from the Holy Bible, New International Version®, NIV®. Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.™ Used by permission of Zondervan. All rights reserved worldwide. www.zondervan.com The “NIV” and “New International Version” are trademarks registered in the United States Patent and Trademark Office by Biblica, Inc.™</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" name="Dark Brown"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zAM-xm-MZa">
-                                <rect key="frame" x="40" y="673.5" width="334" height="120"/>
+                                <rect key="frame" x="40" y="624.5" width="334" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOM-ll-SsQ">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
+            <point key="canvasLocation" x="4325" y="4574"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Ntu-x9-iCI">
@@ -152,24 +152,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PQl-Z4-1Qw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="-215"/>
+            <point key="canvasLocation" x="5206" y="4216"/>
         </scene>
         <!--Mood-->
         <scene sceneID="6gR-tz-jil">
             <objects>
                 <viewController storyboardIdentifier="MoodVC" title="Mood" id="WM6-AW-Ech" customClass="HomeViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j07-0N-kVK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XhO-nw-giY">
-                                <rect key="frame" x="0.0" y="38" width="414" height="765"/>
+                                <rect key="frame" x="0.0" y="38" width="414" height="814"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiX-UR-HKA">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="153"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="163"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqu-QK-OJW">
-                                                <rect key="frame" x="30.5" y="10" width="353" height="133"/>
+                                                <rect key="frame" x="30.5" y="15" width="353" height="133"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feeling?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuX-qO-DlA">
                                                         <rect key="frame" x="148.5" y="53" width="184.5" height="60"/>
@@ -201,7 +201,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qbK-dk-86E">
-                                        <rect key="frame" x="0.0" y="163" width="414" height="489"/>
+                                        <rect key="frame" x="0.0" y="173" width="414" height="528"/>
                                         <color key="backgroundColor" name="Light Tan"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MoodCell" rowHeight="95" id="ave-Dh-cvv" customClass="MoodTableViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
@@ -231,7 +231,7 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="mhd-3M-SBk">
-                                        <rect key="frame" x="10" y="662" width="394" height="103"/>
+                                        <rect key="frame" x="10" y="711" width="394" height="103"/>
                                         <subviews>
                                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Scripture on Your Heart" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHU-ic-JN7">
                                                 <rect key="frame" x="5" y="5" width="384" height="24"/>
@@ -257,7 +257,7 @@
                                         </constraints>
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Berean Study Bible © Bible Hub, 2020." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gm-qc-2hX">
-                                        <rect key="frame" x="89.5" y="765" width="235" height="0.0"/>
+                                        <rect key="frame" x="89.5" y="814" width="235" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="Dark Brown"/>
                                         <nil key="highlightedColor"/>
@@ -301,14 +301,14 @@
             <objects>
                 <viewController id="ida-4m-UNK" customClass="MoodScriptureViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RwX-Zu-N1a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWg-l3-mhj">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bld-8A-YHT">
-                                        <rect key="frame" x="52" y="314.5" width="310.5" height="44"/>
+                                        <rect key="frame" x="52" y="339" width="310.5" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCg-5j-xWh">
                                                 <rect key="frame" x="10" y="10" width="290.5" height="24"/>
@@ -326,7 +326,7 @@
                                         </constraints>
                                     </view>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-mC-MiE">
-                                        <rect key="frame" x="284" y="632" width="120" height="31"/>
+                                        <rect key="frame" x="284" y="681" width="120" height="31"/>
                                         <color key="tintColor" red="0.40784313729999999" green="0.30980392159999998" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system" title="Next Verse "/>
@@ -335,7 +335,7 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berean Study Bible © Bible Hub, 2020." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uY5-cc-C7W">
-                                        <rect key="frame" x="89.5" y="368.5" width="235" height="16"/>
+                                        <rect key="frame" x="89.5" y="393" width="235" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" name="Dark Brown"/>
                                         <nil key="highlightedColor"/>
@@ -379,11 +379,11 @@
             <objects>
                 <viewController title="My Lists" id="jy0-AQ-dHW" customClass="ListsViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RUI-YO-XdE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="20v-Yb-ORb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" name="Light Tan"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListCell" rowHeight="45" id="Ncv-d9-chs">
@@ -423,7 +423,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add List"/>
                                 <connections>
-                                    <segue destination="tQi-FB-fBn" kind="show" id="aEt-Ap-GuR"/>
+                                    <action selector="addListButtonTapped:" destination="jy0-AQ-dHW" eventType="touchUpInside" id="zR0-hd-aMN"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -435,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyU-ax-6lm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4328.985507246377" y="93.75"/>
+            <point key="canvasLocation" x="4329" y="-76"/>
         </scene>
         <!--List Detail View Controller-->
         <scene sceneID="10F-Ll-NSG">
@@ -525,18 +525,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYc-ff-jaj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5202.898550724638" y="429.91071428571428"/>
+            <point key="canvasLocation" x="5203" y="302"/>
         </scene>
         <!--Add List View Controller-->
         <scene sceneID="8ZS-ZY-FvI">
             <objects>
                 <viewController storyboardIdentifier="AddListVC" id="tQi-FB-fBn" customClass="AddListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3MR-Bi-lmH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSu-M2-pkz">
-                                <rect key="frame" x="57" y="376.5" width="300" height="200"/>
+                                <rect key="frame" x="57" y="353" width="300" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n75-A0-h4q">
                                         <rect key="frame" x="10" y="10" width="145" height="180"/>
@@ -666,7 +666,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gEV-Ib-uE4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5207.2463768115949" y="-232.36607142857142"/>
+            <point key="canvasLocation" x="5206" y="-401"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="TXK-IH-D00">
@@ -731,13 +731,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXd-Kh-Cse" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="491"/>
+            <point key="canvasLocation" x="5203" y="4985"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Login-->
         <scene sceneID="t23-NZ-lKX">
             <objects>
                 <navigationController storyboardIdentifier="LoginNavController" automaticallyAdjustsScrollViewInsets="NO" id="7qv-4d-hJe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Login" image="person.fill" catalog="system" id="bFw-wR-37v"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rbS-Ws-szx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -752,18 +754,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyK-Z2-VxY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
+            <point key="canvasLocation" x="3419" y="4574"/>
         </scene>
         <!--Discover-->
         <scene sceneID="P5U-iK-RQG">
             <objects>
                 <viewController title="Discover" id="iu6-9a-JmG" customClass="DiscoverViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s7a-Vi-Slf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L0R-gS-p36">
-                                <rect key="frame" x="0.0" y="301.5" width="414" height="350"/>
+                                <rect key="frame" x="0.0" y="326" width="414" height="350"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGx-13-q89">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
@@ -915,14 +917,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4am-Wq-cIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5237.68115942029" y="1469.1964285714284"/>
+            <point key="canvasLocation" x="4329" y="1469"/>
         </scene>
         <!--Scripture Search Table View Controller-->
         <scene sceneID="4y3-If-2Ma">
             <objects>
                 <tableViewController id="vGi-gj-pPz" customClass="ScriptureSearchTableViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="20" estimatedSectionFooterHeight="-1" id="YQH-uK-xVp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.93725490199999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="S1g-Oq-eFl">
@@ -935,7 +937,7 @@
                             </connections>
                         </searchBar>
                         <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="NLA-Pw-YFP">
-                            <rect key="frame" x="0.0" y="725.5" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="774.5" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berean Study Bible © Bible Hub, 2020." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flm-Ez-juw">
@@ -1003,18 +1005,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aq-Jc-kbN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6113.04347826087" y="1829.4642857142856"/>
+            <point key="canvasLocation" x="5203" y="1824"/>
         </scene>
         <!--Top Books-->
         <scene sceneID="unR-Is-ABt">
             <objects>
                 <viewController id="CaJ-1m-WhV" customClass="TopListsViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QvX-uM-6PH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RmH-Kz-FJl">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <color key="backgroundColor" name="Light Tan"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TopBookCell" rowHeight="94" id="vaE-yh-mN9" customClass="TopBookTableViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
@@ -1065,14 +1067,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbG-iS-ZpN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5195.652173913044" y="2497.7678571428569"/>
+            <point key="canvasLocation" x="5207" y="2527"/>
         </scene>
         <!--Scripture List-->
         <scene sceneID="uwU-ti-EhI">
             <objects>
                 <viewController title="Scripture List" id="Gc9-Et-vXx" customClass="ScriptureListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Apw-im-uPF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book and Chapter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzY-Rz-fiz">
@@ -1082,13 +1084,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berean Study Bible © Bible Hub, 2020." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZk-um-xNm">
-                                <rect key="frame" x="59.5" y="782" width="295" height="21"/>
+                                <rect key="frame" x="59.5" y="831" width="295" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="873-vm-k64">
-                                <rect key="frame" x="0.0" y="93" width="414" height="679"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="728"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VerseCell" id="NId-VN-xB9" customClass="VerseTableViewCell" customModule="OnYourHeart_Pod" customModuleProvider="target">
@@ -1158,18 +1160,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxV-sz-hsG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6942.0289855072469" y="1139.7321428571429"/>
+            <point key="canvasLocation" x="6026" y="1140"/>
         </scene>
         <!--Books-->
         <scene sceneID="djl-Hw-tUl">
             <objects>
                 <viewController title="Books" id="ZcY-KL-cNL" customClass="BibleBookListViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ovW-Pu-tuQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I6C-61-VJ2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCF-UP-NtD">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="38"/>
@@ -1291,7 +1293,7 @@
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RKt-rz-y6x">
-                                        <rect key="frame" x="0.0" y="75" width="414" height="650"/>
+                                        <rect key="frame" x="0.0" y="75" width="414" height="733"/>
                                         <color key="backgroundColor" name="Light Tan"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tds-Cq-yrL">
                                             <size key="itemSize" width="75" height="75"/>
@@ -1367,7 +1369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXL-pY-g0K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6100.0000000000009" y="1139.0625"/>
+            <point key="canvasLocation" x="5207" y="1140"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HFE-K2-eRL">
@@ -1382,27 +1384,21 @@
                         <color key="barTintColor" red="0.94901960780000005" green="0.93725490199999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="PCP-JZ-C4Y" kind="relationship" relationship="viewControllers" id="kP5-C2-dNV"/>
-                        <segue destination="Ojv-Fo-Hds" kind="relationship" relationship="viewControllers" id="i4B-Tx-yIu"/>
-                        <segue destination="xEa-7M-ayY" kind="relationship" relationship="viewControllers" id="Jmd-65-Kya"/>
-                        <segue destination="AKX-lj-b6a" kind="relationship" relationship="viewControllers" id="KFE-LF-ASG"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RjW-0q-uQB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2581" y="94"/>
+            <point key="canvasLocation" x="326" y="1469"/>
         </scene>
         <!--Account-->
         <scene sceneID="64I-Of-MRN">
             <objects>
                 <viewController id="5qF-lm-jwp" customClass="AccountViewController" customModule="OnYourHeart_Pod" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sjg-Ya-g9v">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oik-lE-lit">
-                                <rect key="frame" x="80" y="763" width="254" height="30"/>
+                                <rect key="frame" x="80" y="812" width="254" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ejw-Gs-Na9"/>
                                 </constraints>
@@ -1413,7 +1409,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lId-9F-3Kp">
-                                <rect key="frame" x="40" y="416.5" width="334" height="120"/>
+                                <rect key="frame" x="40" y="441" width="334" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPu-Wq-Ecw">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -1460,12 +1456,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPl-yH-icW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="2164"/>
+            <point key="canvasLocation" x="4329" y="3281"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Iwq-kd-HdO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xEa-7M-ayY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DiscoverNavBarItem" automaticallyAdjustsScrollViewInsets="NO" id="xEa-7M-ayY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" id="Uo0-5w-e4E"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="PDp-Cw-RMM">
@@ -1479,12 +1475,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dR-LS-IwZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4328.985507246377" y="1469.8660714285713"/>
+            <point key="canvasLocation" x="3419" y="1469"/>
         </scene>
         <!--My Lists-->
         <scene sceneID="vyc-EO-IMx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ojv-Fo-Hds" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ListNavBarItem" automaticallyAdjustsScrollViewInsets="NO" id="Ojv-Fo-Hds" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Lists" image="list.bullet" catalog="system" id="Qaa-2a-Ua7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ipc-6K-b4l">
@@ -1498,12 +1494,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wmh-ZT-qGG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3418.840579710145" y="93.75"/>
+            <point key="canvasLocation" x="3419" y="-76"/>
         </scene>
         <!--Mood-->
         <scene sceneID="XSk-4N-M96">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PCP-JZ-C4Y" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavBarItem" automaticallyAdjustsScrollViewInsets="NO" id="PCP-JZ-C4Y" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Mood" image="house" catalog="system" id="1Eq-hh-qv8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Gea-BS-fJK">
@@ -1522,7 +1518,7 @@
         <!--Account-->
         <scene sceneID="EVH-XT-JeB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AKX-lj-b6a" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AccountNavBarItem" automaticallyAdjustsScrollViewInsets="NO" id="AKX-lj-b6a" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" id="EKC-qJ-JFd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gpd-QS-quo">
@@ -1536,7 +1532,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaP-at-Rz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="1469"/>
+            <point key="canvasLocation" x="3419" y="3281"/>
         </scene>
     </scenes>
     <resources>

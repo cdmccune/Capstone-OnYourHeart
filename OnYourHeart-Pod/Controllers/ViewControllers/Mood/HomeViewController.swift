@@ -26,22 +26,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Disable tab bar
-        self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = false})
-        
-        
-//        do {
-//            try Auth.auth().signOut()
-//            let window = self.view.window
-//            LoginUtilities.routeToLogin(window: window )
-//            FirebaseDataController.shared.user = AppUser(firstName: "john", lastName: "doe", uid: "2")
-//            FirebaseDataController.shared.lists = []
-//        } catch let e {
-//            print(e)
-//        }
+        tableView.delegate = self
+        tableView.dataSource = self
         
         checkAuthentication()
         addNotificationObservers()
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -65,6 +55,8 @@ class HomeViewController: UIViewController {
         handle = Auth.auth().addStateDidChangeListener({ auth, user in
             if let user = user {
                 self.updateViews(uid: user.uid)
+            } else {
+                self.showNotLoggedInMessage()
             }
         })
     }
@@ -80,6 +72,14 @@ class HomeViewController: UIViewController {
                                                object: nil)
     }
     
+    func showNotLoggedInMessage() {
+        FirebaseDataController.shared.lists = Constants.Firebase.notLoggedInList
+        tableView.reloadData()
+        tableView.isUserInteractionEnabled = false 
+        style()
+        showLabels()
+    }
+    
     @objc func updateTableView() {
         tableView.reloadData()
     }
@@ -88,15 +88,14 @@ class HomeViewController: UIViewController {
         guard let favVerse = FirebaseDataController.shared.favVerse else {return}
         favVerseTitleLabel.text = favVerse.scriptureTitle
         favVerseContentLabel.text = favVerse.scriptureContent
+        
     }
     
     func updateViews(uid: String) {
         
+        //Disable tab bar
+        self.tabBarController?.tabBar.items?.forEach({$0.isEnabled = false})
         self.showSpinner()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         
         //This gets all the lists
         FirebaseDataController.shared.getUserInfo(uid: uid) { result in
@@ -146,13 +145,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FirebaseDataController.shared.user.lists.filter({$0.isEmotion}).count
+        return FirebaseDataController.shared.lists.filter({$0.isEmotion}).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.moodCell, for: indexPath) as? MoodTableViewCell else {return UITableViewCell()}
         
-        cell.list = FirebaseDataController.shared.user.lists.filter({$0.isEmotion})[indexPath.row]
+        cell.list = FirebaseDataController.shared.lists.filter({$0.isEmotion})[indexPath.row]
         return cell
     }
     
@@ -161,7 +160,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == Constants.Storyboard.segueMoodScriptureVC,
            let destinationVC = segue.destination as? MoodScriptureViewController,
            let index = tableView.indexPathForSelectedRow {
-            destinationVC.listName = FirebaseDataController.shared.user.lists.filter({$0.isEmotion})[index.row].name
+            destinationVC.listName = FirebaseDataController.shared.lists.filter({$0.isEmotion})[index.row].name
         }
     }
     

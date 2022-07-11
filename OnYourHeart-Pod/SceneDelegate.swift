@@ -17,8 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         
+        LoginUtilities.isUserLoggedIn() ? LoginUtilities.userIsLoggedIn(window: window) : LoginUtilities.userIsLoggedOut(window: window)
         
-        LoginUtilities.isUserLoggedIn() ? LoginUtilities.routeToTB(window: window) : LoginUtilities.routeToLogin(window: window)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
