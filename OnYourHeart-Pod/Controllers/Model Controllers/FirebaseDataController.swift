@@ -34,12 +34,15 @@ class FirebaseDataController {
     
     //User Related
     func getUserInfo(uid: String, completion: @escaping (Result<AppUser, FirebaseError>) -> Void) {
+        
         db.collection(Constants.Firebase.usersKey).whereField(Constants.Firebase.uidKey, isEqualTo: uid).getDocuments { snapshot, error in
             if let error = error {
                 return completion(.failure(.errorPullingUserInfo(error)))
             }
             
-            if let snapshot = snapshot {
+            if let snapshot = snapshot,
+               !snapshot.documents.isEmpty {
+                
                 let data = snapshot.documents[0].data()
                 guard let user = AppUser(from: data) else {return completion(.failure(.unknownError))}
                 self.sId = "\(Int.random(in: 1...1000000000000))"

@@ -32,6 +32,8 @@
 		2498AD58286F609D004E4ACD /* FavoriteVerse-WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2498AD4B286F609A004E4ACD /* FavoriteVerse-WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2498AD60286F637B004E4ACD /* PrimaryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2498AD44286F5FAF004E4ACD /* PrimaryItem.swift */; };
 		249B1A9F28776DFD00FA42A6 /* Bible Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249B1A9E28776DFD00FA42A6 /* Bible Utilities.swift */; };
+		24A5E1502AC64EB700117A0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24A5E14F2AC64EB700117A0C /* GoogleService-Info.plist */; };
+		24A5E1522AC6509D00117A0C /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 24A5E1512AC6509D00117A0C /* Secrets.xcconfig */; };
 		24B1DD7528749D24008AB115 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */; };
 		24B1DD792875F6C7008AB115 /* TopBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B1DD782875F6C6008AB115 /* TopBookTableViewCell.swift */; };
 		24CA232F286B8265004D14C7 /* MoodScriptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */; };
@@ -40,7 +42,6 @@
 		24E22D7028628D5E004CE717 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D6F28628D5E004CE717 /* LogInViewController.swift */; };
 		24E22D7228628D72004CE717 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D7128628D72004CE717 /* HomeViewController.swift */; };
 		24E22D79286292DB004CE717 /* LoginUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D78286292DB004CE717 /* LoginUtilities.swift */; };
-		24E22D7B28629555004CE717 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E22D7A28629555004CE717 /* GoogleService-Info.plist */; };
 		24E22D7D2862D002004CE717 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D7C2862D002004CE717 /* Constants.swift */; };
 		24E22D8228637277004CE717 /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8128637276004CE717 /* AuthenticationState.swift */; };
 		24E22D8428637E48004CE717 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E22D8328637E48004CE717 /* ListsViewController.swift */; };
@@ -114,6 +115,8 @@
 		2498AD55286F609D004E4ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2498AD5D286F60BD004E4ACD /* FavoriteVerse-WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FavoriteVerse-WidgetExtension.entitlements"; sourceTree = "<group>"; };
 		249B1A9E28776DFD00FA42A6 /* Bible Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bible Utilities.swift"; sourceTree = "<group>"; };
+		24A5E14F2AC64EB700117A0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		24A5E1512AC6509D00117A0C /* Secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Secrets.xcconfig; path = "OnYourHeart-Pod/Secrets.xcconfig"; sourceTree = "<group>"; };
 		24B1DD7428749D24008AB115 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		24B1DD782875F6C6008AB115 /* TopBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBookTableViewCell.swift; sourceTree = "<group>"; };
 		24CA232E286B8265004D14C7 /* MoodScriptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodScriptureViewController.swift; sourceTree = "<group>"; };
@@ -122,12 +125,10 @@
 		24E22D6F28628D5E004CE717 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		24E22D7128628D72004CE717 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		24E22D78286292DB004CE717 /* LoginUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUtilities.swift; sourceTree = "<group>"; };
-		24E22D7A28629555004CE717 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		24E22D7C2862D002004CE717 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		24E22D8128637276004CE717 /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
 		24E22D8328637E48004CE717 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		24E22D8528637EAD004CE717 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
-		24E22D9028638464004CE717 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		24E22D9128639362004CE717 /* BibleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleModel.swift; sourceTree = "<group>"; };
 		24E22D9328639B02004CE717 /* BibleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleController.swift; sourceTree = "<group>"; };
 		24E22D9528639CF7004CE717 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
@@ -171,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				2498AD5D286F60BD004E4ACD /* FavoriteVerse-WidgetExtension.entitlements */,
-				24E22D9028638464004CE717 /* Secrets.xcconfig */,
+				24A5E1512AC6509D00117A0C /* Secrets.xcconfig */,
 				242763B028617C8700D0C87E /* OnYourHeart-Pod */,
 				2498AD50286F609A004E4ACD /* FavoriteVerse-Widget */,
 				242763AF28617C8700D0C87E /* Products */,
@@ -200,7 +201,7 @@
 				242763BC28617C8D00D0C87E /* LaunchScreen.storyboard */,
 				242763B128617C8700D0C87E /* AppDelegate.swift */,
 				242763BF28617C8D00D0C87E /* Info.plist */,
-				24E22D7A28629555004CE717 /* GoogleService-Info.plist */,
+				24A5E14F2AC64EB700117A0C /* GoogleService-Info.plist */,
 				24E22D992863F2F1004CE717 /* View */,
 				24E22D8928638344004CE717 /* Controllers */,
 				24E22D882863833B004CE717 /* Model */,
@@ -452,10 +453,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				242763BE28617C8D00D0C87E /* LaunchScreen.storyboard in Resources */,
-				24E22D7B28629555004CE717 /* GoogleService-Info.plist in Resources */,
 				242E1DD5287655A9007E2EC6 /* ScriptureTypingWithVerse.mp4 in Resources */,
+				24A5E1522AC6509D00117A0C /* Secrets.xcconfig in Resources */,
 				242763BB28617C8D00D0C87E /* Assets.xcassets in Resources */,
 				242763B928617C8700D0C87E /* Main.storyboard in Resources */,
+				24A5E1502AC64EB700117A0C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,7 +619,6 @@
 /* Begin XCBuildConfiguration section */
 		242763C028617C8D00D0C87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24E22D9028638464004CE717 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -678,7 +679,6 @@
 		};
 		242763C128617C8D00D0C87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24E22D9028638464004CE717 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
